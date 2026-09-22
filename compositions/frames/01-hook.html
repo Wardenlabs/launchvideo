@@ -35,7 +35,7 @@
   </style>
 
   <div data-hf-id="hf-lutg" id="root" data-composition-id="01-hook" data-width="1920" data-height="1080">
-    <div data-hf-id="hf-l81n" class="clip f01-stage" id="f01-stage" data-start="0" data-duration="5.3" data-track-index="1">
+    <div data-hf-id="hf-l81n" class="clip f01-stage" id="f01-stage" data-start="0" data-duration="3.5" data-track-index="1">
       <div data-hf-id="hf-25pe" class="f01-out" id="f01-out">
         <div data-hf-id="hf-t7vu" class="f01-world" id="f01-world">
           <div data-hf-id="hf-op4m" class="f01-frag" id="f01-frag">
@@ -71,11 +71,19 @@
       var countEl = document.getElementById("f01-count");
       var n = { v: 0 };
 
+      // Precompute every substring width once. Timeline callbacks only read the
+      // table, so non-linear render seeks cannot change the camera geometry.
+      var widths = [];
+      for (var wi = 0; wi <= text.length; wi++) {
+        p.textContent = text.slice(0, wi);
+        widths.push(p.offsetWidth);
+      }
+      p.textContent = "";
+
       // One function places the camera, from three numbers the timeline tweens:
       // how much is typed, how close we are, and how far into the pull-back that
       // shows the whole sentence. It writes the text it then measures, so nothing
-      // it reads depends on which frame was rendered before (lint flags DOM
-      // measurement in callbacks for exactly that reason; this is the safe form).
+      // it reads depends on which frame was rendered before.
       // Following the caret, not panning at a speed: Inter is proportional and at
       // a constant pan the caret wanders. The line starts at the left; once the
       // caret reaches 64% of the frame it stays there and the text runs out left.
@@ -83,7 +91,7 @@
       var st = { k: 0, S: 2.3, pb: 0 };
       function place() {
         p.textContent = text.slice(0, Math.round(st.k));
-        var w = p.offsetWidth, S = st.S;
+        var w = widths[Math.round(st.k)], S = st.S;
         var cx = Math.min(CARET, START + w * S);
         var x = cx - S * (LX + w), y = 520 - S * LY;
         if (st.pb > 0) {
@@ -140,7 +148,8 @@
       //   and this button becomes one of forty. —
       tl.to("#f01-btnw", { scale: 0.1, duration: 0.55, ease: "expo.out" }, 4.72);
       tl.to("#f01-btnw", { opacity: 0, duration: 0.3, ease: "power2.in" }, 4.8);
-      tl.to("#f01-glow", { opacity: 0, scale: 7, duration: 0.55, ease: "power2.out" }, 4.74);
+      tl.to("#f01-glow", { opacity: 0, scale: 7, duration: 0.35, ease: "power2.out" }, 4.94);
+      tl.duration(3.5);
       window.__timelines["01-hook"] = tl;
     })();
   </script>

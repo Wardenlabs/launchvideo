@@ -16,9 +16,9 @@
     .f00-allow i{background:#34D399}.f00-held i{background:#FDE047}.f00-block i{background:#FF3B5C}
     .f00-near{filter:blur(4px)}
     .f00-plate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center}
-    .f00-in{display:flex;flex-direction:column;align-items:center;gap:1.3cqw;transform-origin:50% 50%}
-    .f00-name{display:block;font-family:"Manrope";font-weight:600;font-size:7.6cqw;line-height:1;letter-spacing:-.05em;white-space:nowrap;color:#22282A;transform-origin:50% 55%}
-    .f00-tag{display:block;font-family:"Manrope";font-weight:500;font-size:2.15cqw;line-height:1.1;letter-spacing:-.025em;white-space:nowrap;color:#22282A}
+    .f00-in{display:flex;flex-direction:column;align-items:center;gap:1.05cqw;transform-origin:50% 50%}
+    .f00-name{display:block;font-family:"Manrope";font-weight:560;font-size:9.8cqw;line-height:.92;letter-spacing:-.065em;white-space:nowrap;color:#22282A;transform-origin:50% 55%}
+    .f00-tag{display:block;font-family:"Manrope";font-weight:480;font-size:2.55cqw;line-height:1.1;letter-spacing:-.035em;white-space:nowrap;color:#22282A}
     .f00-c{display:inline-block}
     .f00-w{display:inline-block;white-space:nowrap}
   </style>
@@ -42,7 +42,7 @@
          plate ("espantoso" — the film is light, all of it), a graphite chip
          around "your team's AI", and the two calm text plates this replaces
          (saved in the scratchpad as 00-meet-two-plates.html). -->
-    <div data-hf-id="hf-j1l4" class="clip f00-stage" id="f00-stage" data-start="0" data-duration="2.85" data-track-index="1">
+    <div data-hf-id="hf-j1l4" class="clip f00-stage" id="f00-stage" data-start="0" data-duration="1.8" data-track-index="1">
       <div data-hf-id="hf-1vuq" class="f00-cloud" id="f00-cloud">
         <div data-hf-id="hf-uraa" class="f00-layer" id="f00-far"></div>
         <div data-hf-id="hf-usgv" class="f00-layer" id="f00-mid"></div>
@@ -50,8 +50,8 @@
       </div>
       <div data-hf-id="hf-0wq9" class="f00-plate">
         <div data-hf-id="hf-gq6a" class="f00-in" id="f00-in">
-          <span data-hf-id="hf-gkp1" class="f00-name" id="f00-name">Meet Warden</span>
-          <span data-hf-id="hf-bnck" class="f00-tag" id="f00-tag">The guard for your team’s AI</span>
+          <span data-hf-id="hf-gkp1" class="f00-name" id="f00-name">Customer data</span>
+          <span data-hf-id="hf-bnck" class="f00-tag" id="f00-tag">leaves in one click.</span>
         </div>
       </div>
     </div>
@@ -139,16 +139,17 @@
       // — 2. The name. The last verdict lands at 0.9, then three frames where
       //   nothing new happens, and the name comes down from close to the lens.
       //   Its impact throws the whole cloud back: smaller, softer, quieter. —
-      tl.fromTo("#f00-name", { opacity: 0, scale: 1.6, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, HIT);
+      tl.fromTo("#f00-name", { opacity: 0, scale: 1.38, y: 16, filter: "blur(18px)", fontWeight: 320 }, { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", fontWeight: 560, duration: 0.48, ease: "expo.out" }, HIT);
       tl.set("#f00-name", { filter: "none" }, HIT + 0.43);
       tl.fromTo("#f00-cloud", { scale: 1, opacity: 1, filter: "blur(0px)" }, { scale: 0.88, opacity: 0.85, filter: "blur(1.6px)", duration: 0.5, ease: "expo.out" }, HIT + 0.02);
-      tl.fromTo(tag, { opacity: 0, y: 10, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "expo.out", stagger: 0.011 }, HIT + 0.42);
+      tl.fromTo(tag, { opacity: 0, y: 12, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out", stagger: 0.009 }, HIT + 0.4);
       tl.fromTo("#f00-in", { scale: 1 }, { scale: 1.035, duration: 1.1, ease: "none" }, HIT + 0.43);
 
       // — 3. Out through the camera, rows and all, while the hook's typed line
       //   arrives underneath — the hook starts 0.25s before this frame ends. —
       tl.to("#f00-in", { scale: 2.3, opacity: 0, filter: "blur(26px)", duration: 0.28, ease: "power4.in" }, 2.55);
       tl.to("#f00-cloud", { scale: 1.7, opacity: 0, duration: 0.28, ease: "power4.in" }, 2.55);
+      tl.duration(1.8);
       window.__timelines["00-meet"] = tl;
     })();
   </script>

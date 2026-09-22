@@ -14,8 +14,8 @@
     /* Dark, like frame 1's composer: the employees' side of the film. The send
        button is orange only on the Claude ones; codex and opencode get a grey one. */
     .f02-card{position:absolute;width:40cqw;height:9.4cqw;background:#FAF9F5;border:1px solid #DEDBCF;border-radius:1cqw}
-    .f02-send{position:absolute;right:1cqw;bottom:.9cqw;width:1.7cqw;height:1.7cqw;border-radius:.45cqw;background:#BDBAAE;display:grid;place-items:center;color:#fff;font-family:"Inter",sans-serif;font-size:1cqw;line-height:1}
-    .f02-send.claude{background:#C96442}
+    .f02-send{position:absolute;right:1cqw;bottom:.9cqw;width:1.7cqw;height:1.7cqw;border-radius:.45cqw;background:#4A4A4A;display:grid;place-items:center;color:#fff;font-family:"Inter",sans-serif;font-size:1cqw;line-height:1}
+    .f02-send.claude{background:#C96442;color:#191919}
     /* #6B6A64, the chip ink of frame 5, not the composer's lighter #87867F: the
        wall is read wide, at 0.56×, and the lighter grey failed AA there. */
     .f02-bar{font-family:"Geist Mono";font-size:.95cqw;color:#6B6A64;padding:.7cqw 1.3cqw;border-bottom:1px solid #E8E5DA}
@@ -43,7 +43,7 @@
 
   <div data-hf-id="hf-1ukv" id="root" data-composition-id="02-signed-the-policy" data-width="1920" data-height="1080">
 
-    <div data-hf-id="hf-bkux" class="clip f02-stage" id="f02-stage" data-start="0" data-duration="7.95" data-track-index="1">
+    <div data-hf-id="hf-bkux" class="clip f02-stage" id="f02-stage" data-start="0" data-duration="5.2" data-track-index="1">
       <div data-hf-id="hf-4f63" class="f02-world" id="f02-world" data-layout-allow-overflow=""></div>
       <div data-hf-id="hf-e1dg" class="f02-edge" id="f02-edge" data-layout-allow-overlap="" data-layout-allow-occlusion=""></div>
       <div data-hf-id="hf-e1lb" class="f02-edgelabel" id="f02-edgelabel" data-layout-allow-overlap="" data-layout-allow-occlusion="">outside your machine</div>
@@ -178,7 +178,7 @@
       whip(WIDE);
       tl.to("#f02-edge", { scaleX: 1, duration: 0.45, ease: "expo.out" }, WIDE + 0.4);
       tl.fromTo("#f02-edgelabel", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, WIDE + 0.5);
-      tl.to("#f02-world", { scale: 0.52, y: 62, duration: 2.0, ease: "none" }, WIDE + 0.42);
+      tl.to("#f02-world", { scale: 0.52, y: 62, duration: 1.5, ease: "none" }, WIDE + 0.42);
       var GO = WIDE + 0.5;
       // Bars in a fixed scatter (31 is coprime with the count), never random.
       var bars = world.querySelectorAll(".f02-sk");
@@ -195,6 +195,7 @@
       // — out through the camera; "Write the rule in a sentence" arrives under it —
       tl.to("#f02-world", { scale: 2.3, opacity: 0, filter: "blur(26px)", duration: 0.5, ease: "power4.in" }, 7.45);
       tl.to(["#f02-edge", "#f02-edgelabel"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 7.5);
+      tl.duration(5.2);
       window.__timelines["02-signed-the-policy"] = tl;
     })();
   </script>

@@ -25,10 +25,11 @@
        had drifted to), then it shrinks into the box and becomes the placeholder. */
     .f04-fly{position:absolute;left:50%;top:50%;margin-top:-69.4px;font-family:"Manrope";font-weight:600;font-size:126.2px;line-height:1.1;letter-spacing:-.05em;white-space:nowrap;color:#22282A;transform-origin:0% 50%;z-index:5}
 
-    /* B/C. a button alone. The composer's send is the one pill in the system. */
+    /* B/C. One compact action at a time. The old oversized cursor made this
+       read like a tutorial; the action now lands as part of the product. */
     .f04-btnw{position:relative}
-    .f04-btn{height:210px;padding:0 124px;border-radius:105px;background:#22282A;color:#FFFFFF;display:grid;place-items:center;font-size:82px;font-weight:500;white-space:nowrap}
-    .f04-cursor{position:absolute;right:-70px;bottom:-110px;width:210px;height:210px;transform-origin:12% 10%;filter:drop-shadow(0 10px 14px rgba(0,0,0,.28))}
+    .f04-btn{height:156px;min-width:650px;padding:0 34px 0 52px;border-radius:22px;background:#22282A;color:#FFFFFF;display:flex;align-items:center;justify-content:space-between;gap:90px;font-size:64px;font-weight:500;white-space:nowrap}
+    .f04-key{width:86px;height:86px;border:1px solid rgba(255,255,255,.34);border-radius:14px;display:grid;place-items:center;font-family:"Geist Mono";font-size:38px;line-height:1}
 
     /* the rules */
     .f04-rules{position:absolute;left:340px;top:134px;width:1240px}
@@ -48,7 +49,7 @@
   </style>
 
   <div data-hf-id="hf-hx7l" id="root" data-composition-id="04-sentence-to-rules" data-width="1920" data-height="1080">
-    <div data-hf-id="hf-dzl1" class="clip f04-stage" id="f04-stage" data-start="0" data-duration="8.2" data-track-index="1">
+    <div data-hf-id="hf-dzl1" class="clip f04-stage" id="f04-stage" data-start="0" data-duration="5.8" data-track-index="1">
       <div data-hf-id="hf-mu26" class="f04-tint" id="f04-tint"></div>
 
       <!-- the rules -->
@@ -74,9 +75,9 @@
       </div>
       <div data-hf-id="hf-uogp" class="f04-fly" id="f04-fly">Write the rule in a sentence</div>
 
-      <!-- B, C. one button at a time -->
-      <div data-hf-id="hf-34fz" class="f04-layer f04-center" id="f04-s1"><div data-hf-id="hf-q9gt" class="f04-btnw" id="f04-bw1"><div data-hf-id="hf-tn7h" class="f04-btn" id="f04-b1">Draft rules</div><svg data-hf-id="hf-g9jk" class="f04-cursor" id="f04-c1" viewBox="0 0 100 100"><path data-hf-id="hf-j5te" d="M14 10 L14 84 L36 62 L82 62 Z" fill="#111111" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" /></svg></div></div>
-      <div data-hf-id="hf-ugk4" class="f04-layer f04-center" id="f04-s2"><div data-hf-id="hf-u7ku" class="f04-btnw" id="f04-bw2"><div data-hf-id="hf-klox" class="f04-btn" id="f04-b2">Activate 5 rules</div><svg data-hf-id="hf-zptn" class="f04-cursor" id="f04-c2" viewBox="0 0 100 100"><path data-hf-id="hf-bldi" d="M14 10 L14 84 L36 62 L82 62 Z" fill="#111111" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" /></svg></div></div>
+      <!-- B, C. one action at a time -->
+      <div data-hf-id="hf-34fz" class="f04-layer f04-center" id="f04-s1"><div data-hf-id="hf-q9gt" class="f04-btnw" id="f04-bw1"><div data-hf-id="hf-tn7h" class="f04-btn" id="f04-b1"><span data-hf-id="hf-8r3n">Draft rules</span><span data-hf-id="hf-g9jk" class="f04-key" id="f04-k1">↵</span></div></div></div>
+      <div data-hf-id="hf-ugk4" class="f04-layer f04-center" id="f04-s2"><div data-hf-id="hf-u7ku" class="f04-btnw" id="f04-bw2"><div data-hf-id="hf-klox" class="f04-btn" id="f04-b2"><span data-hf-id="hf-70hh">Activate 5 rules</span><span data-hf-id="hf-zptn" class="f04-key" id="f04-k2">↵</span></div></div></div>
     </div>
   </div>
 
@@ -95,20 +96,17 @@
 
       gsap.set(["#f04-tint", "#f04-fb", "#f04-t2", "#f04-ph", "#f04-bw1", "#f04-bw2", "#f04-box", "#f04-label"], { opacity: 0 });
       gsap.set([rows, ".f04-eff", ".f04-act"], { opacity: 0 });
-      gsap.set(["#f04-c1", "#f04-c2"], { x: 620, y: 440 });
+      gsap.set(["#f04-k1", "#f04-k2"], { opacity: 0 });
 
       var tl = gsap.timeline({ paused: true });
       function through() { return { scale: 1.9, opacity: 0, filter: "blur(22px)", duration: 0.26, ease: "power4.in" }; }
-      // The same hand as frame 1: x and y on different curves make an arc, a
-      // small overshoot, a settle, and only then the click. The viewer learns the
-      // gesture once and reads the next click without being told.
-      function hand(c, btn, t) {
-        tl.to(c, { x: -12, duration: 0.5, ease: "expo.out" }, t);
-        tl.to(c, { y: -8, duration: 0.5, ease: "power2.out" }, t);
-        tl.to(c, { x: 0, y: 0, duration: 0.14, ease: "power2.inOut" }, t + 0.5);
-        tl.to([btn, c], { scale: 0.9, duration: 0.06, ease: "power2.in" }, t + 0.68);
-        tl.to([btn, c], { scale: 1, duration: 0.2, ease: "back.out(4)" }, t + 0.75);
-        return t + 0.82;   // three still frames later: the consequence
+      function action(btn, key, t) {
+        tl.fromTo(key, { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.22, ease: "expo.out" }, t);
+        tl.to(btn, { scale: 0.975, duration: 0.07, ease: "power2.in" }, t + 0.33);
+        tl.to(key, { y: 5, duration: 0.07, ease: "power2.in" }, t + 0.33);
+        tl.to(btn, { scale: 1, duration: 0.2, ease: "back.out(3)" }, t + 0.41);
+        tl.to(key, { y: 0, duration: 0.2, ease: "back.out(3)" }, t + 0.41);
+        return t + 0.64;
       }
 
       // — A. The hinge, then the sentence. 27 characters fit the frame at this
@@ -125,13 +123,12 @@
       tl.to("#f04-sentence", through(), 2.28);
 
       // — B. "Draft rules" — the console's own label — alone, and the hand. —
-      tl.fromTo("#f04-bw1", { opacity: 0, scale: 0.12 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.5)" }, 2.44);
-      var c1 = hand("#f04-c1", "#f04-b1", 2.6);
+      tl.fromTo("#f04-bw1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.38, ease: "expo.out" }, 2.4);
+      var c1 = action("#f04-b1", "#f04-k1", 2.57);
 
       // — The consequence, and the point of the film: the button comes apart
       //   into five rules. They leave from where it was, fan to their places, and
       //   the banner counts them in. —
-      tl.to("#f04-c1", { x: 360, y: 300, opacity: 0, duration: 0.3, ease: "power3.in" }, c1);
       tl.to("#f04-b1", { scaleX: 1.5, scaleY: 0.2, opacity: 0, duration: 0.2, ease: "power4.in" }, c1);
       tl.fromTo("#f04-fb", { opacity: 0, scale: 0.85, y: 300 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, c1 + 0.12);
       rows.forEach(function (r, i) {
@@ -147,9 +144,8 @@
       // — C. They recede; "Activate 5 rules" alone; the same hand. —
       var tC = c1 + 1.55;
       tl.to("#f04-rulescene", { scale: 0.84, opacity: 0.3, filter: "blur(9px)", duration: 0.4, ease: "power4.inOut" }, tC);
-      tl.fromTo("#f04-bw2", { opacity: 0, scale: 0.12 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.5)" }, tC + 0.12);
-      var c2 = hand("#f04-c2", "#f04-b2", tC + 0.3);
-      tl.to("#f04-c2", { x: 360, y: 300, opacity: 0, duration: 0.3, ease: "power3.in" }, c2);
+      tl.fromTo("#f04-bw2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.38, ease: "expo.out" }, tC + 0.1);
+      var c2 = action("#f04-b2", "#f04-k2", tC + 0.28);
       tl.to("#f04-bw2", through(), c2);
       // Second of the film's three clicks, each with its colour: orange, the data
       // left (frame 1); mint, the rules are in force; coral, the send was stopped.
@@ -172,6 +168,7 @@
       tl.fromTo("#f04-cam", { scale: 1 }, { scale: 1.03, duration: 0.9, ease: "none" }, c2 + 0.6);
       tl.to("#f04-cam", { scale: 2.1, opacity: 0, filter: "blur(24px)", duration: 0.6, ease: "power4.in" }, tD);
       tl.to("#f04-tint", { opacity: 0, duration: 0.6 }, tD);
+      tl.duration(5.8);
       window.__timelines["04-sentence-to-rules"] = tl;
     })();
   </script>

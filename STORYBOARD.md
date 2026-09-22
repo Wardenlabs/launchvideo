@@ -1,6 +1,6 @@
 ---
 format: 1920x1080
-duration: 36.1s
+duration: 24.45s
 message: "Write the policy in one sentence. It is enforced on every prompt, on the machine."
 arc: PAS → mechanism → proof → trust → CTA
 audience: team lead / PM / CEO evaluating; the technical person it gets forwarded to
@@ -8,6 +8,22 @@ mode: collaborative
 music: calm, minimal electronic pulse, restrained, builds once at the rule split
 narration: none
 ---
+
+## Changes from v26 — data first, 24 seconds
+
+- The film now opens on the problem: Warden Activity rows rush the camera under
+  `Customer data / leaves in one click.` The product name waits until the film
+  has earned it.
+- The cut drops from 36.1s to 24.45s. Every beat is compressed around its proof:
+  00 1.8s · 01 3.5s · 02 5.2s · 03 1.3s · 04 5.8s · 05 4s · 06 1.9s · 07 3.4s.
+  Overlaps are 0.2–0.4s so the camera still carries motion across the cuts.
+- Warden components do the explaining: Activity rows, employee composer, policy
+  composer, rule rows, verdict state, local-evaluation evidence and the final
+  download action. The oversized tutorial cursors are removed from rules and CTA.
+- The trust and final frames stay inside the established HeyGen-style motion
+  language: components rush from depth, the camera settles on the proof, and
+  Warden's verdict colours appear only inside real product states.
+- No audio is attached. The edit keeps short readable locks for a later voice-over.
 
 ## Changes from v1
 
@@ -254,21 +270,19 @@ Two owner notes, applied in one pass because they touch the same tweens: the fil
 
 Starts moved (film is 49.8s): 00 0 · 01 2.15 · 02 6.85 · 03 13.7 · 04 15.55 · 05 27.05 · 06 38.5 · 07 44.3. Backup of the state before this pass: scratchpad `before-ramps/`.
 
-## Frame 0 — Meet Warden
+## Frame 0 — Customer data leaves
 
-status: animated · 2.85s · file: compositions/frames/00-meet.html · overlaps the hook by 0.25s, not 0.6
+status: animated · 1.8s · file: compositions/frames/00-meet.html · overlaps the hook by 0.25s
 
 - 0.00 Activity rows (white, hairline, Geist Mono request + bullet-and-label verdict) come at the camera from the centre in three depths — far 0.7x, mid 1.15x, near 2.1x and soft; a fifth are already mid-flight at frame 0. expo.out, full by ~0.5s. Layers drift at different linear rates for the whole frame.
 - 0.30–0.90 verdicts pop on, row by row (back.out): mostly mint, some yellow, few red.
-- 1.02 after three still frames, "Meet Warden" (Manrope 600, 7.6cqw) lands from 1.6x and blurred, expo.out; the cloud is thrown back to 0.88x, slightly soft; rows under the name step away.
-- 1.44 "The guard for your team's AI", one line, 2.15cqw, letters 0.011s apart.
-- 2.55 name and cloud out through the camera (power4.in, 0.28s) while the hook's typed line arrives underneath.
+- The motion is compressed to 1.8s. `Customer data` lands over the Warden Activity field; `leaves in one click.` follows before both leave through the camera.
 
 ## Frame 1 — The whole customer list
 
 - type: hook
 - scene: Empty grey. A Claude Code terminal pops in, an employee types a harmless question, attaches the whole customer export — the row count runs up to 4,812 — and presses Enter.
-- duration: 5.7s
+- duration: 3.5s
 - poster: 4s
 - transition_in: cut
 - status: animated
@@ -289,7 +303,7 @@ a claim about Warden.
 
 - type: pain_point
 - scene: It is not one person. The camera pulls back from frame 1's composer to a wall of forty, whips to three of them — each one types a secret, presses send, and the secret leaves the frame — then comes back wide under a line marked "outside your machine" as the whole wall empties upward across it. No statement.
-- duration: 7.95s
+- duration: 5.2s
 - poster: 6.4s
 - transition_in: cut
 - status: animated
@@ -313,13 +327,13 @@ then "They all signed the AI policy." and the landing's h1, then "No one meant
 ## Frame 3 — Warden
 
 - type: product_intro
-- scene: The promise, two lines, no logo.
-- duration: 4s
+- scene: One short hinge from the leak to the policy composer.
+- duration: 1.3s
 - poster: 3s
 - transition_in: cut
 - status: animated
 - blueprint: logo-assemble-lockup
-- on_screen: "Write the rule in a sentence." · "Warden enforces it."
+- on_screen: "Write the rule in a sentence."
 - asset_candidates: none (type only)
 - src: compositions/frames/03-warden.html
 
@@ -330,7 +344,7 @@ and message by second 16. Centred — one of the two centred frames.
 
 - type: feature_showcase
 - scene: The admin types "make sure no one leaks data" into the composer; the sentence splits into five rule rows, each gets a Block effect, one button activates all.
-- duration: 13s
+- duration: 5.8s
 - poster: 11s
 - transition_in: crossfade
 - status: animated
@@ -353,7 +367,7 @@ its English translation.
 
 - type: feature_showcase
 - scene: Frame 1's composer again. Same question, same 4,812-row paste, the same click — and this time the five rules from frame 4 are checked beside it, "Customer contact details" matches, and ● Blocked by Warden stamps the frame. The rows count back to zero. Out.
-- duration: 5.6s
+- duration: 4s
 - poster: 3s
 - transition_in: cut
 - status: animated
@@ -373,13 +387,13 @@ is the block. See "Changes from v23".
 ## Frame 6 — Why believe it
 
 - type: benefit_highlight
-- scene: Three facts, one at a time, each with its evidence in mono beside it.
-- duration: 11s
+- scene: A mint local-decision state, with the trust claim inside a Warden decision component and supporting rule cards behind it.
+- duration: 1.9s
 - poster: 10s
 - transition_in: crossfade
 - status: animated
 - blueprint: kinetic-type-beats
-- on_screen: "Judging never leaves the machine." · `local weights · no network call` — "No model is ever asked for an ALLOW." · `ALLOW < ESCALATE < BLOCK — a pass can only tighten` — "The audit keeps hashes, never prompts." · a Row / Decision with `sha256 9c41…e07b`
+- on_screen: `WARDEN / LOCAL DECISION` · `● ACTIVE` · "Judged on the machine" · `local weights · no network call` · `prompt hash · 9c41…e07b`
 - asset_candidates: none (type + Figma Row / Decision 279:1712)
 - src: compositions/frames/06-trust.html
 
@@ -390,13 +404,13 @@ third brings in a decision row so "You see that it did." is shown, not said.
 ## Frame 7 — Download
 
 - type: cta
-- scene: Lockup, the line, the button.
-- duration: 6s
+- scene: The Warden lockup and CTA land over four moving Warden rule and decision components.
+- duration: 3.4s
 - poster: 5s
 - transition_in: crossfade
 - status: animated
 - blueprint: cta-morph-press
-- on_screen: "Write a rule. It stops the request. You see that it did." · graphite filled button "Download for macOS" · `github.com/Wardenlabs/warden` · "Also on Windows"
+- on_screen: Warden rule and decision cards · Warden lockup · "Write a rule / Warden enforces it" · graphite action "Download for macOS" · `github.com/Wardenlabs/warden` · `macOS + Windows`
 - asset_candidates: warden-lockup-light.svg
 - src: compositions/frames/07-cta.html
 

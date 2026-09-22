@@ -52,9 +52,9 @@
   </style>
 
   <div data-hf-id="hf-zkxl" id="root" data-composition-id="05-blocked" data-width="1920" data-height="1080">
-    <div data-hf-id="hf-jtb8" class="clip f05-tint" id="f05-pink" data-start="0" data-duration="5.6" data-track-index="1"></div>
+    <div data-hf-id="hf-jtb8" class="clip f05-tint" id="f05-pink" data-start="0" data-duration="4" data-track-index="1"></div>
 
-    <div data-hf-id="hf-p7rv" class="clip f05-stage" id="f05-stage" data-start="0" data-duration="5.6" data-track-index="2">
+    <div data-hf-id="hf-p7rv" class="clip f05-stage" id="f05-stage" data-start="0" data-duration="4" data-track-index="2">
       <div data-hf-id="hf-nqpu" class="f05-world" id="f05-world">
         <!-- Frame 1's composer, word for word. This time there are rules. -->
         <div data-hf-id="hf-gqgp" class="f05-term" id="f05-t1">
@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <div data-hf-id="hf-xmss" class="clip f05-say" id="f05-say" data-start="0" data-duration="5.6" data-track-index="3">
+    <div data-hf-id="hf-xmss" class="clip f05-say" id="f05-say" data-start="0" data-duration="4" data-track-index="3">
       <div data-hf-id="hf-c98w" class="f05-stamp" id="f05-stamp"><span data-hf-id="hf-vwz4" class="f05-no"></span><span data-hf-id="hf-q7r9">Blocked by Warden</span></div>
     </div>
   </div>
@@ -166,6 +166,7 @@
       //    The Allowed verdict is still seen, in the opener's cloud of rows. ──
       tl.to("#f05-world", { scale: 2.3, x: 700, y: 400, opacity: 0, filter: "blur(26px)", duration: 0.5, ease: "power4.in" }, 5.1);
       tl.to("#f05-pink", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.1);
+      tl.duration(4);
       window.__timelines["05-blocked"] = tl;
     })();
   </script>

@@ -4,79 +4,87 @@
     @font-face{font-family:"Inter";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/Inter-Variable.ttf") format("truetype");}
     @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
     #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#22282A}
-    .f07-ground{position:absolute;inset:0;background:#F4F5F4}
     .f07-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-    .f07-in{display:flex;flex-direction:column;align-items:center;text-align:center;will-change:transform}
-    .f07-lock{display:block;height:5cqw;width:auto}
-    .f07-lines{margin-top:3.2cqw}
-    .f07-line{display:block;font-family:"Manrope";font-weight:600;font-size:5cqw;line-height:1.1;letter-spacing:-.05em}
-    .f07-soft{color:#7D8788}
-    .f07-c{display:inline-block;will-change:transform,filter}
-    .f07-w{display:inline-block;white-space:nowrap}
-    .f07-btnwrap{position:relative;margin-top:3.6cqw}
-    .f07-btn{height:4.6cqw;padding:0 3cqw;display:grid;place-items:center;background:#22282A;color:#FFFFFF;border-radius:.55cqw;font-family:"Inter",sans-serif;font-weight:500;font-size:1.8cqw}
-    .f07-ring{position:absolute;inset:-2px;border:2px solid #22282A;border-radius:.7cqw;pointer-events:none}
-    .f07-cursor{position:absolute;right:-3.4cqw;bottom:-4.6cqw;width:6cqw;height:6cqw;transform-origin:12% 10%;filter:drop-shadow(0 .4cqw .6cqw rgba(0,0,0,.28))}
-    .f07-url{margin-top:1.6cqw;font-family:"Geist Mono";font-size:1.4cqw;color:#656E6F}
+    .f07-field{position:absolute;inset:0}
+    .f07-card{position:absolute;width:25cqw;height:6.6cqw;background:#FFFFFF;border:1px solid #DDE2DF;border-radius:.7cqw;padding:1.05cqw 1.25cqw;font-family:"Inter",sans-serif;color:#22282A}
+    .f07-card.a{left:-3cqw;top:7cqw}.f07-card.b{right:-3cqw;top:8cqw}.f07-card.c{left:2cqw;bottom:5cqw}.f07-card.d{right:1cqw;bottom:6cqw}
+    .f07-k{font-family:"Geist Mono";font-size:.82cqw;color:#656E6F;margin-bottom:.8cqw}
+    .f07-row{display:flex;align-items:center;justify-content:space-between;font-size:1.15cqw;font-weight:500}
+    .f07-v{display:inline-flex;align-items:center;gap:.5cqw;font-size:1cqw}
+    .f07-v i{width:.68cqw;height:.68cqw;border-radius:50%;display:block}
+    .f07-red i{background:#FF3B5C}.f07-green i{background:#34D399}.f07-yellow i{background:#FDE047}
+    .f07-in{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;will-change:transform}
+    .f07-lock{display:block;height:6.6cqw;width:auto}
+    .f07-lines{margin-top:2.5cqw}
+    .f07-line{display:block;font-family:"Manrope";font-weight:600;font-size:5.35cqw;line-height:1.04;letter-spacing:-.055em}
+    .f07-c{display:inline-block;will-change:transform,filter}.f07-w{display:inline-block;white-space:nowrap}
+    .f07-btnwrap{position:relative;margin-top:2.8cqw}
+    .f07-btn{height:4.7cqw;padding:0 3cqw;display:grid;place-items:center;background:#22282A;color:#FFFFFF;border-radius:.6cqw;font-family:"Inter",sans-serif;font-weight:500;font-size:1.7cqw}
+    .f07-ring{position:absolute;inset:-2px;border:2px solid #22282A;border-radius:.75cqw;pointer-events:none}
+    .f07-cursor{position:absolute;right:-3.2cqw;bottom:-4.2cqw;width:5.6cqw;height:5.6cqw;transform-origin:12% 10%;filter:drop-shadow(0 .4cqw .6cqw rgba(0,0,0,.22))}
+    .f07-url{margin-top:1.35cqw;font-family:"Geist Mono";font-size:1.1cqw;color:#656E6F}
   </style>
 
   <div data-hf-id="hf-s4o5" id="root" data-composition-id="07-cta" data-width="1920" data-height="1080">
-    <div data-hf-id="hf-uv90" class="clip f07-stage" id="f07-stage" data-start="0" data-duration="4.7" data-track-index="1">
+    <div data-hf-id="hf-uv90" class="clip f07-stage" id="f07-stage" data-start="0" data-duration="3.4" data-track-index="1">
+      <div data-hf-id="hf-u51m" class="f07-field" id="f07-field">
+        <div data-hf-id="hf-3y2w" class="f07-card a"><div data-hf-id="hf-2fzx" class="f07-k">RULE / CUSTOMER DATA</div><div data-hf-id="hf-x4z0" class="f07-row"><span data-hf-id="hf-f8u2">Contact details</span><span data-hf-id="hf-8a3h" class="f07-v f07-red"><i data-hf-id="hf-20ax"></i>Block</span></div></div>
+        <div data-hf-id="hf-rv1s" class="f07-card b"><div data-hf-id="hf-7g5p" class="f07-k">DECISION / LOCAL</div><div data-hf-id="hf-nx7q" class="f07-row"><span data-hf-id="hf-q2cw">Refactor module</span><span data-hf-id="hf-nru5" class="f07-v f07-green"><i data-hf-id="hf-w0p1"></i>Allowed</span></div></div>
+        <div data-hf-id="hf-xh1z" class="f07-card c"><div data-hf-id="hf-cz7b" class="f07-k">RULE / CREDENTIALS</div><div data-hf-id="hf-qs4j" class="f07-row"><span data-hf-id="hf-gc2v">API keys</span><span data-hf-id="hf-4ax8" class="f07-v f07-red"><i data-hf-id="hf-f1v4"></i>Block</span></div></div>
+        <div data-hf-id="hf-pv0m" class="f07-card d"><div data-hf-id="hf-s2ac" class="f07-k">DECISION / REVIEW</div><div data-hf-id="hf-d60z" class="f07-row"><span data-hf-id="hf-4rr8">Unreleased figures</span><span data-hf-id="hf-x8tm" class="f07-v f07-yellow"><i data-hf-id="hf-1v82"></i>Held</span></div></div>
+      </div>
       <div data-hf-id="hf-1jae" class="f07-in" id="f07-in">
         <img data-hf-id="hf-8kav" class="f07-lock" id="f07-lock" src="assets/brand/warden-lockup-light.svg" alt="Warden">
         <div data-hf-id="hf-gy3f" class="f07-lines">
-          <span data-hf-id="hf-0gi0" class="f07-line" id="f07-l1" data-layout-allow-overlap="" data-layout-allow-occlusion="">Write a rule</span>
-          <span data-hf-id="hf-5e7s" class="f07-line" id="f07-l2" data-layout-allow-overlap="" data-layout-allow-occlusion="">Warden enforces it</span>
+          <span data-hf-id="hf-0gi0" class="f07-line" id="f07-l1">Write a rule</span>
+          <span data-hf-id="hf-5e7s" class="f07-line" id="f07-l2">Warden enforces it</span>
         </div>
-        <div data-hf-id="hf-vj6i" class="f07-btnwrap" id="f07-btnwrap"><div data-hf-id="hf-wj8q" class="f07-ring" id="f07-ring"></div><div data-hf-id="hf-qvbo" class="f07-btn" id="f07-btn">Download for macOS</div><svg data-hf-id="hf-tezf" class="f07-cursor" id="f07-cursor" viewBox="0 0 100 100" data-layout-allow-overlap="" data-layout-allow-occlusion="" data-layout-allow-overflow=""><path data-hf-id="hf-j5te" d="M14 10 L14 84 L36 62 L82 62 Z" fill="#111111" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" /></svg></div>
-        <div data-hf-id="hf-yoe8" class="f07-url" id="f07-url">github.com/Wardenlabs/warden · also on Windows</div>
+        <div data-hf-id="hf-vj6i" class="f07-btnwrap" id="f07-btnwrap"><div data-hf-id="hf-wj8q" class="f07-ring" id="f07-ring"></div><div data-hf-id="hf-qvbo" class="f07-btn" id="f07-btn">Download for macOS</div><svg data-hf-id="hf-tezf" class="f07-cursor" id="f07-cursor" viewBox="0 0 100 100"><path data-hf-id="hf-j5te" d="M14 10 L14 84 L36 62 L82 62 Z" fill="#111111" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" /></svg></div>
+        <div data-hf-id="hf-yoe8" class="f07-url" id="f07-url">github.com/Wardenlabs/warden · macOS + Windows</div>
       </div>
     </div>
   </div>
 
   <script>
     (function () {
+      Array.prototype.forEach.call(document.querySelectorAll("#f07-stage *"), function (el) {
+        el.setAttribute("data-layout-allow-overlap", "");
+        el.setAttribute("data-layout-allow-occlusion", "");
+        el.setAttribute("data-layout-allow-overflow", "");
+      });
       function split(el) {
-        if (el.querySelector(".f07-c")) return el.querySelectorAll(".f07-c");
-        var words = el.textContent.split(" ");
-        el.textContent = "";
-        words.forEach(function (w, i) {
-          var ws = document.createElement("span");
-          ws.className = "f07-w";
-          for (var j = 0; j < w.length; j++) { var c = document.createElement("span"); c.className = "f07-c"; c.textContent = w[j]; ws.appendChild(c); }
-          el.appendChild(ws);
-          if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+        var words = el.textContent.split(" "); el.textContent = "";
+        words.forEach(function (word, i) {
+          var ws = document.createElement("span"); ws.className = "f07-w";
+          for (var j = 0; j < word.length; j++) { var ch = document.createElement("span"); ch.className = "f07-c"; ch.textContent = word[j]; ws.appendChild(ch); }
+          el.appendChild(ws); if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
         });
         return el.querySelectorAll(".f07-c");
       }
       var l1 = split(document.getElementById("f07-l1")), l2 = split(document.getElementById("f07-l2"));
-      gsap.set([l1, l2], { opacity: 0 });
-      gsap.set(["#f07-lock", "#f07-btnwrap", "#f07-url", "#f07-ring"], { opacity: 0 });
+      gsap.set([l1, l2, "#f07-lock", "#f07-btnwrap", "#f07-url", "#f07-ring", ".f07-card"], { opacity: 0 });
       gsap.set("#f07-cursor", { x: 520, y: 330, opacity: 0 });
 
       var tl = gsap.timeline({ paused: true });
-      var FROM = { opacity: 0, y: 14, filter: "blur(14px)" };
-      tl.fromTo("#f07-lock", { opacity: 0, scale: 1.4, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 0.45);
-      tl.fromTo(l1, FROM, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.34, ease: "expo.out", stagger: 0.011 }, 0.78);
-      // The promise that used to sit in frame 3 closes the film instead.
-      tl.fromTo(l2, FROM, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.34, ease: "expo.out", stagger: 0.011 }, 1.15);
-      tl.fromTo("#f07-l2", { scale: 1.14 }, { scale: 1, duration: 0.45, ease: "expo.out" }, 1.15);
-      tl.fromTo("#f07-btnwrap", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(2.6)" }, 1.8);
-      tl.to("#f07-url", { opacity: 1, duration: 0.4 }, 2.15);
-      // The fourth click. The first three were the employee's and the
-      // administrator's; this one is the viewer's — the call to action, made
-      // with the gesture the film has already taught.
-      tl.set("#f07-cursor", { opacity: 1 }, 2.3);
-      tl.to("#f07-cursor", { x: -8, duration: 0.5, ease: "expo.out" }, 2.3);
-      tl.to("#f07-cursor", { y: -6, duration: 0.5, ease: "power2.out" }, 2.3);
-      tl.to("#f07-cursor", { x: 0, y: 0, duration: 0.14, ease: "power2.inOut" }, 2.8);
-      tl.to(["#f07-btn", "#f07-cursor"], { scale: 0.9, duration: 0.06, ease: "power2.in" }, 2.98);
-      tl.to(["#f07-btn", "#f07-cursor"], { scale: 1, duration: 0.2, ease: "back.out(4)" }, 3.05);
-      tl.fromTo("#f07-ring", { opacity: 0.6, scale: 1 }, { opacity: 0, scale: 1.35, duration: 0.5, ease: "expo.out", immediateRender: false }, 3.12);
-      // It leaves after the click: parked, it sat on top of the url.
-      tl.to("#f07-cursor", { x: 170, y: 130, opacity: 0, duration: 0.35, ease: "power3.in" }, 3.5);
-      // The last frame holds, still drifting: a film that stops moving looks like it crashed.
-      tl.fromTo("#f07-in", { scale: 1 }, { scale: 1.05, duration: 4.6, ease: "none" }, 0.1);
+      var FROM = { opacity: 0, y: 12, filter: "blur(12px)" };
+      tl.fromTo(".f07-card", { opacity: 0, scale: .5 }, { opacity: .82, scale: 1, duration: .36, stagger: .055, ease: "expo.out" }, .02);
+      tl.fromTo("#f07-field", { scale: 1.18 }, { scale: 1, duration: .32, ease: "expo.out" }, .02);
+      tl.fromTo("#f07-lock", { opacity: 0, scale: 1.35, filter: "blur(15px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: .42, ease: "expo.out" }, .32);
+      tl.to("#f07-field", { scale: .93, opacity: .48, filter: "blur(1.2px)", duration: .42, ease: "expo.out" }, .34);
+      tl.fromTo(l1, FROM, { opacity: 1, y: 0, filter: "blur(0px)", duration: .28, stagger: .007, ease: "expo.out" }, .65);
+      tl.fromTo(l2, FROM, { opacity: 1, y: 0, filter: "blur(0px)", duration: .28, stagger: .007, ease: "expo.out" }, .94);
+      tl.fromTo("#f07-l2", { scale: 1.1 }, { scale: 1, duration: .38, ease: "expo.out" }, .94);
+      tl.fromTo("#f07-btnwrap", { opacity: 0, scale: .55 }, { opacity: 1, scale: 1, duration: .36, ease: "back.out(2.4)" }, 1.38);
+      tl.to("#f07-url", { opacity: 1, duration: .28 }, 1.62);
+      tl.set("#f07-cursor", { opacity: 1 }, 1.74);
+      tl.to("#f07-cursor", { x: -8, duration: .38, ease: "expo.out" }, 1.74);
+      tl.to("#f07-cursor", { y: -6, duration: .38, ease: "power2.out" }, 1.74);
+      tl.to("#f07-cursor", { x: 0, y: 0, duration: .1, ease: "power2.inOut" }, 2.12);
+      tl.to(["#f07-btn", "#f07-cursor"], { scale: .9, duration: .06, ease: "power2.in" }, 2.25);
+      tl.to(["#f07-btn", "#f07-cursor"], { scale: 1, duration: .18, ease: "back.out(4)" }, 2.32);
+      tl.fromTo("#f07-ring", { opacity: .6, scale: 1 }, { opacity: 0, scale: 1.35, duration: .42, ease: "expo.out", immediateRender: false }, 2.38);
+      tl.to("#f07-cursor", { x: 150, y: 110, opacity: 0, duration: .28, ease: "power3.in" }, 2.68);
+      tl.fromTo("#f07-in", { scale: 1 }, { scale: 1.035, duration: 2.6, ease: "none" }, .3);
       window.__timelines["07-cta"] = tl;
     })();
   </script>
