@@ -1,0 +1,155 @@
+<template>
+  <style>
+    @font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:block;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");}
+    @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
+    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#22282A}
+    .f00-stage{position:absolute;inset:0}
+    /* The cloud. An outer wrapper takes the shockwave and the exit; three
+       depth layers inside it drift at different rates, which is the parallax.
+       No will-change anywhere: rows are scaled up to 1.8x and a cached layer
+       would be an upscaled bitmap. */
+    .f00-cloud,.f00-layer{position:absolute;inset:0;transform-origin:50% 50%}
+    .f00-row{position:absolute;width:480px;display:flex;align-items:center;justify-content:space-between;gap:22px;background:#FFFFFF;border:1px solid #DDE2DF;border-radius:13px;padding:14px 20px;font-family:"Geist Mono";font-size:19px;line-height:1.2;white-space:nowrap;color:#22282A}
+    .f00-req{overflow:hidden;text-overflow:ellipsis}
+    .f00-v{display:inline-flex;align-items:center;gap:9px;font-family:"Manrope";font-weight:600;font-size:18px;letter-spacing:-.01em}
+    .f00-v i{display:block;width:13px;height:13px;border-radius:50%}
+    .f00-allow i{background:#34D399}.f00-held i{background:#FDE047}.f00-block i{background:#FF3B5C}
+    .f00-near{filter:blur(4px)}
+    .f00-plate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center}
+    .f00-in{display:flex;flex-direction:column;align-items:center;gap:1.3cqw;transform-origin:50% 50%}
+    .f00-name{display:block;font-family:"Manrope";font-weight:600;font-size:7.6cqw;line-height:1;letter-spacing:-.05em;white-space:nowrap;color:#22282A;transform-origin:50% 55%}
+    .f00-tag{display:block;font-family:"Manrope";font-weight:500;font-size:2.15cqw;line-height:1.1;letter-spacing:-.025em;white-space:nowrap;color:#22282A}
+    .f00-c{display:inline-block}
+    .f00-w{display:inline-block;white-space:nowrap}
+  </style>
+
+  <div data-hf-id="hf-dbox" id="root" data-composition-id="00-meet" data-width="1920" data-height="1080">
+    <!-- The hook. Two text plates on empty ground were skippable, and the three
+         reference films the owner brought all open the same way: the frame is
+         never empty, something moves from frame 0, there is a lot of it, and
+         the words are two or three and stand on objects. So the frame is
+         invaded by Warden's own component — Activity rows, each a request with
+         its verdict as coloured bullet + ink label (Allowed / Held / Blocked are
+         the console's words) — and the name lands on top of the product
+         already working. Nothing of Claude's is here: the opener is Warden's.
+         No row comes forward. A sketch had customers_export.csv step out and
+         get blocked; the owner cut it as a spoiler of frame 5, and the red
+         bullets stay texture. This is also the one moment all three verdict
+         colours are on screen; yellow never gets a beat of its own, so it
+         opens no thread the film does not close.
+         Thrown out earlier, so nobody re-adds them: "Meet" beside the lockup,
+         a sideways whip between plates, flying through a letter, a dark
+         plate ("espantoso" — the film is light, all of it), a graphite chip
+         around "your team's AI", and the two calm text plates this replaces
+         (saved in the scratchpad as 00-meet-two-plates.html). -->
+    <div data-hf-id="hf-j1l4" class="clip f00-stage" id="f00-stage" data-start="0" data-duration="2.85" data-track-index="1">
+      <div data-hf-id="hf-1vuq" class="f00-cloud" id="f00-cloud">
+        <div data-hf-id="hf-uraa" class="f00-layer" id="f00-far"></div>
+        <div data-hf-id="hf-usgv" class="f00-layer" id="f00-mid"></div>
+        <div data-hf-id="hf-ly0l" class="f00-layer" id="f00-near"></div>
+      </div>
+      <div data-hf-id="hf-0wq9" class="f00-plate">
+        <div data-hf-id="hf-gq6a" class="f00-in" id="f00-in">
+          <span data-hf-id="hf-gkp1" class="f00-name" id="f00-name">Meet Warden</span>
+          <span data-hf-id="hf-bnck" class="f00-tag" id="f00-tag">The guard for your team’s AI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // Honest requests and the few that are not. They pass too fast to read;
+      // whoever pauses should still find a plausible afternoon of traffic.
+      var OK = ["summarise this PR", "draft the release notes", "fix the failing test", "explain this stack trace", "rename getUser to fetchUser", "write a migration for orders", "why is CI red on main?", "add types to api/client.ts", "review my error handling", "translate the onboarding copy", "regex for ISO dates", "refactor the retry loop", "write tests for parseDate", "outline the Q4 roadmap doc", "tighten this paragraph", "convert callbacks to async", "what does this cron do?", "document the webhook payload", "profile the slow query", "make the README shorter", "name this component", "sort imports in src/", "draft a reply to support", "diff these two configs", "plan the cache rollout", "lint rule for unused vars", "mock the billing client", "bump eslint to v9"];
+      var BAD = [".env · 14 keys", "salaries_2026.xlsx", "Q3_board_deck.pdf", "prod_db_dump.sql", "customer_emails.csv", "id_rsa"];
+      var LABEL = { allow: "Allowed", held: "Held", block: "Blocked" };
+      // Seeded: a render must place the same cloud on every frame of every run.
+      function rng(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+      var R = rng(11), COLS = 5, ROWS = 7, ok = 0, bad = 0, rows = [];
+      var DEPTH = [{ id: "f00-far", s: 0.7, o: 0.85 }, { id: "f00-mid", s: 1.15, o: 1 }, { id: "f00-near", s: 2.1, o: 0.78 }];
+      // Depth is chosen, not drawn: a seed once gave one near row out of
+      // thirty-five and the frame went flat. Near rows sit toward the edges,
+      // where a big soft shape frames the picture instead of covering it.
+      var NEAR = { 1: 1, 9: 1, 15: 1, 24: 1, 30: 1, 33: 1 }, FAR = { 2: 1, 5: 1, 7: 1, 11: 1, 13: 1, 16: 1, 18: 1, 21: 1, 23: 1, 27: 1, 29: 1, 32: 1 };
+      for (var r = 0; r < ROWS; r++) for (var c = 0; c < COLS; c++) {
+        var idx = r * COLS + c, depth = NEAR[idx] ? 2 : FAR[idx] ? 0 : 1, q = R();
+        var verdict = q < 0.7 ? "allow" : q < 0.85 ? "held" : "block";
+        var X = (c + 0.5) / COLS * 1920 + (R() - 0.5) * 250, Y = (r + 0.5) / ROWS * 1080 + (R() - 0.5) * 96;
+        var el = document.createElement("div");
+        el.className = "f00-row" + (depth === 2 ? " f00-near" : "");
+        var req = document.createElement("span"); req.className = "f00-req";
+        req.textContent = verdict === "block" ? BAD[bad++ % BAD.length] : OK[ok++ % OK.length];
+        var v = document.createElement("span"); v.className = "f00-v f00-" + verdict;
+        v.appendChild(document.createElement("i"));
+        var lb = document.createElement("span"); lb.textContent = LABEL[verdict]; v.appendChild(lb);
+        el.appendChild(req); el.appendChild(v);
+        el.style.left = X + "px"; el.style.top = Y + "px";
+        document.getElementById(DEPTH[depth].id).appendChild(el);
+        rows.push({ el: el, v: v, X: X, Y: Y, depth: depth, order: R() });
+      }
+      // Stacked, blurred and running past the frame edge on purpose.
+      Array.prototype.forEach.call(document.querySelectorAll("#f00-stage *"), function (n) {
+        n.setAttribute("data-layout-allow-overlap", "");
+        n.setAttribute("data-layout-allow-occlusion", "");
+        n.setAttribute("data-layout-allow-overflow", "");
+      });
+      function split(el) {
+        var words = el.textContent.split(" "); el.textContent = "";
+        words.forEach(function (w, i) {
+          var ws = document.createElement("span"); ws.className = "f00-w";
+          for (var j = 0; j < w.length; j++) { var ch = document.createElement("span"); ch.className = "f00-c"; ch.textContent = w[j]; ws.appendChild(ch); }
+          el.appendChild(ws);
+          if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+        });
+        return el.querySelectorAll(".f00-c");
+      }
+      var tag = split(document.getElementById("f00-tag"));
+      gsap.set(["#f00-name", tag], { opacity: 0 });
+
+      var tl = gsap.timeline({ paused: true });
+      var HIT = 1.02;
+
+      // — 1. The invasion. Every row is born near the centre, small, and comes
+      //   at the camera to its place: the film's Z axis, nothing sideways. The
+      //   frame is moving at frame 0 and full by half a second. —
+      rows.forEach(function (w) {
+        var D = DEPTH[w.depth], early = w.order < 0.22, t = early ? 0 : (w.order - 0.22) * 0.5;
+        // A fifth of them are already on their way at frame 0: the film never
+        // shows an empty ground, not even for one frame.
+        var k = early ? 0.45 : 0.8, s0 = early ? 0.6 : 0.2, o0 = early ? 0.7 * D.o : 0;
+        gsap.set(w.el, { xPercent: -50, yPercent: -50, opacity: 0, scale: D.s });
+        gsap.set(w.v, { opacity: 0, scale: 0.3 });
+        if (early) gsap.set(w.el, { x: (960 - w.X) * k, y: (540 - w.Y) * k, scale: D.s * s0, opacity: o0 });
+        tl.fromTo(w.el, { x: (960 - w.X) * k, y: (540 - w.Y) * k, scale: D.s * s0, opacity: o0 }, { x: 0, y: 0, scale: D.s, opacity: D.o, duration: 0.55, ease: "expo.out", immediateRender: false }, t);
+        // Under the name: these step back out of its way when it lands. A
+        // radial veil did this first and banded into visible rings.
+        var ex = (w.X - 960) / 640, ey = (w.Y - 540) / 250;
+        if (w.depth < 2 && ex * ex + ey * ey < 1) tl.to(w.el, { opacity: 0, scale: D.s * 0.6, duration: 0.3, ease: "power4.out" }, 1.02);
+        // The verdict hits after the row has landed; across thirty-five rows it
+        // reads as the colours crackling on. back.out: these are things that hit.
+        tl.to(w.v, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(3)" }, 0.3 + w.order * 0.6);
+      });
+      // Parallax: the near layer keeps coming faster than the far one. Linear,
+      // and the only linear thing here.
+      tl.fromTo("#f00-far", { scale: 1 }, { scale: 1.035, duration: 2.85, ease: "none" }, 0);
+      tl.fromTo("#f00-mid", { scale: 1 }, { scale: 1.07, duration: 2.85, ease: "none" }, 0);
+      tl.fromTo("#f00-near", { scale: 1 }, { scale: 1.13, duration: 2.85, ease: "none" }, 0);
+
+      // — 2. The name. The last verdict lands at 0.9, then three frames where
+      //   nothing new happens, and the name comes down from close to the lens.
+      //   Its impact throws the whole cloud back: smaller, softer, quieter. —
+      tl.fromTo("#f00-name", { opacity: 0, scale: 1.6, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, HIT);
+      tl.set("#f00-name", { filter: "none" }, HIT + 0.43);
+      tl.fromTo("#f00-cloud", { scale: 1, opacity: 1, filter: "blur(0px)" }, { scale: 0.88, opacity: 0.85, filter: "blur(1.6px)", duration: 0.5, ease: "expo.out" }, HIT + 0.02);
+      tl.fromTo(tag, { opacity: 0, y: 10, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "expo.out", stagger: 0.011 }, HIT + 0.42);
+      tl.fromTo("#f00-in", { scale: 1 }, { scale: 1.035, duration: 1.1, ease: "none" }, HIT + 0.43);
+
+      // — 3. Out through the camera, rows and all, while the hook's typed line
+      //   arrives underneath — the hook starts 0.25s before this frame ends. —
+      tl.to("#f00-in", { scale: 2.3, opacity: 0, filter: "blur(26px)", duration: 0.28, ease: "power4.in" }, 2.55);
+      tl.to("#f00-cloud", { scale: 1.7, opacity: 0, duration: 0.28, ease: "power4.in" }, 2.55);
+      window.__timelines["00-meet"] = tl;
+    })();
+  </script>
+</template>

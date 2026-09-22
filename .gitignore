@@ -1,0 +1,8 @@
+# Rendered output and verification artifacts: regenerated from the compositions,
+# tens of megabytes each, never the source of truth.
+renders/
+snapshots/
+.thumbnails/
+
+node_modules/
+.DS_Store

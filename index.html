@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Warden launch film</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #F4F5F4; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #F4F5F4; }
+    </style>
+  </head>
+  <body>
+    <!-- Eight frames, no cuts. The opener (00) overlaps the hook by 0.25s, not 0.6: its
+         cloud of Activity rows leaves through the camera and the hook's typed line needs an almost empty ground. Every other frame starts 0.6s before the one before it ends and
+         sits UNDER it (descending z-index), and paints no ground of its own — this
+         root does. So a statement is still being read, on top, while the next scene
+         arrives beneath it; then the statement accelerates through the camera.
+         Frame 4 is the other exception: it starts at frame 3's
+         hinge (1.85s into it), where the sentence flies into the composer.
+         Changing one frame's length moves every start after it. -->
+    <div data-hf-id="hf-kft1" id="root" data-composition-id="main" data-start="0" data-duration="36.1" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-rhke" id="s00" style="z-index:21" data-composition-id="00-meet" data-composition-src="compositions/frames/00-meet.html" data-start="0" data-duration="2.85" data-track-index="2" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-j2gc" id="s01" style="z-index:20" data-composition-id="01-hook" data-composition-src="compositions/frames/01-hook.html" data-start="2.6" data-duration="5.3" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-8x6e" id="s02" style="z-index:19" data-composition-id="02-signed-the-policy" data-composition-src="compositions/frames/02-signed-the-policy.html" data-start="7.3" data-duration="7.95" data-track-index="2" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-jkko" id="s03" style="z-index:18" data-composition-id="03-warden" data-composition-src="compositions/frames/03-warden.html" data-start="14.65" data-duration="1.9" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-mxyh" id="s04" style="z-index:17" data-composition-id="04-sentence-to-rules" data-composition-src="compositions/frames/04-sentence-to-rules.html" data-start="16.5" data-duration="8.2" data-track-index="2" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-v2om" id="s05" style="z-index:16" data-composition-id="05-blocked" data-composition-src="compositions/frames/05-blocked.html" data-start="24.1" data-duration="5.6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-9zan" id="s06" style="z-index:15" data-composition-id="06-trust" data-composition-src="compositions/frames/06-trust.html" data-start="29.1" data-duration="2.9" data-track-index="2" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-tezu" id="s07" style="z-index:14" data-composition-id="07-cta" data-composition-src="compositions/frames/07-cta.html" data-start="31.4" data-duration="4.7" data-track-index="1" data-width="1920" data-height="1080"></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

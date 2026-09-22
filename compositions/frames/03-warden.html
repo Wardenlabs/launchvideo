@@ -1,0 +1,54 @@
+<template>
+  <style>
+    @font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:block;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");}
+    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#22282A}
+    .f03-ground{position:absolute;inset:0;background:#F4F5F4}
+    .f03-say{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+    .f03-in{text-align:center;will-change:transform,filter}
+    .f03-line{display:block;font-family:"Manrope";font-weight:600;font-size:6.2cqw;line-height:1.1;letter-spacing:-.05em}
+    .f03-soft{color:#7D8788}
+    .f03-c{display:inline-block;will-change:transform,filter}
+    .f03-w{display:inline-block;white-space:nowrap}
+  </style>
+
+  <div data-hf-id="hf-7lio" id="root" data-composition-id="03-warden" data-width="1920" data-height="1080">
+    <!-- No lockup: the owner took it out. One line since v14: "Warden enforces it"
+         moved to the closing card, and the opening already named the product. What
+         is left is the sentence that becomes the text box. -->
+    <div data-hf-id="hf-4bnr" class="clip f03-say" id="f03-say" data-start="0" data-duration="1.9" data-track-index="1">
+      <div data-hf-id="hf-axdq" class="f03-in" id="f03-in">
+        <span data-hf-id="hf-gx81" class="f03-line" id="f03-l1" data-layout-allow-overlap="" data-layout-allow-occlusion="">Write the rule in a sentence</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      function split(el) {
+        if (el.querySelector(".f03-c")) return el.querySelectorAll(".f03-c");
+        var words = el.textContent.split(" ");
+        el.textContent = "";
+        words.forEach(function (w, i) {
+          var ws = document.createElement("span");
+          ws.className = "f03-w";
+          for (var j = 0; j < w.length; j++) { var c = document.createElement("span"); c.className = "f03-c"; c.textContent = w[j]; ws.appendChild(c); }
+          el.appendChild(ws);
+          if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+        });
+        return el.querySelectorAll(".f03-c");
+      }
+      var l1 = split(document.getElementById("f03-l1"));
+      gsap.set(l1, { opacity: 0 });
+      var tl = gsap.timeline({ paused: true });
+      tl.fromTo(l1, { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.34, ease: "expo.out", stagger: 0.009 }, 0.45);
+      // Must read exactly 1.06 at the hinge: frame 4's clone is drawn at that size.
+      tl.fromTo("#f03-in", { scale: 1 }, { scale: 1.06, duration: 1.4, ease: "none" }, 0.45);
+      // The hinge into frame 4. At 1.85s frame 4 starts underneath, carrying its own
+      // copy of this line at exactly this place and size. The line goes out here in
+      // the same instant, so the sentence appears to fly on into the composer and
+      // become the text box.
+      tl.to("#f03-l1", { opacity: 0, duration: 0.01 }, 1.85);
+      window.__timelines["03-warden"] = tl;
+    })();
+  </script>
+</template>

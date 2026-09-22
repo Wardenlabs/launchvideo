@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Warden launch film — storyboard v3</title>
+<style>
+@font-face{font-family:"Manrope";font-weight:200 800;font-display:block;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");}
+@font-face{font-family:"Inter";font-weight:100 900;font-display:block;src:url("assets/fonts/Inter-Variable.ttf") format("truetype");}
+@font-face{font-family:"Geist Mono";font-weight:100 900;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
+:root{
+  --canvas:#F4F5F4; --ink:#22282A; --ink-body:#444D4F; --muted:#656E6F;
+  --page:#FFFFFF; --subtle:#F4F5F4; --selected:#E6E8E6; --hair:#E7EAE8; --control:#DDE2DF;
+  --block:#B91C41; --block-signal:#FF3B5C; --allow:#087356; --allow-signal:#26B88A;
+  --sheet:#E9EBE9; --sheet-line:#D3D8D5;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--sheet);color:var(--ink);font-family:"Inter",system-ui,sans-serif;padding:56px 48px 96px}
+header{max-width:1560px;margin:0 auto 40px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;border-bottom:1px solid var(--sheet-line);padding-bottom:24px}
+header h1{font-family:"Manrope";font-weight:600;font-size:34px;letter-spacing:-.05em}
+header h1 span{color:var(--muted);font-weight:500}
+header p{color:var(--muted);font-size:15px;margin-top:8px;max-width:70ch;line-height:1.5}
+.tag{font-family:"Geist Mono";font-size:12px;color:var(--muted);border:1px solid var(--sheet-line);border-radius:8px;padding:8px 12px;white-space:nowrap}
+.act{max-width:1560px;margin:40px auto 16px;font-family:"Geist Mono";font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;gap:12px;align-items:center}
+.act::after{content:"";flex:1;height:1px;background:var(--sheet-line)}
+.grid{max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
+.wide{grid-column:span 2}
+figure{min-width:0}
+.cell{aspect-ratio:16/9;container-type:inline-size;background:var(--canvas);border:1px solid var(--sheet-line);border-radius:6px;overflow:hidden;position:relative}
+.row{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-family:"Geist Mono";font-size:11px;color:var(--muted)}
+.row b{color:var(--ink);font-weight:500}
+figcaption{font-size:13px;line-height:1.5;color:var(--ink-body);margin-top:8px}
+figcaption b{color:var(--ink);font-weight:600}
+.chip{display:inline-block;margin-top:8px;font-family:"Geist Mono";font-size:10.5px;color:var(--muted);border:1px solid var(--sheet-line);border-radius:8px;padding:3px 8px}
+
+/* —— frame atoms, all in cqw so the sheet matches the build —— */
+.f{position:absolute;inset:0;padding:6cqw 7cqw;display:flex;flex-direction:column;justify-content:center}
+.f.center{align-items:center;text-align:center}
+.h1{font-family:"Manrope";font-weight:600;font-size:5.8cqw;line-height:1.05;letter-spacing:-.05em}
+.h2{font-family:"Manrope";font-weight:600;font-size:4.2cqw;line-height:1.12;letter-spacing:-.04em}
+.h3{font-family:"Manrope";font-weight:600;font-size:2.8cqw;line-height:1.2;letter-spacing:-.03em}
+.disp{font-family:"Manrope";font-weight:600;font-size:7.6cqw;line-height:1;letter-spacing:-.05em}
+.lead{font-size:1.9cqw;line-height:1.45;color:var(--ink-body)}
+.mono{font-family:"Geist Mono";font-size:1.5cqw;line-height:1.55;color:var(--ink-body)}
+.mono-lg{font-family:"Geist Mono";font-size:2.05cqw;line-height:1.45;color:var(--ink-body)}
+.dim{color:var(--muted)}
+.term{background:var(--page);border:1px solid var(--hair);border-radius:.55cqw;width:100%}
+.term .bar{font-family:"Geist Mono";font-size:1.15cqw;color:var(--muted);padding:1cqw 1.6cqw;border-bottom:1px solid var(--hair)}
+.term .body{padding:1.8cqw 1.6cqw 2.2cqw;white-space:pre-wrap}
+.caret{display:inline-block;width:.18cqw;height:1.15em;background:var(--ink);vertical-align:-.2em;margin-left:.15cqw}
+.strike{position:relative;display:inline-block;color:var(--muted)}
+.strike::after{content:"";position:absolute;left:-1cqw;right:-1cqw;top:54%;height:1px;background:var(--ink)}
+.mask{border:1px solid var(--control);border-radius:.3cqw;padding:0 .5cqw;color:var(--muted)}
+.stop{color:var(--block)}
+/* product card: Light Intermedio on charcoal */
+.card{background:var(--page);border:1px solid var(--hair);border-radius:.55cqw;color:var(--ink);width:100%}
+.composer{border:1px solid var(--control);border-radius:1.5cqw;padding:1.5cqw 1.6cqw 1.2cqw;margin:1.8cqw 1.8cqw 0}
+.composer .txt{font-size:1.75cqw;color:var(--ink)}
+.composer .foot{display:flex;justify-content:space-between;align-items:center;margin-top:1.4cqw}
+.plus{width:2.6cqw;height:2.6cqw;border:1px solid var(--control);border-radius:.55cqw;display:grid;place-items:center;font-size:1.6cqw;color:var(--ink-body)}
+.btn{background:var(--ink);color:#fff;font-size:1.3cqw;font-weight:500;border-radius:1.3cqw;padding:.75cqw 2.4cqw}
+.btn.sq{border-radius:.55cqw}
+.rules{margin:1.4cqw 1.8cqw 1.6cqw}
+.rule{display:grid;grid-template-columns:1.6cqw 1fr 8cqw 8cqw;align-items:center;gap:1cqw;padding:1.05cqw .8cqw;border-bottom:1px solid var(--hair);font-size:1.5cqw;font-weight:500}
+.rule:nth-child(even){background:var(--subtle)}
+.dot{width:.7cqw;height:.7cqw;border-radius:50%;background:var(--allow)}
+.role{justify-self:start;font-size:1.2cqw;font-weight:400;color:var(--ink-body);border:1px solid var(--control);border-radius:.55cqw;padding:.35cqw .9cqw}
+.eff{font-size:1.4cqw;font-weight:400;color:var(--block)}
+.eff::before{content:"●";font-size:.7em;margin-right:.5cqw;color:var(--block-signal);vertical-align:.12em}
+.ev{font-family:"Geist Mono";font-size:1.5cqw;color:var(--muted);margin-top:1.4cqw}
+.lock{height:7cqw}
+.ghost{opacity:.45}
+.paste{display:inline-block;border:1px solid var(--control);border-radius:.3cqw;padding:.1cqw .7cqw;color:var(--ink-body);background:var(--subtle)}
+.rows{color:var(--muted);font-size:1.25cqw;line-height:1.5;opacity:.75;-webkit-mask-image:linear-gradient(#000 35%,transparent);mask-image:linear-gradient(#000 35%,transparent)}
+.mini{position:absolute;width:52cqw;background:var(--page);border:1px solid var(--hair);border-radius:.55cqw;opacity:.7}
+.mini .bar{font-family:"Geist Mono";font-size:1.05cqw;color:var(--muted);padding:.7cqw 1.2cqw;border-bottom:1px solid var(--hair)}
+.mini .body{font-family:"Geist Mono";font-size:1.55cqw;line-height:1.5;color:var(--ink-body);padding:1cqw 1.2cqw 1.3cqw}
+/* closing cells */
+.sheet{padding:4cqw 5cqw;justify-content:flex-start;gap:1.4cqw}
+.sw{display:flex;gap:1cqw;flex-wrap:wrap}
+.sw i{width:6cqw;height:6cqw;border-radius:.55cqw;border:1px solid var(--control);display:block}
+.seam{display:flex;align-items:center;gap:.6cqw;font-family:"Geist Mono";font-size:1.25cqw;color:var(--muted);flex-wrap:wrap}
+.seam b{color:var(--ink);font-weight:500;border:1px solid var(--control);background:var(--page);border-radius:.55cqw;padding:.5cqw .9cqw}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Warden launch film <span>— storyboard v3</span></h1>
+    <p>Write the policy in one sentence. It is enforced on every prompt, on the machine. Static layouts at each frame's key moment, in the real fonts and the Figma Light Intermedio tokens. All copy in English. No motion yet.</p>
+  </div>
+  <div class="tag">1920×1080 · 60s · 7 frames · no VO</div>
+</header>
+
+<div class="act">Act 1 — the problem · 0–16.5s</div>
+<div class="grid">
+
+  <figure>
+    <div class="cell" id="frame-01">
+      <div class="f" style="padding:4cqw 6cqw">
+        <div class="term" style="opacity:.6">
+          <div class="bar">claude code</div>
+          <div class="body mono" style="color:var(--ink);padding-bottom:1.2cqw">&gt; which of these customers are about to churn?
+<span class="paste">[Pasted customers_export.csv · 4,812 rows]</span>
+<div class="rows">name,email,phone,plan,mrr
+Ana Ruiz,ana.ruiz@acme.com,+1 415 555 0142,Enterprise,$4,200
+James Perez,j.perez@globex.com,+1 212 555 0187,Team,$1,150
+Priya Shah,priya@initech.io,+44 20 7946 0321,Enterprise,$6,900</div></div>
+        </div>
+        <div class="h2" style="margin-top:2.6cqw;font-size:3.9cqw">The whole customer list.<br>Sent to an AI.</div>
+      </div>
+    </div>
+    <div class="row"><b>01 · HOOK</b><span>01-hook · 0.0–5.0s</span></div>
+    <figcaption><b>The motion is the size of the leak.</b> An innocent question, then rows of customers pour down faster than they can be read — names, emails, phones, revenue. 1.8s they collapse into the paste chip, 2.1s Enter, 2.5s the card dims and the statement lands. Sketch shows chip and rows together; in motion the rows come first.</figcaption>
+    <span class="chip">out: cut</span>
+  </figure>
+
+  <figure>
+    <div class="cell" id="frame-02">
+      <div class="mini" style="left:5cqw;top:5cqw"><div class="bar">maria · codex</div><div class="body">&gt; rewrite this offer letter — base salary $185,000, equity 0.4%…</div></div>
+      <div class="mini" style="left:40cqw;top:11cqw"><div class="bar">tom · claude code</div><div class="body">&gt; why does this fail? DATABASE_URL=postgres://admin:Hx9…@prod-db</div></div>
+      <div class="mini" style="left:14cqw;top:19cqw"><div class="bar">lucas · opencode</div><div class="body">&gt; tighten the Q3 numbers before we announce: revenue $12.4M, down 8%…</div></div>
+      <div class="f" style="justify-content:flex-end;padding-bottom:5.5cqw">
+        <div class="mono dim" style="font-size:1.3cqw">They all signed the AI policy.</div>
+        <div class="h1" style="margin-top:1.2cqw;font-size:4.7cqw;max-width:82cqw">Writing the rules down is not the same as enforcing them.</div>
+      </div>
+    </div>
+    <div class="row"><b>02 · THEY ALL SIGNED THE POLICY</b><span>02-signed-the-policy · 5.0–12.5s</span></div>
+    <figcaption><b>Empathy, not argument.</b> It is not one person: three good employees in a hurry — payroll, production credentials, unreleased financials — land one per beat, overlapping (0–2.7s). They dim; "They all signed the AI policy." lands large at 3s, then hands over to the landing's h1 at 5s. Sketch shows the end state, with the signed line shrunk above it as a note.</figcaption>
+    <span class="chip">out: cut</span>
+  </figure>
+
+  <figure>
+    <div class="cell" id="frame-03">
+      <div class="f center">
+        <img class="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden">
+        <div class="h2" style="margin-top:3.4cqw">Write the rule in a sentence.<br>Warden enforces it.</div>
+      </div>
+    </div>
+    <div class="row"><b>03 · WARDEN</b><span>03-warden · 12.5–16.5s</span></div>
+    <figcaption><b>The answer to frame 2.</b> Writing was never the problem; enforcing was. The mark draws, the wordmark follows, the two lines rise one after the other. One of two centred frames.</figcaption>
+    <span class="chip">out: crossfade into the composer</span>
+  </figure>
+</div>
+
+<div class="act">Act 2 — the mechanism and the proof · 16.5–43.5s</div>
+<div class="grid">
+
+  <figure class="wide">
+    <div class="cell" id="frame-04">
+      <div class="f" style="padding:4.5cqw 12cqw">
+        <div class="card">
+          <div class="composer">
+            <div class="txt">make sure no one leaks data</div>
+            <div class="foot"><div class="plus">+</div><div class="btn">Activate all 5</div></div>
+          </div>
+          <div class="rules">
+            <div class="rule"><span class="dot"></span><span>Customer contact details</span><span class="role">Everyone</span><span class="eff">Block</span></div>
+            <div class="rule"><span class="dot"></span><span>Credentials and API keys</span><span class="role">Everyone</span><span class="eff">Block</span></div>
+            <div class="rule"><span class="dot"></span><span>Unreleased financials</span><span class="role">Everyone</span><span class="eff">Block</span></div>
+            <div class="rule"><span class="dot"></span><span>Source code</span><span class="role">Everyone</span><span class="eff">Block</span></div>
+            <div class="rule"><span class="dot"></span><span>Internal documents</span><span class="role">Everyone</span><span class="eff">Block</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"><b>04 · ONE SENTENCE BECOMES FIVE RULES</b><span>04-sentence-to-rules · 16.5–31.5s</span></div>
+    <figcaption><b>The hero shot and the style proof.</b> The white product card arrives on the grey ground. The sentence types; on send it lifts out of the composer and divides into five rows that fan down, staggered. Each row's red <i>Block</i> lands in turn — the first colour in the film, ~22s in. The graphite button is pressed and the five green dots light in a run. Shown here at its end state (11s). Components: Figma Composer 263:479, Row / Rule 264:163.</figcaption>
+    <span class="chip">out: cut, back to the terminal</span>
+  </figure>
+
+  <figure>
+    <div class="cell" id="frame-05">
+      <div class="f" style="padding:3cqw 3.5cqw">
+        <div class="term">
+          <div class="bar">claude code</div>
+          <div class="body mono" style="font-size:1.72cqw;color:var(--ink)">&gt; which of these customers are about to churn?
+<span class="paste">[Pasted customers_export.csv · 4,812 rows]</span>
+
+<span class="stop">⛔ Blocked by Warden</span>
+<span class="stop">   Rule: Customer contact details may not be
+         sent to an assistant.</span>
+<span class="dim">   Audit a7f3c2d1 · quote this if you think it is wrong</span></div>
+        </div>
+        <div class="h3" style="margin-top:2.4cqw">It stops the request.</div>
+      </div>
+    </div>
+    <div class="row"><b>05 · THE SAME PROMPT, STOPPED</b><span>05-blocked · 31.5–43.5s</span></div>
+    <figcaption><b>Frame 1's prompt and paste return, identical.</b> Enter — and this time the block prints line by line in the hook's real format. At 8s the terminal clears; <code>&gt; refactor this module to use async</code> is sent and simply goes through, nothing printed. The statement lands last.</figcaption>
+    <span class="chip">in: cut, prompt carried from 01 · out: crossfade</span>
+  </figure>
+</div>
+
+<div class="act">Act 3 — trust and the ask · 43.5–60.5s</div>
+<div class="grid">
+
+  <figure class="wide">
+    <div class="cell" id="frame-06">
+      <div class="f">
+        <div class="mono dim" style="font-size:1.2cqw;letter-spacing:.06em">3 / 3</div>
+        <div class="h1" style="margin-top:1.6cqw;max-width:72cqw">The audit keeps hashes, never prompts.</div>
+        <div class="ev">sha256 9c41…e07b &nbsp;·&nbsp; Blocked &nbsp;·&nbsp; Customer contact details &nbsp;·&nbsp; a7f3c2d1</div>
+        <div style="margin-top:4cqw;display:flex;gap:3cqw" class="mono dim">
+          <span>1 · Judging never leaves the machine.</span><span>2 · No model is ever asked for an ALLOW.</span>
+        </div>
+      </div>
+    </div>
+    <div class="row"><b>06 · WHY BELIEVE IT</b><span>06-trust · 43.5–54.5s</span></div>
+    <figcaption><b>Three facts, ~3.6s each, one at a time.</b> Sans says it for the manager; one mono line under it proves it for the engineer it gets forwarded to: <code>local weights · no network call</code>, then <code>ALLOW &lt; ESCALATE &lt; BLOCK — a pass can only tighten</code>, then the audit row. Each fact replaces the last on the same rail; shown at the third. The footer line is a sketch note, not on screen.</figcaption>
+    <span class="chip">out: crossfade</span>
+  </figure>
+
+  <figure>
+    <div class="cell" id="frame-07">
+      <div class="f center">
+        <img class="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden" style="height:4.6cqw">
+        <div class="h2" style="margin-top:2.8cqw;font-size:3.5cqw">Write a rule.<br>It stops the request.<br>You see that it did.</div>
+        <div class="btn sq" style="margin-top:3cqw;background:var(--ink);color:#fff;font-size:1.6cqw;padding:1cqw 2.6cqw">Download for macOS</div>
+        <div class="mono dim" style="margin-top:1.4cqw;font-size:1.25cqw">github.com/Wardenlabs/warden · also on Windows</div>
+      </div>
+    </div>
+    <div class="row"><b>07 · DOWNLOAD</b><span>07-cta · 54.5–60.5s</span></div>
+    <figcaption><b>The landing's own line, now earned.</b> Three sentences rise one at a time, the button last, pressed once at 4.5s. Centred. No colour.</figcaption>
+    <span class="chip">end</span>
+  </figure>
+</div>
+
+<div class="act">Reference</div>
+<div class="grid">
+  <figure class="wide">
+    <div class="cell"><div class="f sheet">
+      <div class="h3">Seam map</div>
+      <div class="seam"><b>01 hook</b>cut<b>02 signed the policy</b>cut<b>03 Warden</b>crossfade<b>04 five rules</b>cut<b>05 blocked</b>crossfade<b>06 trust</b>crossfade<b>07 download</b></div>
+      <div class="lead" style="font-size:1.5cqw;max-width:80cqw">One carried element: the prompt and its 4,812-row paste chip in 01 are the ones in 05 — same text, same size, same position. Cuts inside the problem and into the payoff; crossfades wherever the product card arrives or leaves.</div>
+    </div></div>
+    <div class="row"><b>SEAMS</b><span>—</span></div>
+  </figure>
+  <figure>
+    <div class="cell"><div class="f sheet">
+      <div class="h3">Tokens — from Figma</div>
+      <div class="sw"><i style="background:#F4F5F4"></i><i style="background:#FFFFFF"></i><i style="background:#22282A"></i><i style="background:#E7EAE8"></i><i style="background:#FF3B5C"></i><i style="background:#26B88A"></i><i style="background:#F5D547"></i></div>
+      <div class="mono" style="font-size:1.3cqw">Manrope 600 −5% · display<br>Inter 400/500 · UI<br>Geist Mono · the machine<br>8px corners · no pills · no shadows<br>light mode only · colour only on a verdict</div>
+    </div></div>
+    <div class="row"><b>TOKENS</b><span>01 · Design system</span></div>
+  </figure>
+</div>
+
+</body>
+</html>

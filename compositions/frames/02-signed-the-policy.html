@@ -1,0 +1,201 @@
+<template>
+  <style>
+    @font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:block;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");}
+    @font-face{font-family:"Inter";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/Inter-Variable.ttf") format("truetype");}
+    @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
+    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#22282A}
+    .f02-ground{position:absolute;inset:0;background:#F4F5F4}
+    .f02-stage{position:absolute;inset:0}
+    /* One component, forty times: the wall of everyone's terminal. The camera
+       is the transition — it pulls back from frame 1's single terminal to show
+       it was one of many, then flies card to card. Cards never fly in; the
+       camera goes to them. (The reference film does this with its icon tiles.) */
+    .f02-world{position:absolute;inset:0;will-change:transform,filter}
+    /* Dark, like frame 1's composer: the employees' side of the film. The send
+       button is orange only on the Claude ones; codex and opencode get a grey one. */
+    .f02-card{position:absolute;width:40cqw;height:9.4cqw;background:#FAF9F5;border:1px solid #DEDBCF;border-radius:1cqw}
+    .f02-send{position:absolute;right:1cqw;bottom:.9cqw;width:1.7cqw;height:1.7cqw;border-radius:.45cqw;background:#BDBAAE;display:grid;place-items:center;color:#fff;font-family:"Inter",sans-serif;font-size:1cqw;line-height:1}
+    .f02-send.claude{background:#C96442}
+    /* #6B6A64, the chip ink of frame 5, not the composer's lighter #87867F: the
+       wall is read wide, at 0.56×, and the lighter grey failed AA there. */
+    .f02-bar{font-family:"Geist Mono";font-size:.95cqw;color:#6B6A64;padding:.7cqw 1.3cqw;border-bottom:1px solid #E8E5DA}
+    .f02-body{font-family:"Inter",sans-serif;font-size:1.4cqw;line-height:1.5;color:#1F1E1D;padding:1cqw 1.3cqw}
+    .f02-sk{height:.9cqw;border-radius:.3cqw;background:#E6E3D8;margin:.55cqw 0 .9cqw}
+    .f02-l1{white-space:pre}
+    .f02-hot{position:relative;display:inline-block;z-index:0;margin-top:.35cqw;white-space:pre;font-weight:600;font-family:"Geist Mono";font-size:1.3cqw;color:#1F1E1D}
+    /* The marker is grey. Colour is kept for a verdict; emphasis here is weight and a bar. */
+    .f02-mark{position:absolute;left:-.35cqw;right:-.35cqw;top:.05cqw;bottom:.05cqw;background:#E9E1CF;border-radius:.3cqw;z-index:-1;transform-origin:0% 50%}
+    /* The typed secret is what leaves the card, so it has to be transformable. */
+    .f02-txt{display:inline-block;will-change:transform,filter}
+    .f02-sk,.f02-send{will-change:transform}
+    /* The same three secrets again, drawn in the world at their cards, for the
+       wide shot: the ones that left at card scale are off in the world somewhere
+       above, so the torrent launches fresh copies that come toward the lens. */
+    .f02-pkt{position:absolute;font-family:"Geist Mono";font-weight:600;font-size:2.1cqw;color:#1F1E1D;background:#E9E1CF;border-radius:.4cqw;padding:.15cqw .5cqw;white-space:nowrap;will-change:transform,filter}
+    /* The edge of the machine, drawn in screen space, not in the world: it does
+       not move with the camera. Frame 6 answers it ("local weights · no network
+       call"). The label names no vendor: the wall has three tools on it. */
+    /* Above the top row of cards at the wide camera (scale 0.5, y 52→62): the
+       wall stands whole under the line, nothing is cut by it. */
+    .f02-edge{position:absolute;left:4cqw;right:4cqw;top:4.7cqw;height:1px;background:#8D9698;transform-origin:0% 50%}
+    .f02-edgelabel{position:absolute;left:4cqw;top:2.2cqw;font-family:"Geist Mono";font-size:1.15cqw;color:#656E6F;white-space:nowrap}
+  </style>
+
+  <div data-hf-id="hf-1ukv" id="root" data-composition-id="02-signed-the-policy" data-width="1920" data-height="1080">
+
+    <div data-hf-id="hf-bkux" class="clip f02-stage" id="f02-stage" data-start="0" data-duration="7.95" data-track-index="1">
+      <div data-hf-id="hf-4f63" class="f02-world" id="f02-world" data-layout-allow-overflow=""></div>
+      <div data-hf-id="hf-e1dg" class="f02-edge" id="f02-edge" data-layout-allow-overlap="" data-layout-allow-occlusion=""></div>
+      <div data-hf-id="hf-e1lb" class="f02-edgelabel" id="f02-edgelabel" data-layout-allow-overlap="" data-layout-allow-occlusion="">outside your machine</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var W = 1920, PX = 825.6, PY = 249.6, COLS = 5, ROWS = 8;
+      var world = document.getElementById("f02-world");
+      // Three good employees in a hurry. The tools are the three Warden hooks.
+      var HOT = {
+        "1,2": { who: "maria · codex", l1: "rewrite this offer letter —", hot: "base salary $185,000, equity 0.4%…" },
+        "3,4": { who: "tom · claude code", l1: "why does this fail?", hot: "DATABASE_URL=postgres://admin:Hx9…@prod-db" },
+        "1,6": { who: "lucas · opencode", l1: "tighten the Q3 numbers pre-announcement:", hot: "revenue $12.4M, down 8%…" }
+      };
+      var names = ["ana","james","priya","wei","sofia","marcus","elena","kofi","hannah","diego","yuki","omar","claire","ravi","lucía","noah","ingrid","mateo","zoe","sam"];
+      var tools = ["claude code", "codex", "opencode"];
+      var pos = {};
+      if (!world.childNodes.length) {
+        for (var r = 0; r < ROWS; r++) for (var c = 0; c < COLS; c++) {
+          // Brick pattern: every other row is shifted half a pitch.
+          var x = (c - 2) * PX + (r % 2 ? PX / 2 : 0), y = (r - 3.5) * PY;
+          var key = c + "," + r, h = HOT[key], i = r * COLS + c;
+          var el = document.createElement("div");
+          el.className = "f02-card";
+          // The wall sits behind the statements on purpose, blurred and dimmed.
+          el.setAttribute("data-layout-allow-overlap", "");
+          el.setAttribute("data-layout-allow-occlusion", "");
+          el.setAttribute("data-layout-allow-overflow", "");
+          el.style.left = ((W / 2 + x) / W * 100 - 20) + "cqw";
+          el.style.top = ((540 + y) / W * 100 - 4.7) + "cqw";
+          if (h) {
+            el.innerHTML = '<div class="f02-bar" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>' + h.who + '</div><div class="f02-body"><div class="f02-l1" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>' + h.l1 + '</div><span class="f02-hot"><span class="f02-mark"></span><span class="f02-txt" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow></span></span></div>';
+            el.setAttribute("data-hot", key);
+          } else {
+            // Skeleton lines, widths derived from the index: deterministic, never random.
+            el.innerHTML = '<div class="f02-bar" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>' + names[(i * 7) % names.length] + " · " + tools[i % 3] + '</div><div class="f02-body"><div class="f02-sk" style="width:' + (52 + (i * 37) % 40) + '%"></div><div class="f02-sk" style="width:' + (28 + (i * 53) % 45) + '%"></div></div>';
+          }
+          var tool = h ? h.who.split(" · ")[1] : tools[i % 3];
+          var send = document.createElement("div");
+          send.className = "f02-send" + (tool === "claude code" ? " claude" : "");
+          send.textContent = "↑";
+          send.setAttribute("data-layout-allow-overlap", "");
+          send.setAttribute("data-layout-allow-occlusion", "");
+          send.setAttribute("data-layout-allow-overflow", "");
+          el.appendChild(send);
+          world.appendChild(el);
+        }
+        // The packets for the wide shot, one per secret, over its card.
+        Object.keys(HOT).forEach(function (key) {
+          var c = +key.split(",")[0], r = +key.split(",")[1];
+          var px = (c - 2) * PX + (r % 2 ? PX / 2 : 0), py = (r - 3.5) * PY;
+          var p = document.createElement("div");
+          p.className = "f02-pkt";
+          p.textContent = HOT[key].hot;
+          p.setAttribute("data-pkt", key);
+          p.setAttribute("data-layout-allow-overlap", "");
+          p.setAttribute("data-layout-allow-occlusion", "");
+          p.setAttribute("data-layout-allow-overflow", "");
+          p.style.left = ((W / 2 + px) / W * 100 - 18.7) + "cqw";
+          p.style.top = ((540 + py) / W * 100 + 0.6) + "cqw";
+          world.appendChild(p);
+        });
+      }
+      Object.keys(HOT).forEach(function (key) {
+        var c = +key.split(",")[0], r = +key.split(",")[1];
+        pos[key] = { x: (c - 2) * PX + (r % 2 ? PX / 2 : 0), y: (r - 3.5) * PY };
+      });
+
+      gsap.set(".f02-mark", { scaleX: 0 });
+      gsap.set(".f02-pkt", { opacity: 0 });
+      gsap.set("#f02-edge", { scaleX: 0 });
+      gsap.set("#f02-edgelabel", { opacity: 0 });
+
+      var tl = gsap.timeline({ paused: true });
+      var S = 1.6;
+      function cam(key, s, dy) { return { scale: s, x: -pos[key].x * s, y: -pos[key].y * s + (dy || 0) }; }
+      function whip(t) {
+        tl.to("#f02-world", { filter: "blur(8px)", duration: 0.16, ease: "power2.in" }, t);
+        tl.to("#f02-world", { filter: "blur(0px)", duration: 0.18, ease: "power3.out" }, t + 0.17);
+      }
+
+      // — the pull-back: it was never one terminal —
+      tl.fromTo("#f02-world", { scale: 2.6, x: 0, y: 0, opacity: 0, filter: "blur(22px)" }, { scale: 0.56, x: 0, y: 0, opacity: 1, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 0);
+      // Then the wall holds, still, for half a second. There used to be a slow
+      // lean toward the first card here and a slower, unblurred push-in after it;
+      // the owner (2026-09-22) read the lean as a mini zoom that told nothing and
+      // asked for the wall, then straight to the first card. So the first move
+      // is now a whip like the other two, and it snaps out of real stillness.
+
+      // — card to card. Whip, land, the secret types, the marker sweeps, the
+      //   send button is pressed, and the secret LEAVES: up and out of the frame,
+      //   the marker left empty behind it. Three times, so by the wide shot the
+      //   viewer knows what a click on this wall means. (Owner, 2026-09-22: a
+      //   "sent" badge on every card did not read; what the leak needs is
+      //   motion, size and a destination.) —
+      var stops = [["1,2", 1.25], ["3,4", 2.65], ["1,6", 4.05]];
+      stops.forEach(function (st) {
+        var key = st[0], t = st[1], h = HOT[key];
+        var card = world.querySelector('[data-hot="' + key + '"]');
+        var txt = card.querySelector(".f02-txt"), send = card.querySelector(".f02-send"), k = { v: 0 };
+        var to = cam(key, S), mv = 0.36;
+        tl.to("#f02-world", { scale: to.scale, x: to.x, y: to.y, duration: mv, ease: "power4.inOut" }, t);
+        whip(t);
+        tl.to(k, { v: h.hot.length, duration: 0.34, ease: "none", onUpdate: function () { txt.textContent = h.hot.slice(0, Math.round(k.v)); } }, t + mv - 0.04);
+        tl.to(card.querySelector(".f02-mark"), { scaleX: 1, duration: 0.18, ease: "power4.out" }, t + mv + 0.28);
+        // A short drift, then a beat of real stillness before the click.
+        var drift = cam(key, S * 1.06);
+        tl.to("#f02-world", { scale: drift.scale, x: drift.x, y: drift.y, duration: 0.4, ease: "none" }, t + mv);
+        // The click: frame 1's gesture, at the card's own send button.
+        var CL = t + 0.9;
+        tl.to(send, { scale: 0.8, duration: 0.07, ease: "power2.in" }, CL);
+        tl.to(send, { scale: 1, duration: 0.2, ease: "back.out(4)" }, CL + 0.08);
+        tl.to(card, { scale: 0.975, duration: 0.07, ease: "power2.in" }, CL + 0.02);
+        tl.to(card, { scale: 1, duration: 0.15, ease: "back.out(3)" }, CL + 0.1);
+        // The secret goes: a small lift, then it accelerates straight up and out.
+        tl.fromTo(txt, { y: 0, scale: 1 }, { y: -900, scale: 0.75, duration: 0.42, ease: "power3.in", immediateRender: false }, CL + 0.1);
+        // Gone for good — in the wide shot the world above the wall is in frame.
+        tl.to(txt, { opacity: 0, duration: 0.06 }, CL + 0.48);
+      });
+
+      // — the wide shot: the edge of the machine, and everything crosses it —
+      // The camera comes back wide, a little lower than before so the wall sits
+      // under a hairline drawn across the top of the frame: "outside your
+      // machine". Then the whole wall empties upward: every skeleton bar lifts
+      // off its card and crosses the line, and the three secrets launch again
+      // from their cards toward the lens, readable as they pass. The wall is
+      // left standing, hollow. Frame 6 is the answer to this shot.
+      var WIDE = 5.45;
+      tl.to("#f02-world", { scale: 0.5, x: 0, y: 52, duration: 0.42, ease: "power4.inOut" }, WIDE);
+      whip(WIDE);
+      tl.to("#f02-edge", { scaleX: 1, duration: 0.45, ease: "expo.out" }, WIDE + 0.4);
+      tl.fromTo("#f02-edgelabel", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, WIDE + 0.5);
+      tl.to("#f02-world", { scale: 0.52, y: 62, duration: 2.0, ease: "none" }, WIDE + 0.42);
+      var GO = WIDE + 0.5;
+      // Bars in a fixed scatter (31 is coprime with the count), never random.
+      var bars = world.querySelectorAll(".f02-sk");
+      for (var j = 0; j < bars.length; j++) {
+        var b = bars[(j * 31) % bars.length];
+        tl.to(b, { y: -2600, duration: 0.85, ease: "power2.in" }, GO + (j / bars.length) * 0.55);
+      }
+      ["1,2", "3,4", "1,6"].forEach(function (key, i) {
+        var p = world.querySelector('[data-pkt="' + key + '"]');
+        tl.set(p, { opacity: 1 }, GO + 0.08 + i * 0.14);
+        tl.fromTo(p, { y: 0, scale: 1, filter: "blur(0px)" }, { y: -2300, scale: 2.7, filter: "blur(3px)", duration: 1.0, ease: "power2.in", immediateRender: false }, GO + 0.08 + i * 0.14);
+      });
+
+      // — out through the camera; "Write the rule in a sentence" arrives under it —
+      tl.to("#f02-world", { scale: 2.3, opacity: 0, filter: "blur(26px)", duration: 0.5, ease: "power4.in" }, 7.45);
+      tl.to(["#f02-edge", "#f02-edgelabel"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 7.5);
+      window.__timelines["02-signed-the-policy"] = tl;
+    })();
+  </script>
+</template>
