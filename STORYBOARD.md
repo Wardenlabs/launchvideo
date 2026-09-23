@@ -9,6 +9,18 @@ music: calm, minimal electronic pulse, restrained, builds once at the rule split
 narration: none
 ---
 
+## Changes from v27 — product component fidelity
+
+- Rebuilt the product surfaces from the current Warden console rather than
+  using generic cards: Activity uses its five-column decision row, Rules uses
+  the real catalogue columns, status language and role label, and the local
+  proof is now an Activity record with the prompt-retention fact beneath it.
+- Status semantics now match the product: verdicts are coloured words, the
+  person or rule state owns the small dot, block uses `#B91C41` with
+  `#FFF0F3`, allow uses `#087356`, and pass results say `Matched` / `Clear`.
+- The CTA now uses the landing's actual macOS download control with the Apple
+  mark and download arrow. The oversized tutorial cursor is gone.
+
 ## Changes from v26 — data first, 24 seconds
 
 - The film now opens on the problem: Warden Activity rows rush the camera under
@@ -416,3 +428,52 @@ third brings in a decision row so "You see that it did." is shown, not said.
 
 The landing's own three-sentence line closes it, because by now the video has
 shown all three. Centred. No colour.
+
+
+## v28 — Cinematic fragments, not an interface tour
+
+The owner clarified that component fidelity means Warden’s identity, not showing every field. Light surfaces, graphite type, coral verdicts, mint activation and the original shield remain; proportions and framing are adapted for film. No audio, no new push.
+
+- Opener: request/verdict fragments only. Removed people, audience, timestamps and rule columns.
+- Rules: one instruction becomes three readable rule fragments, then the customer-data rule takes the frame. Review and activation are separate visible beats.
+- Block: the repeated request cuts to a single oversized verdict and zero rows sent. Removed model controls, five-rule checklist and secondary interface chrome.
+- Local: a single local-evaluation badge and “On your machine.” replace the Activity table and hash explanation.
+- Close: original lockup, “Your AI. Your rules.” and the download action; no decorative interface wall.
+
+The 24.45-second structure and initial camera sequence stay. New shots use explicit local times, without timeline-duration rescaling. These are stylized product fragments, not screen recordings.
+
+
+## v29 — Colour carries the edit
+
+Owner rejected the quiet ending, weak colour presence, oversized hook button and local-evaluation badge. Keep the Warden palette but use full saturation for semantic beats: coral for data exposure/block, mint for active control/local checking and the brand resolution.
+
+- Hook: cropped composer → graphite Send action with no cursor/glow → coral 4,812-record impact. Authored at real 3.5-second timing.
+- Opener: coral-backed data word, readable within the first second.
+- Risk montage: bake original camera timing into the 5.2-second seek contract, replacing parent duration scaling.
+- Activation: mint field. Block: coral field, oversized graphite verdict.
+- Local: two clipped typographic hits, Checked / Locally, and a large shield on a mint panel. Panel expands to carry colour into the ending.
+- End: kinetic Your rules resolves to a large original Warden lockup on mint. Remove website-style button and dispersed footer. Hold repository URL and brand.
+
+Silent local preview only. No push or publish.
+
+
+## v30 — Black and white; moving backgrounds
+
+Owner explicitly rejected the saturated treatment. Supersedes v29 colour direction: use black, white and neutral greys throughout, including the employee montage. Keep the request-cloud depth and camera movement. Risk/count and block become black cuts with white type. Activation stays pale grey. Local checking uses a moving dot field and a framed shield; its black wipe leads into a dark brand close with a broad travelling reflection and a cropped shield silhouette. Remove the FREE & OPEN SOURCE eyebrow, coloured dots, giant highlighted word box and repeated local-evaluation badges. No audio, no push.
+
+Apply gpt-taste to wide typography and composed motion, not its website-only navbar, bento or ScrollTrigger requirements. Keep the Warden typography/asset identity. anti-ai-slop-writing applies to revised copy.
+
+
+## v31 — Show the stop
+
+Owner rejected the huge Blocked statement, the following on-device card and the churn-question composer. Remove all three treatments. Hook follows the CSV attachment along a path and out through Send, retaining the record-count impact. The return shot reuses that file fragment; the active Warden rule forms a boundary and stops the file with a short recoil. Show zero records sent beside that boundary and “This stays with you.” below. Then cut directly to the existing monochrome brand ending. Remove the separate local scene; total film is 22.95 seconds. These are narrative graphics, not an app screenshot or a claim about a measured incident. No audio and no push.
+
+
+## v32 — Remove the record-count title card
+
+Owner rejected the oversized 4,812 title card. Delete that card and its dark transition entirely. Keep the attachment/send gesture, then move directly into the existing request montage. Shift subsequent scenes earlier by 1.5 seconds; total is 21.45 seconds. The file still carries its small record-count metadata, but the edit no longer stops to announce it. Monochrome, silent, local preview only; no push.
+
+
+## v33 — One moving visual field
+
+Owner asked for a continuous sequence of backgrounds and a consistent contemporary treatment. Add a single shared moving field of cropped product surfaces behind the transparent scenes. It carries one direction of travel and inverts from light to graphite at the decision, continuing into the ending. The request montage retains its detailed source components. Remove the diagrammatic boundary, stop icon, zero counter and “This stays with you” statement. Replace them with a camera move into a Warden decision fragment: attachment, matching rule, compact Blocked state. No giant verdict, no new title card. Block is 3.2 seconds and the film is 20.65 seconds. Remove the unrelated shield/reflection scenery from the ending; the same product field continues beneath the lockup. Silent preview; no push.

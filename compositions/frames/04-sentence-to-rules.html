@@ -1,175 +1,43 @@
 <template>
-  <style>
-    @font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:block;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");}
-    @font-face{font-family:"Inter";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/Inter-Variable.ttf") format("truetype");}
-    @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
-    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#22282A;font-family:"Inter",sans-serif}
-    .f04-stage{position:absolute;inset:0}
-    /* Fragments, not screens (the rule frame 1 set). This frame used to be the
-       whole console with a camera flying around it; the one thing the product
-       does — a sentence becoming five rules — was lost inside a list with five
-       columns. Now: the sentence, a button alone, and the click's consequence.
-       Warden's side is cool white, hairlines, graphite, flat — no shadow, which
-       is how it is told apart from Claude's warm, shadowed box in frame 1. */
-    .f04-tint{position:absolute;inset:0;background:rgba(52,211,153,.12)}
-    .f04-layer{position:absolute;inset:0;transform-origin:50% 50%}
-    .f04-center{display:flex;align-items:center;justify-content:center}
+<style>@font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}@font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}@font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
+#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#272727;font-family:Inter,sans-serif}.stage,.layer{position:absolute;inset:0}.display{font-family:Manrope,sans-serif;font-weight:600;letter-spacing:-.055em;line-height:1.04}.dot{display:inline-block;width:18px;height:18px;border-radius:50%;background:#202020;flex:none}.meta{font-family:Mono,monospace;font-size:23px;letter-spacing:-.03em}.mark{object-fit:contain}
 
-    /* A. the sentence */
-    .f04-label{position:absolute;left:250px;top:378px;font-family:"Geist Mono";font-size:30px;line-height:1;color:#7D8788}
-    .f04-box{position:absolute;left:230px;top:440px;width:2700px;height:200px;background:#FFFFFF;border:1px solid #DDE2DF;border-radius:64px}
-    .f04-txt{position:absolute;left:70px;top:45px;height:110px;font-size:84px;line-height:110px;white-space:pre;color:#22282A}
-    .f04-ph{position:absolute;left:0;top:0;color:#9AA3A3}
-    .f04-caret{display:inline-block;width:7px;height:92px;background:#22282A;vertical-align:-16px;margin-left:8px}
-    /* Frame 3's line, continued: same place, same size (6.2cqw at the 1.06 it
-       had drifted to), then it shrinks into the box and becomes the placeholder. */
-    .f04-fly{position:absolute;left:50%;top:50%;margin-top:-69.4px;font-family:"Manrope";font-weight:600;font-size:126.2px;line-height:1.1;letter-spacing:-.05em;white-space:nowrap;color:#22282A;transform-origin:0% 50%;z-index:5}
+.hinge{position:absolute;inset:0;display:grid;place-items:center;font-size:126px;white-space:nowrap}
+.composer{position:absolute;left:220px;top:338px;width:1480px;height:370px;padding:52px 60px;background:white;border:2px solid #E1E1E1;border-radius:24px}
+.label{font-size:26px;color:#6C6C6C}.sentence{margin-top:25px;font-size:65px;white-space:nowrap}.draft{position:absolute;right:36px;bottom:28px;background:#272727;color:white;border-radius:12px;padding:19px 28px;font-size:28px;display:flex;gap:30px;align-items:center}
+.stack{position:absolute;inset:0}.rule{position:absolute;left:230px;width:1460px;height:150px;display:flex;align-items:center;gap:30px;padding:0 52px;border:1px solid #E9E9E9;background:white;border-radius:18px;font-size:49px;letter-spacing:-.035em}#hero{top:298px}#second{top:465px}#third{top:632px}.rule .effect{margin-left:auto;display:flex;align-items:center;gap:16px;font-size:28px;letter-spacing:-.02em;color:#252525}.small{position:absolute;left:236px;top:223px;font-size:26px;color:#6C6C6C}.active{position:absolute;left:50%;top:685px;transform:translateX(-50%);height:86px;display:flex;align-items:center;gap:20px;padding:0 32px;background:#272727;color:white;border-radius:12px;font-size:31px}.active .dot{background:#E8E8E8;width:14px;height:14px}.wash{position:absolute;inset:0;background:rgba(232,232,232,.36)}.live{color:#272727;font-size:30px;position:absolute;left:283px;top:640px;display:flex;gap:15px;align-items:center}.live .dot{background:#272727}
+</style>
+<div id="root" data-hf-id="v28-04-root" data-composition-id="04-sentence-to-rules" data-width="1920" data-height="1080">
+<div id="f04-stage" class="clip stage" data-hf-id="v28-04-stage" data-start="0" data-duration="5.8" data-track-index="1"><div data-hf-id="v28-04-1" class="wash" id="wash"></div><div data-hf-id="v28-04-2" class="hinge display" id="hinge">Write the rule in a sentence</div>
+<div data-hf-id="v28-04-3" class="composer" id="composer"><div data-hf-id="v28-04-4" class="label">Your rule</div><div data-hf-id="v28-04-5" class="sentence display" id="sentence">Keep customer data private.</div><div data-hf-id="v28-04-6" class="draft" id="draft">Draft rules <span data-hf-id="v28-04-7">↵</span></div></div>
+<div data-hf-id="v28-04-8" class="stack" id="stack"><div data-hf-id="v28-04-9" class="small" id="review">Review your rules</div><div data-hf-id="v28-04-10" class="rule" id="hero"><span data-hf-id="v28-04-11">Customer contact details</span><span data-hf-id="v28-04-12" class="effect"><i data-hf-id="v28-04-13" class="dot"></i>Block</span></div><div data-hf-id="v28-04-14" class="rule" id="second"><span data-hf-id="v28-04-15">Credentials and API keys</span><span data-hf-id="v28-04-16" class="effect"><i data-hf-id="v28-04-17" class="dot"></i>Block</span></div><div data-hf-id="v28-04-18" class="rule" id="third"><span data-hf-id="v28-04-19">Internal documents</span><span data-hf-id="v28-04-20" class="effect"><i data-hf-id="v28-04-21" class="dot"></i>Block</span></div><div data-hf-id="v28-04-22" class="active" id="activate">Activate rules <span data-hf-id="v28-04-23">↵</span></div><div data-hf-id="v28-04-24" class="live" id="live"><i data-hf-id="v28-04-25" class="dot"></i>Active</div></div></div></div>
+<script>(function(){
+// Camera crops and overlapping entrance/exit poses are intentional in this film.
+document.querySelectorAll('.stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
+var tl=gsap.timeline({paused:true});
 
-    /* B/C. One compact action at a time. The old oversized cursor made this
-       read like a tutorial; the action now lands as part of the product. */
-    .f04-btnw{position:relative}
-    .f04-btn{height:156px;min-width:650px;padding:0 34px 0 52px;border-radius:22px;background:#22282A;color:#FFFFFF;display:flex;align-items:center;justify-content:space-between;gap:90px;font-size:64px;font-weight:500;white-space:nowrap}
-    .f04-key{width:86px;height:86px;border:1px solid rgba(255,255,255,.34);border-radius:14px;display:grid;place-items:center;font-family:"Geist Mono";font-size:38px;line-height:1}
+gsap.set(['#wash','#composer','#stack','#live'],{opacity:0});
+tl.to('#hinge',{scale:.55,opacity:0,y:-100,duration:.42,ease:'power4.in'},.02);
+tl.fromTo('#composer',{scale:.8,y:90,opacity:0},{scale:1,y:0,opacity:1,duration:.46,ease:'expo.out'},.25);
+tl.fromTo('#sentence',{y:22,opacity:0},{y:0,opacity:1,duration:.35,ease:'expo.out'},.55);
+tl.to('#composer',{scale:1.045,duration:1.1,ease:'none'},.72);
+tl.to('#draft',{scale:.94,duration:.08},1.68);
+tl.to('#draft',{scale:1,duration:.18,ease:'back.out(2)'},1.76);
+tl.to('#composer',{scale:1.5,opacity:0,duration:.25,ease:'power4.in'},1.94);
+tl.set('#stack',{opacity:1},2.12);
+tl.fromTo('.rule',{y:200,scale:.78,opacity:0},{y:0,scale:1,opacity:1,duration:.46,stagger:.1,ease:'expo.out'},2.12);
+tl.fromTo('#review',{opacity:0,y:15},{opacity:1,y:0,duration:.3},2.23);
+tl.fromTo('#activate',{opacity:0,y:140},{opacity:1,y:115,duration:.35,ease:'expo.out'},2.5);
+tl.to(['#second','#third','#review'],{opacity:0,y:150,duration:.26,stagger:.04,ease:'power3.in'},3.35);
+tl.to('#hero',{y:167,scale:1.045,duration:.42,ease:'power4.inOut'},3.35);
+tl.to('#activate',{y:0,duration:.42,ease:'power4.inOut'},3.35);
+tl.to('#activate',{scale:.94,duration:.08},4.02);
+tl.to('#activate',{opacity:0,scale:1.2,duration:.2,ease:'power3.in'},4.12);
+tl.to('#wash',{opacity:1,duration:.22},4.16);
+tl.fromTo('#live',{opacity:0,y:15},{opacity:1,y:0,duration:.28,ease:'expo.out'},4.23);
+tl.to('#stack',{scale:1.04,duration:.8,ease:'none'},4.35);
+tl.to('#stack',{scale:1.65,opacity:0,duration:.3,ease:'power4.in'},5.42);
+tl.to('#wash',{opacity:0,duration:.25},5.5);
 
-    /* the rules */
-    .f04-rules{position:absolute;left:340px;top:134px;width:1240px}
-    .f04-fb{position:relative;height:96px;display:flex;align-items:center;gap:26px;padding:0 36px;background:#E9F8F1;border:1px solid #BFEBD8;border-radius:16px;margin-bottom:24px}
-    .f04-tick{flex:none;width:48px;height:48px;border-radius:50%;background:#34D399;display:grid;place-items:center;color:#FFFFFF;font-size:30px;font-weight:700;line-height:1}
-    .f04-fbt{position:absolute;left:110px;top:0;line-height:96px;font-size:42px;font-weight:600;white-space:nowrap}
-    .f04-n{display:inline-block;transform-origin:50% 60%}
-    .f04-rule{position:relative;height:124px;margin-bottom:18px;display:flex;align-items:center;padding:0 44px;background:#FFFFFF;border:1px solid #E7EAE8;border-radius:16px;font-size:46px;font-weight:500}
-    .f04-dot{flex:none;width:20px;height:20px;border-radius:50%;background:#C3C9C6;margin-right:30px}
-    .f04-name{flex:1;white-space:nowrap}
-    .f04-b{display:flex;align-items:center;gap:16px;font-size:40px;font-weight:500;white-space:nowrap;transform-origin:50% 50%}
-    .f04-b i{width:18px;height:18px;border-radius:50%}
-    .f04-eff i{background:#FF3B5C}
-    .f04-act{margin-right:56px}
-    .f04-act i{background:#34D399}
-
-  </style>
-
-  <div data-hf-id="hf-hx7l" id="root" data-composition-id="04-sentence-to-rules" data-width="1920" data-height="1080">
-    <div data-hf-id="hf-dzl1" class="clip f04-stage" id="f04-stage" data-start="0" data-duration="5.8" data-track-index="1">
-      <div data-hf-id="hf-mu26" class="f04-tint" id="f04-tint"></div>
-
-      <!-- the rules -->
-      <div data-hf-id="hf-a4zw" class="f04-layer" id="f04-cam">
-        <div data-hf-id="hf-ofd7" class="f04-layer" id="f04-rulescene">
-          <div data-hf-id="hf-53lw" class="f04-rules">
-            <div data-hf-id="hf-crie" class="f04-fb" id="f04-fb"><span data-hf-id="hf-qg74" class="f04-tick" id="f04-tick">✓</span><span data-hf-id="hf-q119" class="f04-fbt" id="f04-t1"><span data-hf-id="hf-p7qw" class="f04-n" id="f04-n">1</span> rules created</span><span data-hf-id="hf-aeak" class="f04-fbt" id="f04-t2">5 rules activated</span></div>
-            <div data-hf-id="hf-qmgd" class="f04-rule"><span data-hf-id="hf-o793" class="f04-dot"></span><span data-hf-id="hf-1lml" class="f04-name">Customer contact details</span><span data-hf-id="hf-llob" class="f04-b f04-act"><i data-hf-id="hf-wt6k"></i>Active</span><span data-hf-id="hf-62n1" class="f04-b f04-eff"><i data-hf-id="hf-zeb8"></i>Block</span></div>
-            <div data-hf-id="hf-x0bl" class="f04-rule"><span data-hf-id="hf-ctdj" class="f04-dot"></span><span data-hf-id="hf-lr4u" class="f04-name">Credentials and API keys</span><span data-hf-id="hf-ljuj" class="f04-b f04-act"><i data-hf-id="hf-y7e5"></i>Active</span><span data-hf-id="hf-xp81" class="f04-b f04-eff"><i data-hf-id="hf-ylp6"></i>Block</span></div>
-            <div data-hf-id="hf-y78o" class="f04-rule"><span data-hf-id="hf-cf2i" class="f04-dot"></span><span data-hf-id="hf-x6up" class="f04-name">Unreleased financials</span><span data-hf-id="hf-l5ji" class="f04-b f04-act"><i data-hf-id="hf-0l8b"></i>Active</span><span data-hf-id="hf-yw54" class="f04-b f04-eff"><i data-hf-id="hf-0zjc"></i>Block</span></div>
-            <div data-hf-id="hf-xsxn" class="f04-rule"><span data-hf-id="hf-c0rh" class="f04-dot"></span><span data-hf-id="hf-ya9n" class="f04-name">Source code</span><span data-hf-id="hf-kr8h" class="f04-b f04-act"><i data-hf-id="hf-zsm9"></i>Active</span><span data-hf-id="hf-yhu3" class="f04-b f04-eff"><i data-hf-id="hf-06xa"></i>Block</span></div>
-            <div data-hf-id="hf-vtei" class="f04-rule"><span data-hf-id="hf-eswo" class="f04-dot"></span><span data-hf-id="hf-t7bg" class="f04-name">Internal documents</span><span data-hf-id="hf-kcxg" class="f04-b f04-act"><i data-hf-id="hf-26gf"></i>Active</span><span data-hf-id="hf-sgbu" class="f04-b f04-eff"><i data-hf-id="hf-2krg"></i>Block</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- A. the sentence -->
-      <div data-hf-id="hf-hn1g" class="f04-layer" id="f04-sentence">
-        <div data-hf-id="hf-11nx" class="f04-label" id="f04-label">warden</div>
-        <div data-hf-id="hf-k2jm" class="f04-box" id="f04-box">
-          <div data-hf-id="hf-iljt" class="f04-txt"><span data-hf-id="hf-vi3i" class="f04-ph" id="f04-ph">Write the rule in a sentence…</span><span data-hf-id="hf-vpbv" id="f04-typed"></span><span data-hf-id="hf-4n0j" class="f04-caret" id="f04-caret"></span></div>
-        </div>
-      </div>
-      <div data-hf-id="hf-uogp" class="f04-fly" id="f04-fly">Write the rule in a sentence</div>
-
-      <!-- B, C. one action at a time -->
-      <div data-hf-id="hf-34fz" class="f04-layer f04-center" id="f04-s1"><div data-hf-id="hf-q9gt" class="f04-btnw" id="f04-bw1"><div data-hf-id="hf-tn7h" class="f04-btn" id="f04-b1"><span data-hf-id="hf-8r3n">Draft rules</span><span data-hf-id="hf-g9jk" class="f04-key" id="f04-k1">↵</span></div></div></div>
-      <div data-hf-id="hf-ugk4" class="f04-layer f04-center" id="f04-s2"><div data-hf-id="hf-u7ku" class="f04-btnw" id="f04-bw2"><div data-hf-id="hf-klox" class="f04-btn" id="f04-b2"><span data-hf-id="hf-70hh">Activate 5 rules</span><span data-hf-id="hf-zptn" class="f04-key" id="f04-k2">↵</span></div></div></div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      Array.prototype.forEach.call(document.querySelectorAll("#f04-stage *"), function (el) {
-        el.setAttribute("data-layout-allow-overlap", "");
-        el.setAttribute("data-layout-allow-occlusion", "");
-        el.setAttribute("data-layout-allow-overflow", "");
-      });
-      var typed = document.getElementById("f04-typed"), nEl = document.getElementById("f04-n");
-      var text = "make sure no one leaks data";
-      var k = { v: 0 }, cnt = { v: 1 };
-      typed.textContent = "";
-      var rows = gsap.utils.toArray(".f04-rule");
-
-      gsap.set(["#f04-tint", "#f04-fb", "#f04-t2", "#f04-ph", "#f04-bw1", "#f04-bw2", "#f04-box", "#f04-label"], { opacity: 0 });
-      gsap.set([rows, ".f04-eff", ".f04-act"], { opacity: 0 });
-      gsap.set(["#f04-k1", "#f04-k2"], { opacity: 0 });
-
-      var tl = gsap.timeline({ paused: true });
-      function through() { return { scale: 1.9, opacity: 0, filter: "blur(22px)", duration: 0.26, ease: "power4.in" }; }
-      function action(btn, key, t) {
-        tl.fromTo(key, { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.22, ease: "expo.out" }, t);
-        tl.to(btn, { scale: 0.975, duration: 0.07, ease: "power2.in" }, t + 0.33);
-        tl.to(key, { y: 5, duration: 0.07, ease: "power2.in" }, t + 0.33);
-        tl.to(btn, { scale: 1, duration: 0.2, ease: "back.out(3)" }, t + 0.41);
-        tl.to(key, { y: 0, duration: 0.2, ease: "back.out(3)" }, t + 0.41);
-        return t + 0.64;
-      }
-
-      // — A. The hinge, then the sentence. 27 characters fit the frame at this
-      //   size, so nothing has to move while it is read. —
-      tl.fromTo(["#f04-box", "#f04-label"], { opacity: 0, scale: 0.7, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out", transformOrigin: "20% 50%" }, 0.12);
-      tl.set(["#f04-box", "#f04-label"], { filter: "none" }, 0.58);
-      tl.fromTo("#f04-fly", { xPercent: -50, x: 0, y: 0, scale: 1, opacity: 1 }, { xPercent: 0, x: -659, y: 0, scale: 0.63, duration: 0.7, ease: "power4.inOut" }, 0.02);
-      tl.to("#f04-fly", { opacity: 0, duration: 0.14 }, 0.66);
-      tl.to("#f04-ph", { opacity: 1, duration: 0.14 }, 0.66);
-      tl.to("#f04-ph", { opacity: 0, duration: 0.08 }, 1.02);
-      tl.to(k, { v: text.length, duration: 0.9, ease: "none", onUpdate: function () { typed.textContent = text.slice(0, Math.round(k.v)); } }, 1.06);
-      tl.fromTo("#f04-sentence", { scale: 1 }, { scale: 1.04, duration: 1.2, ease: "none" }, 1.06);
-      tl.to("#f04-caret", { opacity: 0, duration: 0.01 }, 2.2);
-      tl.to("#f04-sentence", through(), 2.28);
-
-      // — B. "Draft rules" — the console's own label — alone, and the hand. —
-      tl.fromTo("#f04-bw1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.38, ease: "expo.out" }, 2.4);
-      var c1 = action("#f04-b1", "#f04-k1", 2.57);
-
-      // — The consequence, and the point of the film: the button comes apart
-      //   into five rules. They leave from where it was, fan to their places, and
-      //   the banner counts them in. —
-      tl.to("#f04-b1", { scaleX: 1.5, scaleY: 0.2, opacity: 0, duration: 0.2, ease: "power4.in" }, c1);
-      tl.fromTo("#f04-fb", { opacity: 0, scale: 0.85, y: 300 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, c1 + 0.12);
-      rows.forEach(function (r, i) {
-        // slot i sits (i - 2) * 142 from the middle row; they all start on the button.
-        tl.fromTo(r, { opacity: 0, y: -(i - 1.6) * 142, scaleX: 0.5, scaleY: 0.4 }, { opacity: 1, y: 0, scaleX: 1, scaleY: 1, duration: 0.5, ease: "back.out(1.5)" }, c1 + 0.14 + i * 0.09);
-        if (i < 4) tl.fromTo("#f04-n", { scale: 1.6 }, { scale: 1, duration: 0.09, ease: "power4.out", immediateRender: false }, c1 + 0.14 + i * 0.09);
-      });
-      tl.to(cnt, { v: 5, duration: 0.36, ease: "none", onUpdate: function () { nEl.textContent = String(Math.round(cnt.v)); } }, c1 + 0.14);
-      tl.fromTo("#f04-n", { scale: 1.9 }, { scale: 1, duration: 0.32, ease: "back.out(3)", immediateRender: false }, c1 + 0.52);
-      tl.fromTo(".f04-eff", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3.2)", stagger: 0.09 }, c1 + 0.62);
-      tl.fromTo("#f04-rulescene", { scale: 1 }, { scale: 1.03, duration: 1.3, ease: "none" }, c1 + 0.2);
-
-      // — C. They recede; "Activate 5 rules" alone; the same hand. —
-      var tC = c1 + 1.55;
-      tl.to("#f04-rulescene", { scale: 0.84, opacity: 0.3, filter: "blur(9px)", duration: 0.4, ease: "power4.inOut" }, tC);
-      tl.fromTo("#f04-bw2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.38, ease: "expo.out" }, tC + 0.1);
-      var c2 = action("#f04-b2", "#f04-k2", tC + 0.28);
-      tl.to("#f04-bw2", through(), c2);
-      // Second of the film's three clicks, each with its colour: orange, the data
-      // left (frame 1); mint, the rules are in force; coral, the send was stopped.
-      tl.to("#f04-tint", { opacity: 1, duration: 0.3, ease: "power2.out" }, c2 + 0.06);
-      tl.to("#f04-rulescene", { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, c2 + 0.06);
-      tl.to(".f04-dot", { backgroundColor: "#34D399", duration: 0.08, stagger: 0.09 }, c2 + 0.36);
-      // "Active" is the console's own word under a rule that is in force
-      // (web/js/draft-set.js); drawn as Figma's Active badge.
-      tl.fromTo(".f04-act", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3.2)", stagger: 0.09 }, c2 + 0.36);
-      tl.to("#f04-t1", { opacity: 0, duration: 0.1 }, c2 + 0.8);
-      tl.to("#f04-t2", { opacity: 1, duration: 0.14 }, c2 + 0.86);
-      tl.fromTo("#f04-fb", { scale: 1 }, { scale: 1.04, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, c2 + 0.86);
-      tl.fromTo("#f04-tick", { scale: 1.7 }, { scale: 1, duration: 0.3, ease: "back.out(4)", immediateRender: false }, c2 + 0.86);
-
-      // — Out. There was a wide shot of the whole console here for one draft; the
-      //   owner cut it ("no creo necesario mostrar la view completa"). The rows
-      //   in force are the last thing seen. —
-      var tD = c2 + 1.5;
-      tl.set("#f04-rulescene", { filter: "none" }, c2 + 0.5);
-      tl.fromTo("#f04-cam", { scale: 1 }, { scale: 1.03, duration: 0.9, ease: "none" }, c2 + 0.6);
-      tl.to("#f04-cam", { scale: 2.1, opacity: 0, filter: "blur(24px)", duration: 0.6, ease: "power4.in" }, tD);
-      tl.to("#f04-tint", { opacity: 0, duration: 0.6 }, tD);
-      tl.duration(5.8);
-      window.__timelines["04-sentence-to-rules"] = tl;
-    })();
-  </script>
-</template>
+window.__timelines['04-sentence-to-rules']=tl;
+})();</script></template>

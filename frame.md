@@ -181,3 +181,17 @@ Local files only, never the network. Paste into every frame:
 @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
 </style>
 ```
+
+
+### Film adaptation rule — v28
+Use Warden components as visual source material. Keep the brand, typography and state semantics, but crop away secondary fields and enlarge the single meaningful interaction. A complete UI panel is not a fidelity requirement. Never turn a 1–4 second shot into a table-reading task.
+
+### Colour amplitude — v29 owner correction
+Full-saturation coral and mint fields are approved for the exposure/block and control/local/brand beats. This supersedes older prose limiting feedback colours to low-opacity backgrounds. Neutral base and light-mode typography remain. Avoid the orange glow and oversized pointer: the hook action is graphite, and its consequence supplies coral.
+
+### v30: owner-approved palette correction
+Black, white and neutral greys only. This supersedes all prior restrictions against dark scenes and all v29 saturated surfaces. Background interest comes from moving source UI fragments, the original shield silhouette and soft monochrome reflections. No accent hue. Keep Warden fonts and vector logo.
+
+
+### v33: continuous motion language
+The shared backdrop is made from cropped product surfaces moving diagonally through the camera, not independent decorative backgrounds. Light-to-graphite inversion marks the decision and continues through the brand ending. Components settle with expo.out, drift subtly while readable, and leave through a short accelerating camera push. Decision semantics stay at component scale; no diagrammatic gate, oversized verdict or numeric title card.

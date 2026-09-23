@@ -1,173 +1,45 @@
 <template>
-  <style>
-    @font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:block;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");}
-    @font-face{font-family:"Inter";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/Inter-Variable.ttf") format("truetype");}
-    @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
-    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#22282A}
-    .f05-ground{position:absolute;inset:0;background:#F4F5F4}
-    /* The only time the ground itself changes colour. Saturation is kept for a
-       verdict everywhere else in the film so that here it can take the frame. */
-    .f05-tint{position:absolute;inset:0}
-    /* Figma: "fondos al 10%: solo para mensajes de feedback". A block is one. */
-    #f05-pink{background:rgba(255,59,92,.13)}
-    .f05-stage{position:absolute;inset:0}
-    .f05-world{position:absolute;inset:0;will-change:transform,filter}
-    /* The employee's side: Claude's light composer in Code mode, as in frame 1.
-       Warden's side — the rules card — stays light. */
-    .f05-term{box-shadow:0 .5cqw 1.8cqw rgba(70,55,30,.10),0 .1cqw .3cqw rgba(70,55,30,.08);position:absolute;background:#FAF9F5;border:1px solid #D3CFC0;border-radius:1.5cqw;padding:1.6cqw 1.7cqw 1.2cqw;color:#1F1E1D;font-family:"Inter",sans-serif;will-change:transform,filter}
-    #f05-t1{left:6cqw;width:54cqw;top:10cqw}
-    .f05-pline{height:2.6cqw;font-size:1.8cqw;line-height:1.42;white-space:pre}
-    .f05-caret{display:inline-block;width:.2cqw;height:2cqw;background:#1F1E1D;vertical-align:-.35cqw;margin-left:.2cqw}
-    .f05-chiprow{margin-top:1.1cqw;height:3.2cqw;display:flex;gap:1cqw;align-items:center}
-    .f05-chip{display:inline-flex;align-items:center;gap:.9cqw;height:3.2cqw;border:1px solid #DEDBCF;background:#F0EEE6;border-radius:.7cqw;padding:0 1cqw;font-family:"Geist Mono";font-size:1.35cqw;color:#6B6A64;transform-origin:0% 50%;white-space:nowrap}
-    .f05-chip b{font-weight:400;color:#1F1E1D}
-    .f05-chip b.n{font-weight:600;color:#1F1E1D;display:inline-block;min-width:5ch;text-align:right;font-variant-numeric:tabular-nums}
-    /* Figma state pattern on the dark chip: a coral bullet, the words in the chip's own ink. */
-    .f05-chip.red{color:#1F1E1D}
-    .f05-chip.red::before{content:"";width:.75cqw;height:.75cqw;border-radius:50%;background:#FF3B5C}
-    /* Last thing in its row, so it may shrink as the count falls. */
-    .f05-chip.red b.n{min-width:0}
-    .f05-foot{margin-top:1.5cqw;display:flex;align-items:center;justify-content:space-between}
-    .f05-left,.f05-right{display:flex;align-items:center;gap:1.2cqw}
-    .f05-plus{font-size:2cqw;line-height:1;color:#1F1E1D;font-weight:300}
-    .f05-modes{display:flex;gap:.2cqw;padding:.25cqw;background:#EFEDE4;border-radius:.75cqw;font-size:1.25cqw}
-    .f05-modes span{padding:.38cqw .95cqw;border-radius:.55cqw;color:#87867F}
-    .f05-modes span.on{background:#FFFFFF;box-shadow:inset 0 0 0 1px #D9D6CA;color:#1F1E1D}
-    .f05-model{font-size:1.25cqw;color:#5E5D59}
-    .f05-send{width:3cqw;height:3cqw;border-radius:.75cqw;background:#C96442;display:grid;place-items:center;color:#FFFFFF;font-size:1.7cqw;line-height:1}
-    /* Frame 4's five rules, small: what the prompt is being judged against. */
-    .f05-rules{position:absolute;left:63cqw;width:31cqw;top:12cqw;background:#FFFFFF;border:1px solid #E7EAE8;border-radius:.55cqw;padding-bottom:.8cqw;font-family:"Inter",sans-serif;will-change:transform}
-    .f05-rh{font-family:"Geist Mono";font-size:1cqw;color:#656E6F;padding:.85cqw 1.3cqw;border-bottom:1px solid #E7EAE8}
-    .f05-r{position:relative;display:grid;grid-template-columns:1.6cqw 1fr auto;align-items:center;column-gap:.6cqw;height:2.95cqw;padding:0 1.3cqw;font-size:1.3cqw;font-weight:500;border-bottom:1px solid #E7EAE8}
-    .f05-r:last-child{border-bottom:0}
-    .f05-rbg{position:absolute;inset:0;background:rgba(255,59,92,.10)}
-    .f05-r > span{position:relative}
-    .f05-d{width:.7cqw;height:.7cqw;border-radius:50%;background:#C3C9C6}
-    .f05-st{font-family:"Geist Mono";font-size:1.05cqw;font-weight:400;color:#7D8788}
-    .f05-st.hit{color:#22282A;font-weight:600}
-    .f05-say{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-    /* The stamp: the design system's Block badge at the size of the frame. */
-    .f05-stamp{display:inline-flex;align-items:center;gap:1.6cqw;padding:1.6cqw 3.4cqw 1.6cqw 2.8cqw;background:#FFFFFF;border:1px solid #E7EAE8;border-radius:1.1cqw;color:#22282A;font-family:"Manrope";font-weight:700;font-size:7.4cqw;line-height:1;letter-spacing:-.05em;white-space:nowrap;will-change:transform,filter}
-    .f05-no{width:4.6cqw;height:4.6cqw;border-radius:50%;background:#FF3B5C;flex:none}
-  </style>
-
-  <div data-hf-id="hf-zkxl" id="root" data-composition-id="05-blocked" data-width="1920" data-height="1080">
-    <div data-hf-id="hf-jtb8" class="clip f05-tint" id="f05-pink" data-start="0" data-duration="4" data-track-index="1"></div>
-
-    <div data-hf-id="hf-p7rv" class="clip f05-stage" id="f05-stage" data-start="0" data-duration="4" data-track-index="2">
-      <div data-hf-id="hf-nqpu" class="f05-world" id="f05-world">
-        <!-- Frame 1's composer, word for word. This time there are rules. -->
-        <div data-hf-id="hf-gqgp" class="f05-term" id="f05-t1">
-          <div data-hf-id="hf-jsbm" class="f05-pline"><span data-hf-id="hf-d6hz" id="f05-p1"></span><span data-hf-id="hf-luty" class="f05-caret" id="f05-caret1"></span></div>
-          <div data-hf-id="hf-hna6" class="f05-chiprow">
-            <div data-hf-id="hf-0mta" class="f05-chip" id="f05-file"><b data-hf-id="hf-z9hb">customers_export.csv</b><span data-hf-id="hf-1bmq">·</span><span data-hf-id="hf-6jus"><b data-hf-id="hf-hrk8" class="n">4,812</b> rows</span></div>
-            <div data-hf-id="hf-q06v" class="f05-chip red" id="f05-zero"><span data-hf-id="hf-kiea"><b data-hf-id="hf-jclr" class="n" id="f05-count">4,812</b> rows sent</span></div>
-          </div>
-          <div data-hf-id="hf-9bc8" class="f05-foot"><div data-hf-id="hf-kjk7" class="f05-left"><span data-hf-id="hf-50iy" class="f05-plus">+</span><div data-hf-id="hf-c20k" class="f05-modes"><span data-hf-id="hf-mfy7">Chat</span><span data-hf-id="hf-vl4j" class="on">Code</span></div></div><div data-hf-id="hf-68xm" class="f05-right"><span data-hf-id="hf-4mmo" class="f05-model">Opus 5</span><div data-hf-id="hf-lfk2" class="f05-send" id="f05-send1">↑</div></div></div>
-        </div>
-        <!-- Where the hook's answer lands: the conversation, under the composer.
-             The text is the hook's real output format (integrations/warden-hook.mjs). -->
-
-        <div data-hf-id="hf-enbg" class="f05-rules" id="f05-rules">
-          <div data-hf-id="hf-bewe" class="f05-rh">warden · checking 5 rules</div>
-          <div data-hf-id="hf-3s93" class="f05-r" id="f05-r1"><div data-hf-id="hf-eo7s" class="f05-rbg" id="f05-rbg"></div><span data-hf-id="hf-e2v3" class="f05-d"></span><span data-hf-id="hf-84cz">Customer contact details</span><span data-hf-id="hf-2thw" class="f05-st hit">match</span></div>
-          <div data-hf-id="hf-swrg" class="f05-r" id="f05-r2"><span data-hf-id="hf-csfz" class="f05-d"></span><span data-hf-id="hf-rijg">Credentials and API keys</span><span data-hf-id="hf-fazl" class="f05-st">clear</span></div>
-          <div data-hf-id="hf-tof9" class="f05-r" id="f05-r3"><span data-hf-id="hf-ce4y" class="f05-d"></span><span data-hf-id="hf-1yen">Unreleased financials</span><span data-hf-id="hf-irud" class="f05-st">clear</span></div>
-          <div data-hf-id="hf-cg4y" class="f05-r" id="f05-r4"><span data-hf-id="hf-bztx" class="f05-d"></span><span data-hf-id="hf-pokh">Source code</span><span data-hf-id="hf-jyrg" class="f05-st">clear</span></div>
-          <div data-hf-id="hf-ge8z" class="f05-r" id="f05-r5"><span data-hf-id="hf-erz4" class="f05-d"></span><span data-hf-id="hf-44i2">Internal documents</span><span data-hf-id="hf-jkgf" class="f05-st">clear</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div data-hf-id="hf-xmss" class="clip f05-say" id="f05-say" data-start="0" data-duration="4" data-track-index="3">
-      <div data-hf-id="hf-c98w" class="f05-stamp" id="f05-stamp"><span data-hf-id="hf-vwz4" class="f05-no"></span><span data-hf-id="hf-q7r9">Blocked by Warden</span></div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      // The world and the stamp overlap on purpose: each one takes the frame
-      // while the other recedes behind it.
-      document.querySelectorAll("#f05-world *, #f05-say *").forEach(function (el) {
-        el.setAttribute("data-layout-allow-overlap", "");
-        el.setAttribute("data-layout-allow-occlusion", "");
-        el.setAttribute("data-layout-allow-overflow", "");
-      });
-
-      var p1 = document.getElementById("f05-p1"), t1txt = "which of these customers are about to churn?", k1 = { v: 0 };
-      p1.textContent = "";
-      var countEl = document.getElementById("f05-count"), n = { v: 4812 };
-
-      gsap.set(["#f05-pink", "#f05-t1", "#f05-rules", "#f05-file", "#f05-zero", "#f05-stamp", "#f05-rbg"], { opacity: 0 });
-      gsap.set([".f05-st", ".f05-r"], { opacity: 0 });
-
-      var tl = gsap.timeline({ paused: true });
-
-      // ── 1. frame 1 again, fast: the viewer knows it and expects the same ending ──
-      tl.fromTo("#f05-world", { scale: 1.12, x: 330, y: 60 }, { scale: 1.2, x: 350, y: 60, duration: 1.3, ease: "none" }, 0);
-      tl.fromTo("#f05-t1", { opacity: 0, scale: 0.62, y: 70, filter: "blur(18px)" }, { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 0.42, ease: "back.out(2.2)" }, 0.05);
-      tl.to(k1, { v: t1txt.length, duration: 0.5, ease: "none", onUpdate: function () { p1.textContent = t1txt.slice(0, Math.round(k1.v)); } }, 0.3);
-      tl.fromTo("#f05-file", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(3)" }, 0.85);
-      tl.to("#f05-caret1", { opacity: 0, duration: 0.01 }, 1.3);
-      tl.to("#f05-send1", { scale: 0.8, duration: 0.07, ease: "power2.in" }, 1.28);
-      tl.to("#f05-send1", { scale: 1, duration: 0.2, ease: "back.out(4)" }, 1.36);
-      tl.to("#f05-t1", { scale: 0.965, duration: 0.07, ease: "power2.in" }, 1.3);
-      tl.to("#f05-t1", { scale: 1, duration: 0.15, ease: "back.out(3)" }, 1.38);
-
-      // ── 2. the check: the five rules from frame 4, and the camera goes to them ──
-      tl.to("#f05-world", { scale: 1.42, x: -700, y: 170, duration: 0.42, ease: "power4.inOut" }, 1.4);
-      tl.fromTo("#f05-rules", { opacity: 0, scale: 0.7, x: -60 }, { opacity: 1, scale: 1, x: 0, duration: 0.36, ease: "back.out(2)" }, 1.42);
-      tl.fromTo(".f05-r", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.2, ease: "power4.out", stagger: 0.04 }, 1.5);
-      // Bottom to top, quick and even — tick, tick, tick, tick — then a held beat.
-      [["#f05-r5", 1.85], ["#f05-r4", 1.97], ["#f05-r3", 2.09], ["#f05-r2", 2.21]].forEach(function (r) {
-        tl.to(r[0] + " .f05-d", { backgroundColor: "#7D8788", duration: 0.05 }, r[1]);
-        tl.fromTo(r[0] + " .f05-d", { scale: 1 }, { scale: 1.8, duration: 0.08, yoyo: true, repeat: 1, immediateRender: false }, r[1]);
-        tl.to(r[0] + " .f05-st", { opacity: 1, duration: 0.06 }, r[1]);
-      });
-      tl.to("#f05-world", { scale: 1.5, x: -745, y: 215, duration: 0.35, ease: "none" }, 1.85);
-
-      // ── 3. the hit ──
-      var HIT = 2.55;
-      tl.to("#f05-r1 .f05-d", { backgroundColor: "#FF3B5C", duration: 0.04 }, HIT);
-      tl.to(["#f05-rbg", "#f05-r1 .f05-st"], { opacity: 1, duration: 0.05 }, HIT);
-      tl.fromTo("#f05-r1", { scale: 1 }, { scale: 1.06, duration: 0.09, yoyo: true, repeat: 1, immediateRender: false }, HIT);
-      tl.to("#f05-pink", { opacity: 1, duration: 0.07, ease: "power2.out" }, HIT + 0.05);
-      // It does not go through the camera this time. It bounces off.
-      tl.to("#f05-world", { scale: 0.84, x: 0, y: 0, filter: "blur(9px)", opacity: 0.45, duration: 0.26, ease: "expo.out" }, HIT + 0.05);
-      tl.fromTo("#f05-stamp", { opacity: 0, scale: 3.2, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.2, ease: "expo.in" }, HIT + 0.06);
-      // It lands, gives, and recovers: the squash is what makes it a stamp and not a fade.
-      tl.to("#f05-stamp", { scale: 0.93, duration: 0.05, ease: "power2.out" }, HIT + 0.27);
-      tl.to("#f05-stamp", { scale: 1, duration: 0.2, ease: "back.out(4)" }, HIT + 0.33);
-      [[-22, 0.05], [18, 0.06], [-11, 0.06], [6, 0.06], [0, 0.1]].reduce(function (t, s) {
-        tl.to("#f05-stamp", { x: s[0], duration: s[1], ease: "power1.inOut" }, t);
-        return t + s[1];
-      }, HIT + 0.27);
-      tl.fromTo("#f05-stamp", { scale: 1 }, { scale: 1.04, duration: 0.5, ease: "none", immediateRender: false }, HIT + 0.62);
-      tl.to("#f05-stamp", { scale: 1.6, opacity: 0, filter: "blur(18px)", duration: 0.22, ease: "power4.in" }, HIT + 1.14);
-
-      // ── 4. the consequence: one thing, the chip counting back to zero. The card
-      //    with the hook's output ("Blocked by Warden / Rule: …") is gone: it came
-      //    straight after a stamp that says Blocked, said it again in small type,
-      //    and the frame sat on it (owner, v19). ──
-      tl.to("#f05-world", { scale: 1.34, x: 440, y: 240, filter: "blur(0px)", opacity: 1, duration: 0.42, ease: "power4.inOut" }, HIT + 1.2);
-      tl.to("#f05-pink", { opacity: 0.6, duration: 0.5 }, HIT + 1.2);
-      tl.to("#f05-file", { opacity: 0.4, duration: 0.2 }, HIT + 1.3);
-      tl.fromTo("#f05-zero", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, HIT + 1.3);
-      // Frame 1 counted up to 4,812. This counts them back.
-      tl.to(n, { v: 0, duration: 0.6, ease: "power4.out", onUpdate: function () { countEl.textContent = Math.round(n.v).toLocaleString("en-US"); } }, HIT + 1.45);
-      tl.to("#f05-world", { scale: 1.4, x: 462, y: 252, duration: 0.85, ease: "none" }, HIT + 1.64);
-
-      // ── 5. out. "0 rows sent" is held still for half a second, then the
-      //    scene leaves through the camera like every other, and the film moves
-      //    on to why to believe it. The honest request that used to follow
-      //    ("refactor this module" → Allowed → "Everything else goes through")
-      //    was cut by the owner on 2026-09-22: that Warden lets ordinary work
-      //    through is obvious, and the frame is about the one thing it stops.
-      //    The Allowed verdict is still seen, in the opener's cloud of rows. ──
-      tl.to("#f05-world", { scale: 2.3, x: 700, y: 400, opacity: 0, filter: "blur(26px)", duration: 0.5, ease: "power4.in" }, 5.1);
-      tl.to("#f05-pink", { opacity: 0, duration: 0.5, ease: "power2.in" }, 5.1);
-      tl.duration(4);
-      window.__timelines["05-blocked"] = tl;
-    })();
-  </script>
-</template>
+<style>
+@font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}
+@font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}
+@font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
+#root{position:absolute;inset:0;overflow:hidden;container-type:size;font-family:Inter,sans-serif;color:#F5F5F5}
+.f05-stage{position:absolute;inset:0}.f05-camera{position:absolute;inset:0}
+.f05-panel{position:absolute;left:230px;top:260px;width:1460px;height:560px;background:#191919;border:1px solid #464646;border-radius:18px;overflow:hidden}
+.f05-header{height:116px;padding:0 54px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #373737;font-size:28px;color:#BEBEBE}
+.f05-header img{width:173px;filter:brightness(0) invert(1)}
+.f05-file{position:absolute;left:54px;top:185px;display:flex;align-items:center;gap:32px;font-family:Manrope;font-size:66px;letter-spacing:-.05em;font-weight:600}
+.f05-file svg{width:58px;height:70px;fill:none;stroke:#D5D5D5;stroke-width:2.1;flex:none}
+.f05-detail{position:absolute;left:148px;top:281px;font-family:Mono;font-size:26px;color:#BEBEBE}
+.f05-rule{position:absolute;left:0;right:0;bottom:0;height:132px;border-top:1px solid #373737;display:flex;align-items:center;padding:0 54px;gap:30px;font-size:32px;color:#C5C5C5}
+.f05-rule img{width:33px;filter:brightness(0) invert(1)}
+.f05-status{margin-left:auto;color:#F5F5F5;font-size:38px;display:flex;align-items:center;gap:16px}
+.f05-status svg{width:31px;height:31px;stroke:currentColor;fill:none;stroke-width:1.8}
+.f05-slice{position:absolute;left:54px;right:54px;top:326px;height:2px;background:#D5D5D5;transform-origin:left}
+</style>
+<div data-hf-id="hf-zkxl" id="root" data-composition-id="05-blocked" data-width="1920" data-height="1080">
+<div data-hf-id="hf-40le" class="clip f05-stage" id="f05-stage" data-start="0" data-duration="3.2" data-track-index="1">
+<div data-hf-id="hf-u3gm" class="f05-camera" id="f05-camera"><div data-hf-id="hf-z4d6" class="f05-panel" id="f05-panel">
+<div data-hf-id="hf-9qgb" class="f05-header"><img data-hf-id="hf-ylmm" src="assets/brand/warden-lockup-light.svg" alt="Warden"><span data-hf-id="hf-1bwu" id="f05-phase">Checking request</span></div>
+<div data-hf-id="hf-6gv6" class="f05-file" id="f05-file"><svg data-hf-id="hf-6yma" viewBox="0 0 60 74"><path data-hf-id="hf-rr8w" d="M7 3h28l17 18v49H7zM35 3v19h17M18 37h24M18 48h24M18 59h13" /></svg><span data-hf-id="hf-zgub">customers_export.csv</span></div>
+<div data-hf-id="hf-ijuo" class="f05-detail" id="f05-detail">Customer contact details</div>
+<div data-hf-id="hf-m8qq" class="f05-slice" id="f05-slice"></div>
+<div data-hf-id="hf-2c2a" class="f05-rule" id="f05-rule"><img data-hf-id="hf-32ud" src="assets/brand/warden-mark.svg" alt=""><span data-hf-id="hf-14eb">Keep customer data private.</span><span data-hf-id="hf-4ufh" class="f05-status" id="f05-status"><svg data-hf-id="hf-ulu9" viewBox="0 0 24 24"><path data-hf-id="hf-6rwy" d="M8 2h8l6 6v8l-6 6H8l-6-6V8zM9 9l6 6m0-6-6 6" /></svg>Blocked</span></div>
+</div></div></div></div>
+<script>(function(){
+// The camera crops the product fragment during its entrance and exit.
+document.querySelectorAll('.f05-stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
+var tl=gsap.timeline({paused:true});
+gsap.set(['#f05-detail','#f05-rule','#f05-status'],{opacity:0});
+tl.fromTo('#f05-camera',{scale:1.45,x:160,y:120,opacity:0},{scale:1,x:0,y:0,opacity:1,duration:.48,ease:'expo.out'},.12);
+tl.fromTo('#f05-file',{x:240,opacity:0},{x:0,opacity:1,duration:.35,ease:'expo.out'},.25);
+tl.fromTo('#f05-slice',{scaleX:0},{scaleX:1,duration:.36,ease:'power4.inOut'},.48);
+tl.to('#f05-slice',{opacity:0,duration:.12},.86);
+tl.fromTo('#f05-detail',{y:15,opacity:0},{y:0,opacity:1,duration:.24,ease:'expo.out'},.76);
+tl.fromTo('#f05-rule',{y:132,opacity:0},{y:0,opacity:1,duration:.32,ease:'expo.out'},.88);
+tl.to('#f05-phase',{opacity:0,duration:.14},.92);
+tl.fromTo('#f05-status',{x:35,opacity:0},{x:0,opacity:1,duration:.22,ease:'expo.out'},1.08);
+tl.to('#f05-camera',{scale:1.065,y:-15,duration:1.25,ease:'none'},1.34);
+tl.to('#f05-camera',{scale:1.65,y:-90,opacity:0,duration:.35,ease:'power4.in'},2.83);
+window.__timelines['05-blocked']=tl;
+})();</script></template>

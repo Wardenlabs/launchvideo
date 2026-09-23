@@ -1,91 +1,19 @@
-<template>
-  <style>
-    @font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:block;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");}
-    @font-face{font-family:"Inter";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/Inter-Variable.ttf") format("truetype");}
-    @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
-    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#22282A}
-    .f07-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-    .f07-field{position:absolute;inset:0}
-    .f07-card{position:absolute;width:25cqw;height:6.6cqw;background:#FFFFFF;border:1px solid #DDE2DF;border-radius:.7cqw;padding:1.05cqw 1.25cqw;font-family:"Inter",sans-serif;color:#22282A}
-    .f07-card.a{left:-3cqw;top:7cqw}.f07-card.b{right:-3cqw;top:8cqw}.f07-card.c{left:2cqw;bottom:5cqw}.f07-card.d{right:1cqw;bottom:6cqw}
-    .f07-k{font-family:"Geist Mono";font-size:.82cqw;color:#656E6F;margin-bottom:.8cqw}
-    .f07-row{display:flex;align-items:center;justify-content:space-between;font-size:1.15cqw;font-weight:500}
-    .f07-v{display:inline-flex;align-items:center;gap:.5cqw;font-size:1cqw}
-    .f07-v i{width:.68cqw;height:.68cqw;border-radius:50%;display:block}
-    .f07-red i{background:#FF3B5C}.f07-green i{background:#34D399}.f07-yellow i{background:#FDE047}
-    .f07-in{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;will-change:transform}
-    .f07-lock{display:block;height:6.6cqw;width:auto}
-    .f07-lines{margin-top:2.5cqw}
-    .f07-line{display:block;font-family:"Manrope";font-weight:600;font-size:5.35cqw;line-height:1.04;letter-spacing:-.055em}
-    .f07-c{display:inline-block;will-change:transform,filter}.f07-w{display:inline-block;white-space:nowrap}
-    .f07-btnwrap{position:relative;margin-top:2.8cqw}
-    .f07-btn{height:4.7cqw;padding:0 3cqw;display:grid;place-items:center;background:#22282A;color:#FFFFFF;border-radius:.6cqw;font-family:"Inter",sans-serif;font-weight:500;font-size:1.7cqw}
-    .f07-ring{position:absolute;inset:-2px;border:2px solid #22282A;border-radius:.75cqw;pointer-events:none}
-    .f07-cursor{position:absolute;right:-3.2cqw;bottom:-4.2cqw;width:5.6cqw;height:5.6cqw;transform-origin:12% 10%;filter:drop-shadow(0 .4cqw .6cqw rgba(0,0,0,.22))}
-    .f07-url{margin-top:1.35cqw;font-family:"Geist Mono";font-size:1.1cqw;color:#656E6F}
-  </style>
+<template><style>@font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}@font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}@font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
+#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#242424;font-family:Inter,sans-serif}.stage{position:absolute;inset:0}.display{font-family:Manrope,sans-serif;font-weight:600;letter-spacing:-.06em;line-height:1.03}
+.ground{position:absolute;inset:0;background:#111111}.ambient{position:absolute;inset:0;overflow:hidden}.reflection{position:absolute;left:-350px;top:-800px;width:620px;height:2300px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.09),transparent);transform:rotate(35deg);filter:blur(80px)}.ghost{position:absolute;right:-250px;top:-200px;width:1350px;height:1350px;filter:invert(1);opacity:.038;transform:rotate(-16deg)}.slogan{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#F5F5F5;font-size:210px;white-space:nowrap}.slogan span{display:inline-block}.brand{position:absolute;inset:0;color:#F5F5F5}.lock{position:absolute;left:410px;top:345px;width:1100px;height:320px;filter:brightness(0) invert(1)}.claim{position:absolute;top:717px;left:0;right:0;text-align:center;font-size:44px;color:#C6C6C6;letter-spacing:-.035em}.url{position:absolute;left:0;right:0;bottom:125px;text-align:center;font-family:Mono;font-size:26px;color:#AFAFAF;letter-spacing:-.04em}
+</style><div id="root" data-hf-id="v30-07-root" data-composition-id="07-cta" data-width="1920" data-height="1080"><div class="clip stage" id="f07-stage" data-hf-id="v30-07-stage" data-start="0" data-duration="3.4" data-track-index="1"><div data-hf-id="v30-07-5" class="slogan display" id="slogan"><span data-hf-id="v30-07-6" id="your">Your&nbsp;</span><span data-hf-id="v30-07-7" id="rules">rules.</span></div><div data-hf-id="v30-07-8" class="brand" id="brand"><img data-hf-id="v30-07-9" class="lock" id="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden"><div data-hf-id="v30-07-10" class="claim display" id="claim">Your AI. Your rules.</div><div data-hf-id="v30-07-11" class="url" id="url">github.com/Wardenlabs/warden</div></div></div></div><script>(function(){
+// Full-frame scenery and cropped brand silhouettes overlap deliberately.
+document.querySelectorAll('.stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
+var tl=gsap.timeline({paused:true});
+gsap.set('#brand',{opacity:0});
+tl.fromTo('#your',{x:-100,opacity:0},{x:0,opacity:1,duration:.24,ease:'expo.out'},.02);
+tl.fromTo('#rules',{x:100,opacity:0},{x:0,opacity:1,duration:.24,ease:'expo.out'},.13);
+tl.to('#slogan',{scale:1.55,opacity:0,duration:.24,ease:'power4.in'},.65);
+tl.set('#brand',{opacity:1},.85);
+tl.fromTo('#lock',{scale:.85,y:40,opacity:0},{scale:1,y:0,opacity:1,duration:.38,ease:'expo.out'},.85);
+tl.fromTo('#claim',{y:22,opacity:0},{y:0,opacity:1,duration:.28,ease:'expo.out'},1.15);
+tl.fromTo('#url',{opacity:0},{opacity:1,duration:.28},1.35);
+tl.to('#lock',{scale:1.022,duration:1.8,ease:'none'},1.4);
 
-  <div data-hf-id="hf-s4o5" id="root" data-composition-id="07-cta" data-width="1920" data-height="1080">
-    <div data-hf-id="hf-uv90" class="clip f07-stage" id="f07-stage" data-start="0" data-duration="3.4" data-track-index="1">
-      <div data-hf-id="hf-u51m" class="f07-field" id="f07-field">
-        <div data-hf-id="hf-3y2w" class="f07-card a"><div data-hf-id="hf-2fzx" class="f07-k">RULE / CUSTOMER DATA</div><div data-hf-id="hf-x4z0" class="f07-row"><span data-hf-id="hf-f8u2">Contact details</span><span data-hf-id="hf-8a3h" class="f07-v f07-red"><i data-hf-id="hf-20ax"></i>Block</span></div></div>
-        <div data-hf-id="hf-rv1s" class="f07-card b"><div data-hf-id="hf-7g5p" class="f07-k">DECISION / LOCAL</div><div data-hf-id="hf-nx7q" class="f07-row"><span data-hf-id="hf-q2cw">Refactor module</span><span data-hf-id="hf-nru5" class="f07-v f07-green"><i data-hf-id="hf-w0p1"></i>Allowed</span></div></div>
-        <div data-hf-id="hf-xh1z" class="f07-card c"><div data-hf-id="hf-cz7b" class="f07-k">RULE / CREDENTIALS</div><div data-hf-id="hf-qs4j" class="f07-row"><span data-hf-id="hf-gc2v">API keys</span><span data-hf-id="hf-4ax8" class="f07-v f07-red"><i data-hf-id="hf-f1v4"></i>Block</span></div></div>
-        <div data-hf-id="hf-pv0m" class="f07-card d"><div data-hf-id="hf-s2ac" class="f07-k">DECISION / REVIEW</div><div data-hf-id="hf-d60z" class="f07-row"><span data-hf-id="hf-4rr8">Unreleased figures</span><span data-hf-id="hf-x8tm" class="f07-v f07-yellow"><i data-hf-id="hf-1v82"></i>Held</span></div></div>
-      </div>
-      <div data-hf-id="hf-1jae" class="f07-in" id="f07-in">
-        <img data-hf-id="hf-8kav" class="f07-lock" id="f07-lock" src="assets/brand/warden-lockup-light.svg" alt="Warden">
-        <div data-hf-id="hf-gy3f" class="f07-lines">
-          <span data-hf-id="hf-0gi0" class="f07-line" id="f07-l1">Write a rule</span>
-          <span data-hf-id="hf-5e7s" class="f07-line" id="f07-l2">Warden enforces it</span>
-        </div>
-        <div data-hf-id="hf-vj6i" class="f07-btnwrap" id="f07-btnwrap"><div data-hf-id="hf-wj8q" class="f07-ring" id="f07-ring"></div><div data-hf-id="hf-qvbo" class="f07-btn" id="f07-btn">Download for macOS</div><svg data-hf-id="hf-tezf" class="f07-cursor" id="f07-cursor" viewBox="0 0 100 100"><path data-hf-id="hf-j5te" d="M14 10 L14 84 L36 62 L82 62 Z" fill="#111111" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" /></svg></div>
-        <div data-hf-id="hf-yoe8" class="f07-url" id="f07-url">github.com/Wardenlabs/warden · macOS + Windows</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      Array.prototype.forEach.call(document.querySelectorAll("#f07-stage *"), function (el) {
-        el.setAttribute("data-layout-allow-overlap", "");
-        el.setAttribute("data-layout-allow-occlusion", "");
-        el.setAttribute("data-layout-allow-overflow", "");
-      });
-      function split(el) {
-        var words = el.textContent.split(" "); el.textContent = "";
-        words.forEach(function (word, i) {
-          var ws = document.createElement("span"); ws.className = "f07-w";
-          for (var j = 0; j < word.length; j++) { var ch = document.createElement("span"); ch.className = "f07-c"; ch.textContent = word[j]; ws.appendChild(ch); }
-          el.appendChild(ws); if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
-        });
-        return el.querySelectorAll(".f07-c");
-      }
-      var l1 = split(document.getElementById("f07-l1")), l2 = split(document.getElementById("f07-l2"));
-      gsap.set([l1, l2, "#f07-lock", "#f07-btnwrap", "#f07-url", "#f07-ring", ".f07-card"], { opacity: 0 });
-      gsap.set("#f07-cursor", { x: 520, y: 330, opacity: 0 });
-
-      var tl = gsap.timeline({ paused: true });
-      var FROM = { opacity: 0, y: 12, filter: "blur(12px)" };
-      tl.fromTo(".f07-card", { opacity: 0, scale: .5 }, { opacity: .82, scale: 1, duration: .36, stagger: .055, ease: "expo.out" }, .02);
-      tl.fromTo("#f07-field", { scale: 1.18 }, { scale: 1, duration: .32, ease: "expo.out" }, .02);
-      tl.fromTo("#f07-lock", { opacity: 0, scale: 1.35, filter: "blur(15px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: .42, ease: "expo.out" }, .32);
-      tl.to("#f07-field", { scale: .93, opacity: .48, filter: "blur(1.2px)", duration: .42, ease: "expo.out" }, .34);
-      tl.fromTo(l1, FROM, { opacity: 1, y: 0, filter: "blur(0px)", duration: .28, stagger: .007, ease: "expo.out" }, .65);
-      tl.fromTo(l2, FROM, { opacity: 1, y: 0, filter: "blur(0px)", duration: .28, stagger: .007, ease: "expo.out" }, .94);
-      tl.fromTo("#f07-l2", { scale: 1.1 }, { scale: 1, duration: .38, ease: "expo.out" }, .94);
-      tl.fromTo("#f07-btnwrap", { opacity: 0, scale: .55 }, { opacity: 1, scale: 1, duration: .36, ease: "back.out(2.4)" }, 1.38);
-      tl.to("#f07-url", { opacity: 1, duration: .28 }, 1.62);
-      tl.set("#f07-cursor", { opacity: 1 }, 1.74);
-      tl.to("#f07-cursor", { x: -8, duration: .38, ease: "expo.out" }, 1.74);
-      tl.to("#f07-cursor", { y: -6, duration: .38, ease: "power2.out" }, 1.74);
-      tl.to("#f07-cursor", { x: 0, y: 0, duration: .1, ease: "power2.inOut" }, 2.12);
-      tl.to(["#f07-btn", "#f07-cursor"], { scale: .9, duration: .06, ease: "power2.in" }, 2.25);
-      tl.to(["#f07-btn", "#f07-cursor"], { scale: 1, duration: .18, ease: "back.out(4)" }, 2.32);
-      tl.fromTo("#f07-ring", { opacity: .6, scale: 1 }, { opacity: 0, scale: 1.35, duration: .42, ease: "expo.out", immediateRender: false }, 2.38);
-      tl.to("#f07-cursor", { x: 150, y: 110, opacity: 0, duration: .28, ease: "power3.in" }, 2.68);
-      tl.fromTo("#f07-in", { scale: 1 }, { scale: 1.035, duration: 2.6, ease: "none" }, .3);
-      window.__timelines["07-cta"] = tl;
-    })();
-  </script>
-</template>
+window.__timelines['07-cta']=tl;
+})();</script></template>

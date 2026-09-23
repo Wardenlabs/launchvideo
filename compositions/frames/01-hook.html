@@ -1,156 +1,19 @@
-<template>
-  <style>
-    @font-face{font-family:"Inter";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/Inter-Variable.ttf") format("truetype");}
-    @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
-    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#1F1E1D}
-    .f01-stage{position:absolute;inset:0}
-    /* Fragments, not screens. The owner's diagnosis, from the GWI Spark launch
-       film: a film like this never shows the whole component — it shows the line
-       being typed, then the send button alone with a cursor on it, each huge on
-       an empty ground, and the viewer supplies the rest. The full composer with
-       its "+", toggle and model label was faithful and heavy.
-       Everything here is the employee's side: Claude's warm ivory and clay
-       orange, never Warden's cool white. */
-    .f01-out{position:absolute;inset:0;transform-origin:50% 50%}
-    /* The camera. Origin 0 0 so a world point goes to a screen point with
-       x = sx - S*wx. No will-change: at these scales a cached layer is an
-       upscaled bitmap and the type goes soft. */
-    .f01-world{position:absolute;inset:0;transform-origin:0 0}
-    .f01-frag{position:absolute;inset:0}
-    .f01-label{position:absolute;left:250px;top:318px;font-family:"Geist Mono";font-size:30px;line-height:1;color:#87867F}
-    .f01-box{position:absolute;left:230px;top:380px;width:2700px;height:350px;background:#FAF9F5;border:1px solid #D3CFC0;border-radius:64px;box-shadow:0 10px 36px rgba(70,55,30,.10),0 2px 6px rgba(70,55,30,.08)}
-    .f01-pline{position:absolute;left:70px;top:56px;height:110px;font-family:"Inter",sans-serif;font-size:84px;line-height:110px;white-space:pre;color:#1F1E1D}
-    .f01-caret{display:inline-block;width:7px;height:92px;background:#1F1E1D;vertical-align:-16px;margin-left:8px}
-    .f01-chip{position:absolute;left:70px;top:196px;height:96px;display:inline-flex;align-items:center;gap:26px;border:1px solid #DEDBCF;background:#F0EEE6;border-radius:22px;padding:0 34px;font-family:"Geist Mono";font-size:42px;color:#6B6A64;transform-origin:0% 50%;white-space:nowrap}
-    .f01-file{color:#1F1E1D}
-    .f01-sep{color:#9C9A92}
-    .f01-count{display:inline-block;min-width:5ch;text-align:right;font-variant-numeric:tabular-nums;color:#1F1E1D;font-weight:600;transform-origin:100% 60%}
-    /* The send button, alone. */
-    .f01-send{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-    .f01-glow{position:absolute;left:50%;top:50%;width:740px;height:740px;margin:-370px 0 0 -370px;border-radius:50%;background:radial-gradient(circle,rgba(201,100,66,.62) 0%,rgba(201,100,66,.34) 34%,rgba(201,100,66,0) 70%)}
-    .f01-btnw{position:relative;width:300px;height:300px}
-    .f01-btn{position:absolute;inset:0;border-radius:74px;background:#C96442;display:grid;place-items:center;box-shadow:0 10px 30px rgba(140,60,30,.22)}
-    .f01-btn svg{width:150px;height:150px;display:block}
-    .f01-cursor{position:absolute;left:190px;top:184px;width:210px;height:210px;transform-origin:12% 10%;filter:drop-shadow(0 10px 14px rgba(0,0,0,.28))}
-  </style>
-
-  <div data-hf-id="hf-lutg" id="root" data-composition-id="01-hook" data-width="1920" data-height="1080">
-    <div data-hf-id="hf-l81n" class="clip f01-stage" id="f01-stage" data-start="0" data-duration="3.5" data-track-index="1">
-      <div data-hf-id="hf-25pe" class="f01-out" id="f01-out">
-        <div data-hf-id="hf-t7vu" class="f01-world" id="f01-world">
-          <div data-hf-id="hf-op4m" class="f01-frag" id="f01-frag">
-            <div data-hf-id="hf-mvx1" class="f01-label" id="f01-label">claude code</div>
-            <div data-hf-id="hf-ijm0" class="f01-box" id="f01-box">
-              <div data-hf-id="hf-lzye" class="f01-pline"><span data-hf-id="hf-cbes" id="f01-prompt"></span><span data-hf-id="hf-sah9" class="f01-caret" id="f01-caret"></span></div>
-              <div data-hf-id="hf-230i" class="f01-chip" id="f01-chip"><span data-hf-id="hf-n6dp" class="f01-file">customers_export.csv</span><span data-hf-id="hf-3l3w" class="f01-sep">·</span><span data-hf-id="hf-6jus"><span data-hf-id="hf-rqmf" class="f01-count" id="f01-count">0</span> rows</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-hf-id="hf-z488" class="f01-send" id="f01-sendstage">
-        <div data-hf-id="hf-ovri" class="f01-glow" id="f01-glow"></div>
-        <div data-hf-id="hf-2vzq" class="f01-btnw" id="f01-btnw">
-          <div data-hf-id="hf-zuye" class="f01-btn" id="f01-btn"><svg data-hf-id="hf-z3h1" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-oeiv" d="M12 19V5" /><path data-hf-id="hf-b92o" d="M5.5 11.5 12 5l6.5 6.5" /></svg></div>
-          <svg data-hf-id="hf-qlxe" class="f01-cursor" id="f01-cursor" viewBox="0 0 100 100"><path data-hf-id="hf-j5te" d="M14 10 L14 84 L36 62 L82 62 Z" fill="#111111" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" /></svg>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      // Zoomed past the frame edge and stacked on purpose.
-      Array.prototype.forEach.call(document.querySelectorAll("#f01-stage *"), function (el) {
-        el.setAttribute("data-layout-allow-overlap", "");
-        el.setAttribute("data-layout-allow-occlusion", "");
-        el.setAttribute("data-layout-allow-overflow", "");
-      });
-      var p = document.getElementById("f01-prompt");
-      var text = "which of these customers are about to churn?";
-      p.textContent = "";
-      var countEl = document.getElementById("f01-count");
-      var n = { v: 0 };
-
-      // Precompute every substring width once. Timeline callbacks only read the
-      // table, so non-linear render seeks cannot change the camera geometry.
-      var widths = [];
-      for (var wi = 0; wi <= text.length; wi++) {
-        p.textContent = text.slice(0, wi);
-        widths.push(p.offsetWidth);
-      }
-      p.textContent = "";
-
-      // One function places the camera, from three numbers the timeline tweens:
-      // how much is typed, how close we are, and how far into the pull-back that
-      // shows the whole sentence. It writes the text it then measures, so nothing
-      // it reads depends on which frame was rendered before.
-      // Following the caret, not panning at a speed: Inter is proportional and at
-      // a constant pan the caret wanders. The line starts at the left; once the
-      // caret reaches 64% of the frame it stays there and the text runs out left.
-      var LX = 301, LY = 492, START = 330, CARET = 1230, BOXCY = 555;
-      var st = { k: 0, S: 2.3, pb: 0 };
-      function place() {
-        p.textContent = text.slice(0, Math.round(st.k));
-        var w = widths[Math.round(st.k)], S = st.S;
-        var cx = Math.min(CARET, START + w * S);
-        var x = cx - S * (LX + w), y = 520 - S * LY;
-        if (st.pb > 0) {
-          var fS = Math.min(0.9, 1660 / Math.max(1, w));
-          var fx = 960 - fS * (LX + w / 2), fy = 540 - fS * BOXCY;
-          S += (fS - S) * st.pb; x += (fx - x) * st.pb; y += (fy - y) * st.pb;
-        }
-        gsap.set("#f01-world", { scale: S, x: x, y: y });
-      }
-      place();
-
-      gsap.set(["#f01-chip", "#f01-btnw", "#f01-glow"], { opacity: 0 });
-      gsap.set("#f01-cursor", { x: 640, y: 470 });
-
-      var tl = gsap.timeline({ paused: true });
-
-      // — 1. The line. Born very close on its first letters and pulling back while
-      //   they are typed (the reference does exactly this), then the caret holds
-      //   its place. 1.5s for 44 characters: slower than the 1.2s settled on when
-      //   the text was small and still, because now it is huge and moving. —
-      tl.fromTo("#f01-frag", { opacity: 0, x: 420, filter: "blur(14px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 0.2);
-      tl.set("#f01-frag", { filter: "none" }, 0.61);
-      tl.to(st, { k: text.length, duration: 1.5, ease: "none", onUpdate: place }, 0.55);
-      tl.to(st, { S: 1, duration: 1.0, ease: "expo.out", onUpdate: place }, 0.55);
-
-      // — 2. Pull back: the whole sentence at once, and the file lands under it.
-      //   Prompt and file are one thought — this question, with this data — so the
-      //   chip has no beat of its own. The count is the leak. —
-      tl.to(st, { pb: 1, duration: 0.36, ease: "power4.inOut", onUpdate: place }, 2.1);
-      tl.to("#f01-caret", { opacity: 0, duration: 0.01 }, 2.3);
-      tl.fromTo("#f01-chip", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(3)" }, 2.36);
-      tl.to(n, { v: 4812, duration: 0.56, ease: "power4.out", onUpdate: function () { countEl.textContent = Math.round(n.v).toLocaleString("en-US"); } }, 2.44);
-      tl.fromTo("#f01-count", { scale: 1 }, { scale: 1.28, duration: 0.56, ease: "power4.out" }, 2.44);
-      tl.to("#f01-count", { scale: 1, duration: 0.26, ease: "back.out(4)" }, 3.01);
-
-      // — 3. Out through the camera; the send button arrives alone from depth, on
-      //   the same axis, so two separate objects still read as one travel. —
-      tl.to("#f01-out", { scale: 1.9, opacity: 0, filter: "blur(22px)", duration: 0.26, ease: "power4.in" }, 3.3);
-      tl.fromTo("#f01-btnw", { opacity: 0, scale: 0.12 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.5)" }, 3.46);
-      // The cursor moves like a hand: x and y on different curves make an arc, it
-      // overshoots a little, settles, and only then clicks.
-      tl.to("#f01-cursor", { x: -12, duration: 0.5, ease: "expo.out" }, 3.62);
-      tl.to("#f01-cursor", { y: -8, duration: 0.5, ease: "power2.out" }, 3.62);
-      tl.to("#f01-cursor", { x: 0, y: 0, duration: 0.14, ease: "power2.inOut" }, 4.12);
-      // Click: both give on the same frame. Then three frames of nothing, and the
-      // colour goes out. The stillness is what makes it land.
-      tl.to(["#f01-btn", "#f01-cursor"], { scale: 0.88, duration: 0.06, ease: "power2.in" }, 4.3);
-      tl.to(["#f01-btn", "#f01-cursor"], { scale: 1, duration: 0.2, ease: "back.out(4)" }, 4.37);
-      // Claude's orange, not a verdict colour: it marks the moment the data left.
-      // Frame 5 answers it — same button, same click, and the ground goes coral.
-      tl.fromTo("#f01-glow", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 5.2, duration: 0.5, ease: "expo.out" }, 4.44);
-
-      // — 4. Pull away: frame 2's wall arrives underneath on the same pull-back,
-      //   and this button becomes one of forty. —
-      tl.to("#f01-btnw", { scale: 0.1, duration: 0.55, ease: "expo.out" }, 4.72);
-      tl.to("#f01-btnw", { opacity: 0, duration: 0.3, ease: "power2.in" }, 4.8);
-      tl.to("#f01-glow", { opacity: 0, scale: 7, duration: 0.35, ease: "power2.out" }, 4.94);
-      tl.duration(3.5);
-      window.__timelines["01-hook"] = tl;
-    })();
-  </script>
-</template>
+<template><style>@font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}@font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}@font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
+#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#252525;font-family:Inter,sans-serif}.stage{position:absolute;inset:0}.display{font-family:Manrope;font-weight:600;letter-spacing:-.05em;line-height:1.05}
+.world{position:absolute;inset:0}.track{position:absolute;left:-250px;right:-250px;top:558px;height:2px;background:#D1D1D1}.file{position:absolute;left:125px;top:355px;width:1320px;height:330px;background:white;border:1px solid #D9D9D9;border-radius:18px;display:flex;align-items:center;gap:46px;padding:55px}.file svg{width:105px;height:125px;stroke:#252525;stroke-width:2.8;fill:none;flex:none}.name{font-size:66px;letter-spacing:-.055em;white-space:nowrap}.count{font-family:Mono;font-size:32px;color:#646464;margin-top:26px}.send{position:absolute;left:1540px;top:446px;width:155px;height:155px;background:#252525;border-radius:20px;display:grid;place-items:center}.send svg{width:63px;height:63px;stroke:white;stroke-width:1.7;fill:none}.caption{position:absolute;left:195px;top:780px;font-size:58px;color:#515151}
+</style><div id="root" data-hf-id="v31-01-root" data-composition-id="01-hook" data-width="1920" data-height="1080"><div id="f01-stage" class="clip stage" data-hf-id="v31-01-stage" data-start="0" data-duration="2" data-track-index="1"><div data-hf-id="v31-01-1" class="world" id="world"><div data-hf-id="v31-01-2" class="track"></div><div data-hf-id="v31-01-3" class="file" id="file"><svg data-hf-id="v31-01-4" viewBox="0 0 80 100"><path data-hf-id="v31-01-5" d="M10 3h38l23 24v69H10zM48 3v25h23M25 49h31M25 64h31M25 79h18" /></svg><div data-hf-id="v31-01-6"><div data-hf-id="v31-01-7" class="name display">customers_export.csv</div><div data-hf-id="v31-01-8" class="count">4,812 customer records</div></div></div><div data-hf-id="v31-01-9" class="send" id="send"><svg data-hf-id="v31-01-10" id="arrow" viewBox="0 0 24 24"><path data-hf-id="v31-01-11" d="M4 12h16m-7-7 7 7-7 7" stroke-linecap="round" stroke-linejoin="round" /></svg></div><div data-hf-id="v31-01-12" class="caption display" id="caption">One click away.</div></div></div></div><script>(function(){
+// This film deliberately crops moving file strips and overlaps transition layers.
+document.querySelectorAll('.stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
+var tl=gsap.timeline({paused:true});
+tl.fromTo('#world',{scale:1.22,x:240,opacity:0},{scale:1,x:0,opacity:1,duration:.46,ease:'expo.out'},0);
+tl.fromTo('#file',{x:-480},{x:0,duration:.48,ease:'expo.out'},.04);
+tl.fromTo('#caption',{opacity:0,y:18},{opacity:1,y:0,duration:.25,ease:'expo.out'},.44);
+tl.to('#world',{scale:1.03,duration:.5,ease:'none'},.6);
+tl.to('#send',{scale:.92,duration:.07},1.22);
+tl.to('#send',{scale:1,duration:.18,ease:'back.out(2)'},1.29);
+tl.to('#arrow',{x:90,opacity:0,duration:.2,ease:'power3.in'},1.3);
+tl.to('#caption',{opacity:0,duration:.12},1.35);
+tl.to('#file',{x:1900,duration:.48,ease:'power4.in'},1.4);
+tl.to('#world',{opacity:0,duration:.12},1.82);
+window.__timelines['01-hook']=tl;
+})();</script></template>
