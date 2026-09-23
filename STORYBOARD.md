@@ -6,8 +6,16 @@ arc: PAS → mechanism → proof → trust → CTA
 audience: team lead / PM / CEO evaluating; the technical person it gets forwarded to
 mode: collaborative
 music: calm, minimal electronic pulse, restrained, builds once at the rule split
-narration: none
+narration: Brian (ElevenLabs), one take cut into seven phrases, placed on the hits
 ---
+
+## Changes from v36 — the voice-over
+
+Owner, 2026-09-23. Voice: **Brian** (ElevenLabs `gPPH6SLdL8XSX6GNJ40G`) on **eleven_v3**, stability 1.0 (Robust), speed 1.1, one `[confident]` tag for the whole script. Chosen over Henry, James Carter, Thaddeus, James Freeman and George. On eleven_multilingual_v2 the owner found Brian too slow at speed 1.0 and short of emotion even at style .5; v3 had the emotion, but a different tone tag per line made it sound like two voices, so one tag and the Robust setting. Script (version B, chosen over a more explanatory A):
+
+> One click, and your customer list is on someone else's servers. / Write one rule, in plain words. Turn it on. / Warden checks every prompt on the laptop, before anything leaves. / This one doesn't. / Your AI. Your rules. / Warden.
+
+The voice never reads what is on screen; it says what the picture cannot. "Your AI. Your rules." is confirmed by the owner as the slogan. One take (`assets/audio/vo/brian-v3-take7.mp3`, with its word alignment) is cut into seven clips placed by a word: "servers" on the orange send (2.97), "Turn" on Activate (6.65), "doesn't" just after the Blocked stamp lands (13.21). The plan was to nudge the hits onto the verbs; placing the phrases did it without touching a single animation. "Warden." was spoken before the slogan in the take and is placed after it, on the lockup. Sound effects and music come after the voice is approved, in that order.
 
 ## Changes from v29 — whose tool, and where it goes
 

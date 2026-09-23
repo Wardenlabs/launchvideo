@@ -6,3 +6,6 @@ snapshots/
 
 node_modules/
 .DS_Store
+
+# Local secrets (ElevenLabs key). Never committed: this repo is shared on GitHub.
+.env.local
