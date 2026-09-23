@@ -1,19 +1,35 @@
-<template><style>@font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}@font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}@font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
-#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#242424;font-family:Inter,sans-serif}.stage{position:absolute;inset:0}.display{font-family:Manrope,sans-serif;font-weight:600;letter-spacing:-.06em;line-height:1.03}
-.ground{position:absolute;inset:0;background:#111111}.ambient{position:absolute;inset:0;overflow:hidden}.reflection{position:absolute;left:-350px;top:-800px;width:620px;height:2300px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.09),transparent);transform:rotate(35deg);filter:blur(80px)}.ghost{position:absolute;right:-250px;top:-200px;width:1350px;height:1350px;filter:invert(1);opacity:.038;transform:rotate(-16deg)}.slogan{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#F5F5F5;font-size:210px;white-space:nowrap}.slogan span{display:inline-block}.brand{position:absolute;inset:0;color:#F5F5F5}.lock{position:absolute;left:410px;top:345px;width:1100px;height:320px;filter:brightness(0) invert(1)}.claim{position:absolute;top:717px;left:0;right:0;text-align:center;font-size:44px;color:#C6C6C6;letter-spacing:-.035em}.url{position:absolute;left:0;right:0;bottom:125px;text-align:center;font-family:Mono;font-size:26px;color:#AFAFAF;letter-spacing:-.04em}
-</style><div id="root" data-hf-id="v30-07-root" data-composition-id="07-cta" data-width="1920" data-height="1080"><div class="clip stage" id="f07-stage" data-hf-id="v30-07-stage" data-start="0" data-duration="3.4" data-track-index="1"><div data-hf-id="v30-07-5" class="slogan display" id="slogan"><span data-hf-id="v30-07-6" id="your">Your&nbsp;</span><span data-hf-id="v30-07-7" id="rules">rules.</span></div><div data-hf-id="v30-07-8" class="brand" id="brand"><img data-hf-id="v30-07-9" class="lock" id="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden"><div data-hf-id="v30-07-10" class="claim display" id="claim">Your AI. Your rules.</div><div data-hf-id="v30-07-11" class="url" id="url">github.com/Wardenlabs/warden</div></div></div></div><script>(function(){
-// Full-frame scenery and cropped brand silhouettes overlap deliberately.
-document.querySelectorAll('.stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
+<template>
+<style>
+@font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}
+@font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}
+@font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
+#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#F5F5F5;font-family:Inter,sans-serif}
+.stage,.statement,.brand,.flash{position:absolute;inset:0}.statement{display:flex;align-items:center;justify-content:center;text-align:center}.statement h2{font-family:Manrope;font-size:150px;font-weight:560;letter-spacing:-.07em;line-height:.92}.statement .soft{color:#8B8B8B;font-weight:390}
+.flash{background:#F5F5F5;opacity:0}.brand{opacity:0}.lock{position:absolute;left:188px;top:214px;width:720px;height:215px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}.rule{position:absolute;left:188px;right:188px;top:504px;height:1px;background:#4A4A4A}.url{position:absolute;left:180px;top:584px;font-family:Manrope;font-size:104px;font-weight:540;letter-spacing:-.06em;line-height:1;color:#F5F5F5;text-decoration:none}.arrow{display:inline-block;margin-left:28px;font-family:Inter;font-size:70px;font-weight:300}
+</style>
+<div data-hf-id="v35-07-root" id="root" data-composition-id="07-cta" data-width="1920" data-height="1080">
+  <div data-hf-id="v35-07-stage" class="clip stage" id="f07-stage" data-start="0" data-duration="5.1" data-track-index="1">
+    <div data-hf-id="v35-07-statement" class="statement" id="statement"><h2 data-hf-id="v35-07-copy"><span data-hf-id="v35-07-soft" class="soft">Your AI.</span> Your rules.</h2></div>
+    <div data-hf-id="v35-07-flash" class="flash" id="flash"></div>
+    <div data-hf-id="v35-07-brand" class="brand" id="brand">
+      <img data-hf-id="v35-07-lock" class="lock" id="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden">
+      <div data-hf-id="v35-07-rule" class="rule" id="rule"></div>
+      <a data-hf-id="v35-07-url" class="url" id="url" href="https://warden-theta.vercel.app/#download">warden-theta.vercel.app<span data-hf-id="v35-07-arrow" class="arrow">↗</span></a>
+    </div>
+  </div>
+</div>
+<script>(function(){
 var tl=gsap.timeline({paused:true});
-gsap.set('#brand',{opacity:0});
-tl.fromTo('#your',{x:-100,opacity:0},{x:0,opacity:1,duration:.24,ease:'expo.out'},.02);
-tl.fromTo('#rules',{x:100,opacity:0},{x:0,opacity:1,duration:.24,ease:'expo.out'},.13);
-tl.to('#slogan',{scale:1.55,opacity:0,duration:.24,ease:'power4.in'},.65);
-tl.set('#brand',{opacity:1},.85);
-tl.fromTo('#lock',{scale:.85,y:40,opacity:0},{scale:1,y:0,opacity:1,duration:.38,ease:'expo.out'},.85);
-tl.fromTo('#claim',{y:22,opacity:0},{y:0,opacity:1,duration:.28,ease:'expo.out'},1.15);
-tl.fromTo('#url',{opacity:0},{opacity:1,duration:.28},1.35);
-tl.to('#lock',{scale:1.022,duration:1.8,ease:'none'},1.4);
-
+tl.fromTo('#statement h2',{opacity:0,scale:.84,filter:'blur(20px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.42,ease:'expo.out'},.05);
+tl.to('#statement h2',{scale:1.035,duration:.86,ease:'none'},.48);
+tl.to('#statement',{scale:2.1,opacity:0,filter:'blur(24px)',duration:.34,ease:'power4.in'},1.34);
+tl.fromTo('#flash',{opacity:0},{opacity:1,duration:.08,ease:'none'},1.58);
+tl.to('#flash',{opacity:0,duration:.16,ease:'power3.out'},1.67);
+tl.set('#brand',{opacity:1},1.62);
+tl.fromTo('#lock',{opacity:0,y:44,scale:.92},{opacity:1,y:0,scale:1,duration:.42,ease:'expo.out'},1.68);
+tl.fromTo('#rule',{scaleX:0,transformOrigin:'left center'},{scaleX:1,duration:.42,ease:'power4.inOut'},1.88);
+tl.fromTo('#url',{opacity:0,y:32},{opacity:1,y:0,duration:.38,ease:'expo.out'},2.06);
+tl.fromTo('#brand',{scale:1},{scale:1.018,duration:2.55,ease:'none'},2.5);
 window.__timelines['07-cta']=tl;
-})();</script></template>
+})();</script>
+</template>

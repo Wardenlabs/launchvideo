@@ -195,3 +195,8 @@ Black, white and neutral greys only. This supersedes all prior restrictions agai
 
 ### v33: continuous motion language
 The shared backdrop is made from cropped product surfaces moving diagonally through the camera, not independent decorative backgrounds. Light-to-graphite inversion marks the decision and continues through the brand ending. Components settle with expo.out, drift subtly while readable, and leave through a short accelerating camera push. Decision semantics stay at component scale; no diagrammatic gate, oversized verdict or numeric title card.
+
+### v35: editorial flow, no status dots
+Circular status dots are removed from the active film. State is communicated with words, hairlines, weight and spatial progression. The explanatory frame uses three wide product stations — Request, Warden and AI model — and keeps the model visibly waiting while Warden checks the request locally. It is a product sequence, not a generic flow diagram: the same CSV and policy copy carry through the neighboring shots.
+
+The close follows a logo-outro relay: “Your AI. Your rules.” accelerates through the camera, a brief white flash transfers energy, and the original Warden lockup resolves above the URL. The URL must remain readable for at least two seconds and stands alone: no “download,” platform or license subtitles. The final frame stays monochrome, with no pills, particles, glow or decorative markers.

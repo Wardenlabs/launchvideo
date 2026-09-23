@@ -477,3 +477,24 @@ Owner rejected the oversized 4,812 title card. Delete that card and its dark tra
 ## v33 — One moving visual field
 
 Owner asked for a continuous sequence of backgrounds and a consistent contemporary treatment. Add a single shared moving field of cropped product surfaces behind the transparent scenes. It carries one direction of travel and inverts from light to graphite at the decision, continuing into the ending. The request montage retains its detailed source components. Remove the diagrammatic boundary, stop icon, zero counter and “This stays with you” statement. Replace them with a camera move into a Warden decision fragment: attachment, matching rule, compact Blocked state. No giant verdict, no new title card. Block is 3.2 seconds and the film is 20.65 seconds. Remove the unrelated shield/reflection scenery from the ending; the same product field continues beneath the lockup. Silent preview; no push.
+
+
+## v34 — One example, one rule, explicit download
+
+Owner found slow/repetitive passages and an unclear download destination. Remove the secondary exposure montage and the “Write the rule in a sentence” title from the active timeline (keep their source files as unused alternatives). Carry one customer CSV through the story. The policy shot drafts and activates only the corresponding customer-data rule; unrelated credentials/document rows are cut. Tighten the block's settled hold. Remove the repeated “Your rules” / “Your AI. Your rules” closing sequence. End immediately on the Warden lockup, Download for free, large warden-theta.vercel.app and macOS · Windows. The URL remains fully visible for over three seconds and links to #download in the interactive preview. Landing fetched and confirmed to contain the macOS/Windows download links. Total 12.85 seconds; silent.
+
+Current active sequence: opener 0–1.8; attachment 1.55–3.55; rule 3.25–7.05; decision 6.75–9.15; download 8.85–12.85.
+
+
+## v35 — Twenty-second product story
+
+The 12.85-second cut moved too quickly to explain the product, and its circular status dots read as generic AI decoration. Extend the film to 20.2 seconds and make the story legible without audio: risk, plain-language rule, local check, enforcement, brand promise, free download.
+
+- Remove circular status dots from every active shot.
+- Keep one artifact, one rule and one decision across the entire film.
+- Add a three-stage product view — Request / Warden / AI model — to show that Warden checks locally before anything reaches the model.
+- Restore “Your AI. Your rules.” as a fast cinematic bridge into the close.
+- Resolve on the original Warden lockup and the public URL. The URL is the longest-held text; explanatory download/platform subtitles are removed.
+- Use the HyperFrames logo-reveal and kinetic-type motion pattern: quick entry, one camera push, hard flash, then a stable branded close.
+
+Current active sequence: opener 0–1.8; attachment 1.55–3.85; rule 3.65–8.45; local check 8.1–12.3; decision 11.95–15.45; close 15.1–20.2. Monochrome and silent.

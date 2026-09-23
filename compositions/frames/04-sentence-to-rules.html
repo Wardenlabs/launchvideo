@@ -1,43 +1,57 @@
 <template>
-<style>@font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}@font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}@font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
-#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#272727;font-family:Inter,sans-serif}.stage,.layer{position:absolute;inset:0}.display{font-family:Manrope,sans-serif;font-weight:600;letter-spacing:-.055em;line-height:1.04}.dot{display:inline-block;width:18px;height:18px;border-radius:50%;background:#202020;flex:none}.meta{font-family:Mono,monospace;font-size:23px;letter-spacing:-.03em}.mark{object-fit:contain}
-
-.hinge{position:absolute;inset:0;display:grid;place-items:center;font-size:126px;white-space:nowrap}
-.composer{position:absolute;left:220px;top:338px;width:1480px;height:370px;padding:52px 60px;background:white;border:2px solid #E1E1E1;border-radius:24px}
-.label{font-size:26px;color:#6C6C6C}.sentence{margin-top:25px;font-size:65px;white-space:nowrap}.draft{position:absolute;right:36px;bottom:28px;background:#272727;color:white;border-radius:12px;padding:19px 28px;font-size:28px;display:flex;gap:30px;align-items:center}
-.stack{position:absolute;inset:0}.rule{position:absolute;left:230px;width:1460px;height:150px;display:flex;align-items:center;gap:30px;padding:0 52px;border:1px solid #E9E9E9;background:white;border-radius:18px;font-size:49px;letter-spacing:-.035em}#hero{top:298px}#second{top:465px}#third{top:632px}.rule .effect{margin-left:auto;display:flex;align-items:center;gap:16px;font-size:28px;letter-spacing:-.02em;color:#252525}.small{position:absolute;left:236px;top:223px;font-size:26px;color:#6C6C6C}.active{position:absolute;left:50%;top:685px;transform:translateX(-50%);height:86px;display:flex;align-items:center;gap:20px;padding:0 32px;background:#272727;color:white;border-radius:12px;font-size:31px}.active .dot{background:#E8E8E8;width:14px;height:14px}.wash{position:absolute;inset:0;background:rgba(232,232,232,.36)}.live{color:#272727;font-size:30px;position:absolute;left:283px;top:640px;display:flex;gap:15px;align-items:center}.live .dot{background:#272727}
+<style>
+@font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}
+@font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}
+@font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
+#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#272727;font-family:Inter,sans-serif}.stage,.layer{position:absolute;inset:0}.display{font-family:Manrope,sans-serif;font-weight:600;letter-spacing:-.055em;line-height:1.04}.meta{font-family:Mono,monospace;letter-spacing:-.03em}
+.wash{position:absolute;inset:0;background:rgba(232,232,232,.34)}
+.composer{position:absolute;left:220px;top:338px;width:1480px;height:370px;padding:52px 60px;background:#fff;border:2px solid #E1E1E1;border-radius:24px}
+.label{font-size:26px;color:#6C6C6C}.sentence{margin-top:25px;font-size:65px;white-space:nowrap}.draft{position:absolute;right:36px;bottom:28px;background:#272727;color:#fff;border-radius:12px;padding:19px 28px;font-size:28px;display:flex;gap:30px;align-items:center}
+.stack{position:absolute;inset:0}.small{position:absolute;left:236px;top:324px;font-family:Mono;font-size:22px;color:#707070;text-transform:uppercase;letter-spacing:.08em}
+.rule{position:absolute;left:230px;top:410px;width:1460px;height:184px;display:flex;align-items:center;padding:0 52px;border:1px solid #D8D8D8;background:#fff;border-radius:18px;font-family:Manrope;font-size:53px;font-weight:540;letter-spacing:-.045em}
+.effect{margin-left:auto;height:74px;padding-left:31px;border-left:2px solid #222;display:flex;align-items:center;font-family:Mono;font-size:27px;letter-spacing:.05em}
+.active{position:absolute;left:230px;top:640px;height:92px;display:flex;align-items:center;gap:24px;padding:0 34px;background:#272727;color:#fff;border-radius:12px;font-size:30px}
+.live{position:absolute;right:232px;top:664px;color:#272727;font-family:Mono;font-size:23px;letter-spacing:.04em;text-align:right}
 </style>
-<div id="root" data-hf-id="v28-04-root" data-composition-id="04-sentence-to-rules" data-width="1920" data-height="1080">
-<div id="f04-stage" class="clip stage" data-hf-id="v28-04-stage" data-start="0" data-duration="5.8" data-track-index="1"><div data-hf-id="v28-04-1" class="wash" id="wash"></div><div data-hf-id="v28-04-2" class="hinge display" id="hinge">Write the rule in a sentence</div>
-<div data-hf-id="v28-04-3" class="composer" id="composer"><div data-hf-id="v28-04-4" class="label">Your rule</div><div data-hf-id="v28-04-5" class="sentence display" id="sentence">Keep customer data private.</div><div data-hf-id="v28-04-6" class="draft" id="draft">Draft rules <span data-hf-id="v28-04-7">↵</span></div></div>
-<div data-hf-id="v28-04-8" class="stack" id="stack"><div data-hf-id="v28-04-9" class="small" id="review">Review your rules</div><div data-hf-id="v28-04-10" class="rule" id="hero"><span data-hf-id="v28-04-11">Customer contact details</span><span data-hf-id="v28-04-12" class="effect"><i data-hf-id="v28-04-13" class="dot"></i>Block</span></div><div data-hf-id="v28-04-14" class="rule" id="second"><span data-hf-id="v28-04-15">Credentials and API keys</span><span data-hf-id="v28-04-16" class="effect"><i data-hf-id="v28-04-17" class="dot"></i>Block</span></div><div data-hf-id="v28-04-18" class="rule" id="third"><span data-hf-id="v28-04-19">Internal documents</span><span data-hf-id="v28-04-20" class="effect"><i data-hf-id="v28-04-21" class="dot"></i>Block</span></div><div data-hf-id="v28-04-22" class="active" id="activate">Activate rules <span data-hf-id="v28-04-23">↵</span></div><div data-hf-id="v28-04-24" class="live" id="live"><i data-hf-id="v28-04-25" class="dot"></i>Active</div></div></div></div>
+<div id="root" data-hf-id="v35-04-root" data-composition-id="04-sentence-to-rules" data-width="1920" data-height="1080">
+  <div id="f04-stage" class="clip stage" data-hf-id="v35-04-stage" data-start="0" data-duration="4.8" data-track-index="1">
+    <div data-hf-id="v35-04-1" class="wash" id="wash"></div>
+    <div data-hf-id="v35-04-2" class="composer" id="composer">
+      <div data-hf-id="v35-04-3" class="label">Your rule</div>
+      <div data-hf-id="v35-04-4" class="sentence display" id="sentence">Keep customer data private.</div>
+      <div data-hf-id="v35-04-5" class="draft" id="draft">Draft rule <span data-hf-id="v35-04-6">↵</span></div>
+    </div>
+    <div data-hf-id="v35-04-7" class="stack" id="stack">
+      <div data-hf-id="v35-04-8" class="small" id="review">Compiled policy</div>
+      <div data-hf-id="v35-04-9" class="rule" id="hero">
+        <span data-hf-id="v35-04-10">Customer contact details</span>
+        <span data-hf-id="v35-04-11" class="effect">BLOCK</span>
+      </div>
+      <div data-hf-id="v35-04-12" class="active" id="activate">Activate rule <span data-hf-id="v35-04-13">↵</span></div>
+      <div data-hf-id="v35-04-14" class="live" id="live">ACTIVE · EVERY REQUEST</div>
+    </div>
+  </div>
+</div>
 <script>(function(){
-// Camera crops and overlapping entrance/exit poses are intentional in this film.
 document.querySelectorAll('.stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
 var tl=gsap.timeline({paused:true});
-
 gsap.set(['#wash','#composer','#stack','#live'],{opacity:0});
-tl.to('#hinge',{scale:.55,opacity:0,y:-100,duration:.42,ease:'power4.in'},.02);
-tl.fromTo('#composer',{scale:.8,y:90,opacity:0},{scale:1,y:0,opacity:1,duration:.46,ease:'expo.out'},.25);
-tl.fromTo('#sentence',{y:22,opacity:0},{y:0,opacity:1,duration:.35,ease:'expo.out'},.55);
-tl.to('#composer',{scale:1.045,duration:1.1,ease:'none'},.72);
-tl.to('#draft',{scale:.94,duration:.08},1.68);
-tl.to('#draft',{scale:1,duration:.18,ease:'back.out(2)'},1.76);
-tl.to('#composer',{scale:1.5,opacity:0,duration:.25,ease:'power4.in'},1.94);
-tl.set('#stack',{opacity:1},2.12);
-tl.fromTo('.rule',{y:200,scale:.78,opacity:0},{y:0,scale:1,opacity:1,duration:.46,stagger:.1,ease:'expo.out'},2.12);
-tl.fromTo('#review',{opacity:0,y:15},{opacity:1,y:0,duration:.3},2.23);
-tl.fromTo('#activate',{opacity:0,y:140},{opacity:1,y:115,duration:.35,ease:'expo.out'},2.5);
-tl.to(['#second','#third','#review'],{opacity:0,y:150,duration:.26,stagger:.04,ease:'power3.in'},3.35);
-tl.to('#hero',{y:167,scale:1.045,duration:.42,ease:'power4.inOut'},3.35);
-tl.to('#activate',{y:0,duration:.42,ease:'power4.inOut'},3.35);
-tl.to('#activate',{scale:.94,duration:.08},4.02);
-tl.to('#activate',{opacity:0,scale:1.2,duration:.2,ease:'power3.in'},4.12);
-tl.to('#wash',{opacity:1,duration:.22},4.16);
-tl.fromTo('#live',{opacity:0,y:15},{opacity:1,y:0,duration:.28,ease:'expo.out'},4.23);
-tl.to('#stack',{scale:1.04,duration:.8,ease:'none'},4.35);
-tl.to('#stack',{scale:1.65,opacity:0,duration:.3,ease:'power4.in'},5.42);
-tl.to('#wash',{opacity:0,duration:.25},5.5);
-
+tl.fromTo('#composer',{scale:.9,y:65,opacity:0},{scale:1,y:0,opacity:1,duration:.36,ease:'expo.out'},.08);
+tl.fromTo('#sentence',{y:15,opacity:0},{y:0,opacity:1,duration:.28,ease:'expo.out'},.3);
+tl.to('#draft',{scale:.94,duration:.08},1.28);
+tl.to('#draft',{scale:1,duration:.14,ease:'power2.out'},1.36);
+tl.to('#composer',{scale:1.3,opacity:0,duration:.24,ease:'power4.in'},1.58);
+tl.set('#stack',{opacity:1},1.8);
+tl.fromTo('#hero',{y:100,scale:.94,opacity:0},{y:0,scale:1,opacity:1,duration:.36,ease:'expo.out'},1.8);
+tl.fromTo('#review',{opacity:0,y:12},{opacity:1,y:0,duration:.22},1.9);
+tl.fromTo('#activate',{opacity:0,y:20},{opacity:1,y:0,duration:.28,ease:'expo.out'},2.04);
+tl.to('#activate',{scale:.94,duration:.08},3.0);
+tl.to('#activate',{opacity:0,scale:1.08,duration:.18,ease:'power3.in'},3.09);
+tl.to('#wash',{opacity:1,duration:.2},3.1);
+tl.fromTo('#live',{opacity:0,x:25},{opacity:1,x:0,duration:.26,ease:'expo.out'},3.16);
+tl.to('#stack',{scale:1.025,duration:.72,ease:'none'},3.5);
+tl.to('#stack',{scale:1.5,opacity:0,duration:.34,ease:'power4.in'},4.32);
+tl.to('#wash',{opacity:0,duration:.26},4.42);
 window.__timelines['04-sentence-to-rules']=tl;
-})();</script></template>
+})();</script>
+</template>
