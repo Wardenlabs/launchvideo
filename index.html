@@ -46,11 +46,15 @@
       tl.fromTo('#film-field',{x:-70,y:-60,rotation:-9,scale:1.05},{x:240,y:-410,rotation:-9,duration:20.2,ease:'none'},0);
       tl.to('#film-field',{opacity:.17,duration:.3},3.55);
       tl.to('#film-field',{opacity:.27,duration:.35},8.05);
-      tl.to('#film-ground',{backgroundColor:'#111111',duration:.2},12.05);
-      tl.to('.film-fragment',{backgroundColor:'#191919',borderColor:'#303030',duration:.2},12.05);
-      tl.to('.film-fragment i',{backgroundColor:'#444444',duration:.2},12.05);
-      tl.to('#film-field',{opacity:.74,duration:.25},12.05);
+      // The only time the ground changes colour: block-pink (Figma, "fondos al
+      // 10%: solo para mensajes de feedback"), in one snap on the instant the
+      // verdict stamps in frame 5 (11.95 + 1.08), and back to grey as the close
+      // begins. It used to go black here and stay black; the film is light
+      // (owner, 2026-09-23), and the hit is the flip, not the darkness.
+      tl.to('#film-ground',{backgroundColor:'#FFF0F3',duration:.07,ease:'power2.out'},13.03);
+      tl.to('#film-field',{opacity:.5,duration:.25},13.03);
       tl.to('#film-field',{scale:1.24,duration:.4,ease:'power4.inOut'},15.0);
+      tl.to('#film-ground',{backgroundColor:'#F5F5F5',duration:.35,ease:'power2.inOut'},15.15);
       tl.to('#film-field',{opacity:.28,duration:.5},16.0);
       window.__timelines["main"] = tl;
     </script>

@@ -1,6 +1,6 @@
 ---
 format: 1920x1080
-duration: 24.45s
+duration: 20.2s
 message: "Write the policy in one sentence. It is enforced on every prompt, on the machine."
 arc: PAS → mechanism → proof → trust → CTA
 audience: team lead / PM / CEO evaluating; the technical person it gets forwarded to
@@ -8,6 +8,22 @@ mode: collaborative
 music: calm, minimal electronic pulse, restrained, builds once at the rule split
 narration: none
 ---
+
+## Changes from v28 — colour on the actions, and light again
+
+The owner, 2026-09-23, on the 20-second cut: sweeter and more careful than the 36-second one, and it is the base from here — but "le falta punch, sobre todo en acciones clave". The diagnosis: nothing in it was louder than anything else. Everything monochrome, every entrance the same gentle expo.out, so the key actions weighed the same as the background. The punch in the earlier cut came from two things — colour on three clicks, and a physical hit (stillness → snap → squash) at each — and the fix is both, not one.
+
+The rule that keeps it clean: **colour appears only where something happens, and each action has its own.** Figma's state colours as they are (owner: "los colores son los de figma tal cual"), five touches in twenty seconds, everything else exactly as Martin left it:
+
+1. **Opener** — the Activity rows' verdict bullets back in mint / yellow / coral, labels ink. Texture, not punch: it teaches the three colours so the hits later read.
+2. **The leak (1.8–3.9)** — the send button is Claude's orange `#C96442` with the click gesture and a bloom (the one exception to "no glow"). Orange = sent, once in the film.
+3. **The rule (3.7–8.4)** — `BLOCK` gets the coral Effect bullet; on `Activate rule` the row gives and recovers, its border goes mint, and `● Active` pops in where the button was.
+4. **The local check (8.1–12.3)** — the scan line is mint and a `● local` chip stays on the Warden card after it passes.
+5. **The block (12–15.4)** — `Blocked` is the coral Verdict badge at stamp size and arrives as a hit: from close to the lens, expo.in, squash, shake, the panel takes the blow. On that same instant (13.03) **the ground snaps to block-pink `#FFF0F3`** — the only time the ground changes colour — and returns to grey as the close begins.
+
+The film is light throughout again (owner: "de todas formas el video es white mode"). The v26 black second half — ground `#111` from the block to the end, dark panel, inverted lockup, white flash into the close — is gone: panel white, lockup ink, statement ink, no flash. The dark Warden card inside "Before it reaches the model" stays; it is a card, not a plate.
+
+Structure, timing and copy untouched: 20.2s, six beats (the storyboard's 24.45s / eight-frame numbers above were stale against the timeline and are corrected). Voice-over (ElevenLabs) is still to come; the three hits should land on its verbs — generate the voice first, then nudge the hits to it, not the other way round.
 
 ## Changes from v27 — product component fidelity
 

@@ -3,14 +3,15 @@
 @font-face{font-family:Manrope;font-weight:200 800;src:url("assets/fonts/Manrope-Variable.ttf")}
 @font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}
 @font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
-#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#F5F5F5;font-family:Inter,sans-serif}
-.stage,.statement,.brand,.flash{position:absolute;inset:0}.statement{display:flex;align-items:center;justify-content:center;text-align:center}.statement h2{font-family:Manrope;font-size:150px;font-weight:560;letter-spacing:-.07em;line-height:.92}.statement .soft{color:#8B8B8B;font-weight:390}
-.flash{background:#F5F5F5;opacity:0}.brand{opacity:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:72px}.lock-wrap{width:1040px;height:280px;overflow:hidden;display:grid;place-items:center}.lock{width:1040px;height:280px;object-fit:contain;filter:brightness(0) invert(1)}.url{font-family:Manrope;font-size:82px;font-weight:480;letter-spacing:-.055em;line-height:1;color:#CFCFCF;text-decoration:none}
+/* Light, like the rest of the film: ink statement, ink lockup, no flash — the
+   ground coming back from block-pink to grey (index.html) is the transition. */
+#root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#252525;font-family:Inter,sans-serif}
+.stage,.statement,.brand{position:absolute;inset:0}.statement{display:flex;align-items:center;justify-content:center;text-align:center}.statement h2{font-family:Manrope;font-size:150px;font-weight:560;letter-spacing:-.07em;line-height:.92}.statement .soft{color:#8B8B8B;font-weight:390}
+.brand{opacity:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:72px}.lock-wrap{width:1040px;height:280px;overflow:hidden;display:grid;place-items:center}.lock{width:1040px;height:280px;object-fit:contain}.url{font-family:Manrope;font-size:82px;font-weight:480;letter-spacing:-.055em;line-height:1;color:#515151;text-decoration:none}
 </style>
 <div data-hf-id="v35-07-root" id="root" data-composition-id="07-cta" data-width="1920" data-height="1080">
   <div data-hf-id="v35-07-stage" class="clip stage" id="f07-stage" data-start="0" data-duration="5.1" data-track-index="1">
     <div data-hf-id="v35-07-statement" class="statement" id="statement"><h2 data-hf-id="v35-07-copy"><span data-hf-id="v35-07-soft" class="soft">Your AI.</span> Your rules.</h2></div>
-    <div data-hf-id="v35-07-flash" class="flash" id="flash"></div>
     <div data-hf-id="v35-07-brand" class="brand" id="brand">
       <div data-hf-id="v36-07-lock-wrap" class="lock-wrap"><img data-hf-id="v35-07-lock" class="lock" id="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden" data-layout-allow-overflow=""></div>
       <a data-hf-id="v35-07-url" class="url" id="url" href="https://trywarden.app/#download">trywarden.app</a>
@@ -22,8 +23,6 @@ var tl=gsap.timeline({paused:true});
 tl.fromTo('#statement h2',{opacity:0,scale:.84,filter:'blur(20px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.42,ease:'expo.out'},.05);
 tl.to('#statement h2',{scale:1.035,duration:.86,ease:'none'},.48);
 tl.to('#statement',{scale:2.1,opacity:0,filter:'blur(24px)',duration:.34,ease:'power4.in'},1.34);
-tl.fromTo('#flash',{opacity:0},{opacity:1,duration:.08,ease:'none'},1.58);
-tl.to('#flash',{opacity:0,duration:.16,ease:'power3.out'},1.67);
 tl.set('#brand',{opacity:1},1.62);
 tl.fromTo('#lock',{opacity:0,y:180,scale:.94},{opacity:1,y:0,scale:1,duration:.5,ease:'expo.out'},1.68);
 tl.fromTo('#url',{opacity:0,y:36},{opacity:1,y:0,duration:.42,ease:'expo.out'},2.02);

@@ -8,7 +8,13 @@
 .composer{position:absolute;left:220px;top:338px;width:1480px;height:370px;padding:70px 60px;background:#fff;border:2px solid #E1E1E1;border-radius:24px}
 .sentence{font-size:65px;white-space:nowrap}.draft{position:absolute;right:36px;bottom:28px;background:#272727;color:#fff;border-radius:12px;padding:19px 28px;font-size:28px;display:flex;gap:30px;align-items:center}
 .stack{position:absolute;inset:0}.rule{position:absolute;left:230px;top:430px;width:1460px;height:184px;display:flex;align-items:center;padding:0 52px;border:1px solid #D8D8D8;background:#fff;border-radius:18px;font-family:Manrope;font-size:53px;font-weight:540;letter-spacing:-.045em}
-.effect{margin-left:auto;height:74px;padding-left:31px;border-left:2px solid #222;display:flex;align-items:center;font-family:Mono;font-size:27px;letter-spacing:.05em}
+/* Figma's Effect and Verdict badges: a coloured bullet and an ink label, no
+   fill. BLOCK is coral because it is a verdict; the state that appears on
+   activation is mint, the second of the film's three coloured actions. */
+.effect{margin-left:auto;height:74px;padding-left:31px;border-left:2px solid #222;display:flex;align-items:center;gap:16px;font-family:Mono;font-size:27px;letter-spacing:.05em}
+.effect::before{content:"";width:16px;height:16px;border-radius:50%;background:#FF3B5C;flex:none}
+.state{position:absolute;left:230px;top:640px;height:92px;display:flex;align-items:center;gap:18px;padding:0 6px;font-size:30px;font-weight:500;color:#272727}
+.state::before{content:"";width:18px;height:18px;border-radius:50%;background:#34D399;flex:none}
 .active{position:absolute;left:230px;top:640px;height:92px;display:flex;align-items:center;gap:24px;padding:0 34px;background:#272727;color:#fff;border-radius:12px;font-size:30px}
 </style>
 <div id="root" data-hf-id="v35-04-root" data-composition-id="04-sentence-to-rules" data-width="1920" data-height="1080">
@@ -24,13 +30,14 @@
         <span data-hf-id="v35-04-11" class="effect">BLOCK</span>
       </div>
       <div data-hf-id="v35-04-12" class="active" id="activate">Activate rule <span data-hf-id="v35-04-13">↵</span></div>
+      <div data-hf-id="v35-04-st" class="state" id="state">Active</div>
     </div>
   </div>
 </div>
 <script>(function(){
 document.querySelectorAll('.stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
 var tl=gsap.timeline({paused:true});
-gsap.set(['#wash','#composer','#stack'],{opacity:0});
+gsap.set(['#wash','#composer','#stack','#state'],{opacity:0});
 tl.fromTo('#composer',{scale:.9,y:65,opacity:0},{scale:1,y:0,opacity:1,duration:.36,ease:'expo.out'},.08);
 tl.fromTo('#sentence',{y:15,opacity:0},{y:0,opacity:1,duration:.28,ease:'expo.out'},.3);
 tl.to('#draft',{scale:.94,duration:.08},1.28);
@@ -42,7 +49,12 @@ tl.fromTo('#activate',{opacity:0,y:20},{opacity:1,y:0,duration:.28,ease:'expo.ou
 tl.to('#activate',{scale:.94,duration:.08},3.0);
 tl.to('#activate',{opacity:0,scale:1.08,duration:.18,ease:'power3.in'},3.09);
 tl.to('#wash',{opacity:1,duration:.2},3.1);
-tl.to('#hero',{borderColor:'#222222',backgroundColor:'#F4F4F4',duration:.28,ease:'power2.out'},3.16);
+// The click lands on the row: it gives, recovers, and the mint state pops in
+// where the button was. back.out because it is a thing that hits.
+tl.to('#hero',{scale:.975,duration:.07,ease:'power2.in'},3.08);
+tl.to('#hero',{scale:1,duration:.18,ease:'back.out(3)'},3.16);
+tl.to('#hero',{borderColor:'#34D399',duration:.12,ease:'power2.out'},3.16);
+tl.fromTo('#state',{opacity:0,scale:.4,x:-12},{opacity:1,scale:1,x:0,duration:.3,ease:'back.out(3)'},3.22);
 tl.to('#stack',{scale:1.025,duration:.72,ease:'none'},3.5);
 tl.to('#stack',{scale:1.5,opacity:0,duration:.34,ease:'power4.in'},4.32);
 tl.to('#wash',{opacity:0,duration:.26},4.42);

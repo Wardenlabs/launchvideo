@@ -4,7 +4,11 @@
 @font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}
 @font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
 #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#252525;font-family:Inter,sans-serif}.stage{position:absolute;inset:0}.display{font-family:Manrope;font-weight:600;letter-spacing:-.05em;line-height:1.05}
-.world{position:absolute;inset:0}.track{position:absolute;left:-250px;right:-250px;top:558px;height:2px;background:#D1D1D1}.file{position:absolute;left:125px;top:355px;width:1320px;height:330px;background:white;border:1px solid #D9D9D9;border-radius:18px;display:flex;align-items:center;gap:46px;padding:55px}.file svg{width:105px;height:125px;stroke:#252525;stroke-width:2.8;fill:none;flex:none}.name{font-size:66px;letter-spacing:-.055em;white-space:nowrap}.count{font-family:Mono;font-size:32px;color:#646464;margin-top:26px}.send{position:absolute;left:1540px;top:446px;width:155px;height:155px;background:#252525;border-radius:20px;display:grid;place-items:center}.send svg{width:63px;height:63px;stroke:white;stroke-width:1.7;fill:none}.caption{position:absolute;left:195px;top:780px;font-size:58px;color:#515151}
+.world{position:absolute;inset:0}.track{position:absolute;left:-250px;right:-250px;top:558px;height:2px;background:#D1D1D1}.file{position:absolute;left:125px;top:355px;width:1320px;height:330px;background:white;border:1px solid #D9D9D9;border-radius:18px;display:flex;align-items:center;gap:46px;padding:55px}.file svg{width:105px;height:125px;stroke:#252525;stroke-width:2.8;fill:none;flex:none}.name{font-size:66px;letter-spacing:-.055em;white-space:nowrap}.count{font-family:Mono;font-size:32px;color:#646464;margin-top:26px}/* Claude's send button, orange: the employee's click is the first of the
+   film's three coloured actions (orange sent · mint active · coral blocked).
+   The bloom on the click is the one deliberate exception to "no glow". */
+.send{position:absolute;left:1540px;top:446px;width:155px;height:155px;background:#C96442;border-radius:20px;display:grid;place-items:center}.send svg{width:63px;height:63px;stroke:white;stroke-width:1.7;fill:none}.caption{position:absolute;left:195px;top:780px;font-size:58px;color:#515151}
+.bloom{position:absolute;left:1617px;top:523px;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(201,100,66,.55) 0%,rgba(201,100,66,.18) 38%,rgba(201,100,66,0) 70%);opacity:0;pointer-events:none}
 </style>
 <div id="root" data-hf-id="v31-01-root" data-composition-id="01-hook" data-width="1920" data-height="1080">
   <div id="f01-stage" class="clip stage" data-hf-id="v31-01-stage" data-start="0" data-duration="2.3" data-track-index="1">
@@ -17,6 +21,7 @@
           <div data-hf-id="v31-01-8" class="count">4,812 customer records</div>
         </div>
       </div>
+      <div data-hf-id="v31-01-bl" class="bloom" id="bloom"></div>
       <div data-hf-id="v31-01-9" class="send" id="send"><svg data-hf-id="v31-01-10" id="arrow" viewBox="0 0 24 24"><path data-hf-id="v31-01-11" d="M4 12h16m-7-7 7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div data-hf-id="v31-01-12" class="caption display" id="caption">One click away.</div>
     </div>
@@ -31,6 +36,8 @@ tl.fromTo('#caption',{opacity:0,y:18},{opacity:1,y:0,duration:.25,ease:'expo.out
 tl.to('#world',{scale:1.03,duration:.72,ease:'none'},.6);
 tl.to('#send',{scale:.92,duration:.07},1.42);
 tl.to('#send',{scale:1,duration:.18,ease:'back.out(2)'},1.49);
+tl.fromTo('#bloom',{scale:.35,opacity:0},{scale:1,opacity:1,duration:.12,ease:'power2.out'},1.46);
+tl.to('#bloom',{scale:2.1,opacity:0,duration:.5,ease:'power2.out'},1.58);
 tl.to('#arrow',{x:90,opacity:0,duration:.2,ease:'power3.in'},1.5);
 tl.to('#caption',{opacity:0,duration:.12},1.56);
 tl.to('#file',{x:1900,duration:.48,ease:'power4.in'},1.62);

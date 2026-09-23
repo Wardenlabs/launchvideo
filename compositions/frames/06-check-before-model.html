@@ -6,7 +6,10 @@
 #root{position:absolute;inset:0;overflow:hidden;container-type:size;color:#252525;font-family:Inter,sans-serif}
 .stage,.camera{position:absolute;inset:0}.headline{position:absolute;left:116px;top:100px;font-family:Manrope;font-size:84px;font-weight:580;letter-spacing:-.06em;line-height:1}.rail{position:absolute;left:100px;right:100px;top:300px;height:560px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
 .station{position:relative;overflow:hidden;border:1px solid #D3D3D3;background:#F8F8F8;border-radius:16px;padding:34px 38px}.request-file{position:absolute;left:38px;right:38px;top:184px;height:168px;background:#fff;border:1px solid #D8D8D8;border-radius:12px;padding:32px}.request-file strong{display:block;font-family:Manrope;font-size:34px;letter-spacing:-.04em}.request-file span{display:block;margin-top:20px;font-family:Mono;font-size:19px;color:#696969}
-.warden{background:#202020;border-color:#202020;color:#F5F5F5}.warden-lock{position:absolute;left:38px;top:54px;width:250px;height:74px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}.scan{position:absolute;left:0;top:0;width:2px;height:100%;background:#F5F5F5;opacity:.9}.warden-copy{position:absolute;left:38px;right:38px;top:214px;font-family:Manrope;font-size:58px;font-weight:560;letter-spacing:-.055em;line-height:1.02}.warden-copy span{display:block;color:#AFAFAF}
+.warden{background:#202020;border-color:#202020;color:#F5F5F5}.warden-lock{position:absolute;left:38px;top:54px;width:250px;height:74px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}/* One mint accent on the local check: the scan line, and the dot that stays
+   on "Checks locally." once it has passed. Mint is the film's "in force". */
+.scan{position:absolute;left:0;top:0;width:3px;height:100%;background:#34D399;opacity:.95;box-shadow:0 0 18px rgba(52,211,153,.55)}.warden-copy{position:absolute;left:38px;right:38px;top:214px;font-family:Manrope;font-size:58px;font-weight:560;letter-spacing:-.055em;line-height:1.02}.warden-copy span{display:block;color:#AFAFAF}
+.local{position:absolute;right:38px;top:66px;display:flex;align-items:center;gap:12px;font-family:Mono;font-size:20px;color:#DADADA;letter-spacing:.02em}.local::before{content:"";width:14px;height:14px;border-radius:50%;background:#34D399;flex:none}
 .model{opacity:.62}.model-shell{position:absolute;left:38px;right:38px;top:96px;bottom:96px;border:1px solid #D2D2D2;border-radius:12px;background:#fff;padding:34px}.model-bar{height:12px;background:#D5D5D5;margin-bottom:24px}.model-bar:nth-child(1){width:44%}.model-bar:nth-child(2){width:78%}.model-bar:nth-child(3){width:61%}.model-input{position:absolute;left:34px;right:34px;bottom:34px;height:86px;border:1px solid #D4D4D4;border-radius:10px}
 </style>
 <div data-hf-id="v36-06-root" id="root" data-composition-id="06-check-before-model" data-width="1920" data-height="1080">
@@ -20,6 +23,7 @@
         <div data-hf-id="v36-06-warden" class="station warden" id="warden">
           <img data-hf-id="v36-06-lock" class="warden-lock" src="assets/brand/warden-lockup-light.svg" alt="Warden">
           <div data-hf-id="v36-06-scan" class="scan" id="scan"></div>
+          <div data-hf-id="v36-06-local" class="local" id="local">local</div>
           <div data-hf-id="v36-06-copy" class="warden-copy" id="warden-copy">Checks locally.<span data-hf-id="v36-06-copy2">Before send.</span></div>
         </div>
         <div data-hf-id="v36-06-model" class="station model" id="model">
@@ -34,6 +38,8 @@
 <script>(function(){
 document.querySelectorAll('.stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
 var tl=gsap.timeline({paused:true});
+gsap.set('#local',{opacity:0});
+tl.fromTo('#local',{opacity:0,scale:.4},{opacity:1,scale:1,duration:.28,ease:'back.out(3)'},1.86);
 tl.fromTo('#headline',{opacity:0,y:26},{opacity:1,y:0,duration:.38,ease:'expo.out'},.06);
 tl.fromTo('.station',{opacity:0,y:90},{opacity:1,y:0,duration:.42,ease:'expo.out',stagger:.08},.22);
 tl.fromTo('#request-file',{x:-520,opacity:0},{x:0,opacity:1,duration:.48,ease:'expo.out'},.6);
