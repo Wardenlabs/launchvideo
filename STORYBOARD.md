@@ -9,6 +9,17 @@ music: calm, minimal electronic pulse, restrained, builds once at the rule split
 narration: Brian (ElevenLabs), one take cut into seven phrases, placed on the hits
 ---
 
+## Changes from v37 — sound on the three hits
+
+Owner, 2026-09-23. Level 1 only: sound where something happens, nothing else, because the voice runs almost without a break. Style asked for: Linear, Apple, Anthropic, Google — "sweet". Everything dry, short, no melody.
+
+- **One button is the film's click**, the way one cursor is its gesture: ElevenLabs "deep, satisfying physical button press", trimmed to its first 300 ms, unprocessed (the owner heard compressed and EQ'd versions and kept the original). A plain "UI click" prompt was rejected as horrible: the model pads a 10 ms sound to its 0.5 s minimum and invents a tail. Ask for a physical button, then trim.
+- **Sent (2.96):** the button, then whoosh-2 peaking at 3.45 as the file accelerates into the cloud.
+- **Active (6.64):** the button with a two-note chime synthesised on top (E6 → B6).
+- **Blocked (13.2):** the same button doubled with a copy a fourth lower — the same press, heavier. Four kick drums (three generated, one synthesised) were rejected: "no tiene nada que ver con un block".
+
+Files in `assets/audio/sfx/`; tracks 11–12 in `index.html`. Level 2 (opener ticks, transitions, scan sweep, lockup) is proposed and not built; music comes last.
+
 ## Changes from v36 — the voice-over
 
 Owner, 2026-09-23. Voice: **Brian** (ElevenLabs `gPPH6SLdL8XSX6GNJ40G`) on **eleven_v3**, stability 1.0 (Robust), speed 1.1, one `[confident]` tag for the whole script. Chosen over Henry, James Carter, Thaddeus, James Freeman and George. On eleven_multilingual_v2 the owner found Brian too slow at speed 1.0 and short of emotion even at style .5; v3 had the emotion, but a different tone tag per line made it sound like two voices, so one tag and the Robust setting. Script (version B, chosen over a more explanatory A):

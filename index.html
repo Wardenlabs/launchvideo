@@ -47,6 +47,21 @@
       <audio data-hf-id="hf-njqg" id="vo-05" src="assets/audio/vo/05-doesnt.wav" data-start="12.14" data-duration="2.38" data-track-index="10" data-volume="1"></audio>
       <audio data-hf-id="hf-k9i3" id="vo-06" src="assets/audio/vo/06-slogan.wav" data-start="15.17" data-duration="2.29" data-track-index="10" data-volume="1"></audio>
       <audio data-hf-id="hf-ubx2" id="vo-07" src="assets/audio/vo/07-warden.wav" data-start="17.6" data-duration="1.18" data-track-index="10" data-volume="1"></audio>
+
+      <!-- Sound, level 1: only the three hits. The voice runs almost without a
+           break, so every sound is short, dry and has no melody. One button
+           (ElevenLabs, "deep, satisfying physical button press", trimmed to its
+           first 300 ms) is the film's click, the way one cursor is its gesture;
+           what follows the button says what happened. Sent: the button and the
+           file's whoosh, peaking as it accelerates into the cloud. Active: the
+           button with a two-note chime synthesised on top (E6, B6). Blocked:
+           the same button doubled with a copy a fourth lower, so it reads as
+           the same press, heavier. Generated kicks were tried for the block and
+           rejected by the owner as unrelated to a block. -->
+      <audio data-hf-id="hf-n4dy" id="sfx-send" src="assets/audio/sfx/button.wav" data-start="2.96" data-duration="0.3" data-track-index="11" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-tfkb" id="sfx-fly" src="assets/audio/sfx/whoosh.wav" data-start="3.22" data-duration="0.6" data-track-index="12" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-7tcj" id="sfx-active" src="assets/audio/sfx/lockin.wav" data-start="6.64" data-duration="0.575" data-track-index="11" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-2mh0" id="sfx-block" src="assets/audio/sfx/block.wav" data-start="13.2" data-duration="0.622" data-track-index="11" data-volume="0.8"></audio>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
