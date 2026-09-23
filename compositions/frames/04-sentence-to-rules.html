@@ -13,8 +13,9 @@
    activation is mint, the second of the film's three coloured actions. */
 .effect{margin-left:auto;height:74px;padding-left:31px;border-left:2px solid #222;display:flex;align-items:center;gap:16px;font-family:Mono;font-size:27px;letter-spacing:.05em}
 .effect::before{content:"";width:16px;height:16px;border-radius:50%;background:#FF3B5C;flex:none}
-.state{position:absolute;left:230px;top:640px;height:92px;display:flex;align-items:center;gap:18px;padding:0 6px;font-size:30px;font-weight:500;color:#272727}
-.state::before{content:"";width:18px;height:18px;border-radius:50%;background:#34D399;flex:none}
+/* Big on purpose: at 30px with an 18px dot the owner could not see it. */
+.state{position:absolute;left:230px;top:634px;height:104px;display:flex;align-items:center;gap:22px;padding:0 6px;font-family:Manrope;font-size:46px;font-weight:600;letter-spacing:-.04em;color:#272727;transform-origin:0% 50%}
+.state::before{content:"";width:28px;height:28px;border-radius:50%;background:#34D399;flex:none;box-shadow:0 0 22px rgba(52,211,153,.6)}
 .active{position:absolute;left:230px;top:640px;height:92px;display:flex;align-items:center;gap:24px;padding:0 34px;background:#272727;color:#fff;border-radius:12px;font-size:30px}
 </style>
 <div id="root" data-hf-id="v35-04-root" data-composition-id="04-sentence-to-rules" data-width="1920" data-height="1080">
@@ -53,8 +54,11 @@ tl.to('#wash',{opacity:1,duration:.2},3.1);
 // where the button was. back.out because it is a thing that hits.
 tl.to('#hero',{scale:.975,duration:.07,ease:'power2.in'},3.08);
 tl.to('#hero',{scale:1,duration:.18,ease:'back.out(3)'},3.16);
-tl.to('#hero',{borderColor:'#34D399',duration:.12,ease:'power2.out'},3.16);
-tl.fromTo('#state',{opacity:0,scale:.4,x:-12},{opacity:1,scale:1,x:0,duration:.3,ease:'back.out(3)'},3.22);
+// The row flashes mint (Figma's 10% feedback ground) and settles to a faint
+// tint with a mint ring, so the activation is seen, not inferred.
+tl.to('#hero',{borderColor:'#34D399',boxShadow:'0 0 0 3px rgba(52,211,153,.9), 0 14px 40px rgba(52,211,153,.25)',backgroundColor:'rgba(52,211,153,.22)',duration:.08,ease:'power2.out'},3.16);
+tl.to('#hero',{backgroundColor:'rgba(52,211,153,.09)',boxShadow:'0 0 0 2px rgba(52,211,153,.9), 0 10px 30px rgba(52,211,153,.12)',duration:.5,ease:'power2.out'},3.28);
+tl.fromTo('#state',{opacity:0,scale:.3,x:-16},{opacity:1,scale:1,x:0,duration:.34,ease:'back.out(3.5)'},3.2);
 tl.to('#stack',{scale:1.025,duration:.72,ease:'none'},3.5);
 tl.to('#stack',{scale:1.5,opacity:0,duration:.34,ease:'power4.in'},4.32);
 tl.to('#wash',{opacity:0,duration:.26},4.42);
