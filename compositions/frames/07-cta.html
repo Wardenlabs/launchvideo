@@ -5,15 +5,14 @@
 @font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
 #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#F5F5F5;font-family:Inter,sans-serif}
 .stage,.statement,.brand,.flash{position:absolute;inset:0}.statement{display:flex;align-items:center;justify-content:center;text-align:center}.statement h2{font-family:Manrope;font-size:150px;font-weight:560;letter-spacing:-.07em;line-height:.92}.statement .soft{color:#8B8B8B;font-weight:390}
-.flash{background:#F5F5F5;opacity:0}.brand{opacity:0}.lock{position:absolute;left:188px;top:214px;width:720px;height:215px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}.rule{position:absolute;left:188px;right:188px;top:504px;height:1px;background:#4A4A4A}.url{position:absolute;left:180px;top:584px;font-family:Manrope;font-size:116px;font-weight:540;letter-spacing:-.06em;line-height:1;color:#F5F5F5;text-decoration:none}
+.flash{background:#F5F5F5;opacity:0}.brand{opacity:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:72px}.lock-wrap{width:1040px;height:280px;overflow:hidden;display:grid;place-items:center}.lock{width:1040px;height:280px;object-fit:contain;filter:brightness(0) invert(1)}.url{font-family:Manrope;font-size:82px;font-weight:480;letter-spacing:-.055em;line-height:1;color:#CFCFCF;text-decoration:none}
 </style>
 <div data-hf-id="v35-07-root" id="root" data-composition-id="07-cta" data-width="1920" data-height="1080">
   <div data-hf-id="v35-07-stage" class="clip stage" id="f07-stage" data-start="0" data-duration="5.1" data-track-index="1">
     <div data-hf-id="v35-07-statement" class="statement" id="statement"><h2 data-hf-id="v35-07-copy"><span data-hf-id="v35-07-soft" class="soft">Your AI.</span> Your rules.</h2></div>
     <div data-hf-id="v35-07-flash" class="flash" id="flash"></div>
     <div data-hf-id="v35-07-brand" class="brand" id="brand">
-      <img data-hf-id="v35-07-lock" class="lock" id="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden">
-      <div data-hf-id="v35-07-rule" class="rule" id="rule"></div>
+      <div data-hf-id="v36-07-lock-wrap" class="lock-wrap"><img data-hf-id="v35-07-lock" class="lock" id="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden" data-layout-allow-overflow=""></div>
       <a data-hf-id="v35-07-url" class="url" id="url" href="https://trywarden.app/#download">trywarden.app</a>
     </div>
   </div>
@@ -26,9 +25,8 @@ tl.to('#statement',{scale:2.1,opacity:0,filter:'blur(24px)',duration:.34,ease:'p
 tl.fromTo('#flash',{opacity:0},{opacity:1,duration:.08,ease:'none'},1.58);
 tl.to('#flash',{opacity:0,duration:.16,ease:'power3.out'},1.67);
 tl.set('#brand',{opacity:1},1.62);
-tl.fromTo('#lock',{opacity:0,y:44,scale:.92},{opacity:1,y:0,scale:1,duration:.42,ease:'expo.out'},1.68);
-tl.fromTo('#rule',{scaleX:0,transformOrigin:'left center'},{scaleX:1,duration:.42,ease:'power4.inOut'},1.88);
-tl.fromTo('#url',{opacity:0,y:32},{opacity:1,y:0,duration:.38,ease:'expo.out'},2.06);
+tl.fromTo('#lock',{opacity:0,y:180,scale:.94},{opacity:1,y:0,scale:1,duration:.5,ease:'expo.out'},1.68);
+tl.fromTo('#url',{opacity:0,y:36},{opacity:1,y:0,duration:.42,ease:'expo.out'},2.02);
 tl.fromTo('#brand',{scale:1},{scale:1.018,duration:2.55,ease:'none'},2.5);
 window.__timelines['07-cta']=tl;
 })();</script>

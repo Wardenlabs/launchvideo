@@ -200,3 +200,6 @@ The shared backdrop is made from cropped product surfaces moving diagonally thro
 Circular status dots are removed from the active film. State is communicated with words, hairlines, weight and spatial progression. The explanatory frame uses three wide product stations — Request, Warden and AI model — and keeps the model visibly waiting while Warden checks the request locally. It is a product sequence, not a generic flow diagram: the same CSV and policy copy carry through the neighboring shots.
 
 The close follows a logo-outro relay: “Your AI. Your rules.” accelerates through the camera, a brief white flash transfers energy, and the original Warden lockup resolves above trywarden.app. The URL must remain readable for at least two seconds and stands alone: no arrow, “download,” platform or license subtitles. The final frame stays monochrome, with no pills, particles, glow or decorative markers.
+
+### v36: no ornamental labels
+Do not use uppercase mono labels or bottom metadata rails to name what the composition already shows. Product state is expressed by the actual component, surface changes and timing. The final lockup and URL form one centred object rather than a title over a footer.

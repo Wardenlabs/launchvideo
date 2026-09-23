@@ -498,3 +498,7 @@ The 12.85-second cut moved too quickly to explain the product, and its circular 
 - Use the HyperFrames logo-reveal and kinetic-type motion pattern: quick entry, one camera push, hard flash, then a stable branded close.
 
 Current active sequence: opener 0–1.8; attachment 1.55–3.85; rule 3.65–8.45; local check 8.1–12.3; decision 11.95–15.45; close 15.1–20.2. Monochrome and silent.
+
+## v36 — Remove interface captions
+
+Remove decorative mono headings and footer captions from the rule, local-check and close frames. State should read from the component itself: the rule changes surface after activation, the request enters a branded Warden panel while the destination remains empty, and the close resolves as one centred lockup with trywarden.app. No title/footer layout in the ending.
