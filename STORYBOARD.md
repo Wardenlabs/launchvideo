@@ -494,7 +494,7 @@ The 12.85-second cut moved too quickly to explain the product, and its circular 
 - Keep one artifact, one rule and one decision across the entire film.
 - Add a three-stage product view — Request / Warden / AI model — to show that Warden checks locally before anything reaches the model.
 - Restore “Your AI. Your rules.” as a fast cinematic bridge into the close.
-- Resolve on the original Warden lockup and the public URL. The URL is the longest-held text; explanatory download/platform subtitles are removed.
+- Resolve on the original Warden lockup and trywarden.app. The URL is the longest-held text and stands alone, without an arrow or explanatory download/platform subtitles.
 - Use the HyperFrames logo-reveal and kinetic-type motion pattern: quick entry, one camera push, hard flash, then a stable branded close.
 
 Current active sequence: opener 0–1.8; attachment 1.55–3.85; rule 3.65–8.45; local check 8.1–12.3; decision 11.95–15.45; close 15.1–20.2. Monochrome and silent.
