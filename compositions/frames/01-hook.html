@@ -4,15 +4,22 @@
 @font-face{font-family:Inter;font-weight:100 900;src:url("assets/fonts/Inter-Variable.ttf")}
 @font-face{font-family:Mono;font-weight:100 900;src:url("assets/fonts/GeistMono-Variable.ttf")}
 #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#252525;font-family:Inter,sans-serif}.stage{position:absolute;inset:0}.display{font-family:Manrope;font-weight:600;letter-spacing:-.05em;line-height:1.05}
-.world{position:absolute;inset:0}.track{position:absolute;left:-250px;right:-250px;top:558px;height:2px;background:#D1D1D1}.file{position:absolute;left:125px;top:355px;width:1320px;height:330px;background:white;border:1px solid #D9D9D9;border-radius:18px;display:flex;align-items:center;gap:46px;padding:55px}.file svg{width:105px;height:125px;stroke:#252525;stroke-width:2.8;fill:none;flex:none}.name{font-size:66px;letter-spacing:-.055em;white-space:nowrap}.count{font-family:Mono;font-size:32px;color:#646464;margin-top:26px}/* Claude's send button, orange: the employee's click is the first of the
+.world{position:absolute;inset:0}.track{position:absolute;left:-250px;right:-250px;top:558px;height:2px;background:#D1D1D1}.file{position:absolute;left:125px;top:355px;width:1180px;height:330px;z-index:1;background:white;border:1px solid #D9D9D9;border-radius:18px;display:flex;align-items:center;gap:46px;padding:55px}.file svg{width:105px;height:125px;stroke:#252525;stroke-width:2.8;fill:none;flex:none}.name{font-size:66px;letter-spacing:-.055em;white-space:nowrap}.count{font-family:Mono;font-size:32px;color:#646464;margin-top:26px}/* Claude's send button, orange: the employee's click is the first of the
    film's three coloured actions (orange sent · mint active · coral blocked).
    The bloom on the click is the one deliberate exception to "no glow". */
 /* Whose tool this is. Without it the first eight seconds never say "AI":
    a file and an arrow could be anything. The label is the one Warden
    actually hooks, in mono, the way the earlier cut's composer carried it. */
 .tool{position:absolute;left:55px;top:28px;font-family:Mono;font-size:23px;letter-spacing:.02em;color:#8A8A8A;white-space:nowrap}
-.send{position:absolute;left:1540px;top:446px;width:155px;height:155px;background:#C96442;border-radius:20px;display:grid;place-items:center}.send svg{width:63px;height:63px;stroke:white;stroke-width:1.7;fill:none}.caption{position:absolute;left:195px;top:780px;font-size:58px;color:#515151}
-.bloom{position:absolute;left:1617px;top:523px;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(201,100,66,.55) 0%,rgba(201,100,66,.18) 38%,rgba(201,100,66,0) 70%);opacity:0;pointer-events:none}
+.send{position:absolute;left:1390px;top:446px;width:155px;height:155px;background:#C96442;border-radius:20px;display:grid;place-items:center}.send svg{width:63px;height:63px;stroke:white;stroke-width:1.7;fill:none}.caption{position:absolute;left:195px;top:780px;font-size:58px;color:#515151}
+/* Where the click sends it. The track already ran off the right edge; now it
+   ends at a cloud labelled "AI servers", and the file flies into it. The
+   cloud takes the orange when the file arrives: sent, and gone off-machine
+   (owner, 2026-09-23: "hay que hacer referencia a que va a la nube"). */
+.cloud{position:absolute;left:1630px;top:452px;width:200px;height:200px;display:grid;place-items:center;z-index:2}
+.cloud svg{width:200px;height:144px;fill:#F5F5F5;stroke:#8A8A8A;stroke-width:2.2;stroke-linejoin:round}
+.dest{position:absolute;left:1600px;top:660px;width:260px;text-align:center;font-family:Mono;font-size:25px;letter-spacing:.02em;color:#8A8A8A;white-space:nowrap;z-index:2}
+.bloom{position:absolute;left:1467px;top:523px;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(201,100,66,.55) 0%,rgba(201,100,66,.18) 38%,rgba(201,100,66,0) 70%);opacity:0;pointer-events:none}
 </style>
 <div id="root" data-hf-id="v31-01-root" data-composition-id="01-hook" data-width="1920" data-height="1080">
   <div id="f01-stage" class="clip stage" data-hf-id="v31-01-stage" data-start="0" data-duration="2.3" data-track-index="1">
@@ -26,6 +33,8 @@
           <div data-hf-id="v31-01-8" class="count">4,812 customer records</div>
         </div>
       </div>
+      <div data-hf-id="v31-01-cl" class="cloud" id="cloud"><svg data-hf-id="v31-01-cs" id="cloudsvg" viewBox="0 0 100 72"><path data-hf-id="v31-01-cp" d="M27 64h47a16 16 0 0 0 3-31.7A24 24 0 0 0 31 26.5 19 19 0 0 0 27 64z"/></svg></div>
+      <div data-hf-id="v31-01-ds" class="dest" id="dest">AI servers</div>
       <div data-hf-id="v31-01-bl" class="bloom" id="bloom"></div>
       <div data-hf-id="v31-01-9" class="send" id="send"><svg data-hf-id="v31-01-10" id="arrow" viewBox="0 0 24 24"><path data-hf-id="v31-01-11" d="M4 12h16m-7-7 7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div data-hf-id="v31-01-12" class="caption display" id="caption">One click away.</div>
@@ -38,6 +47,13 @@ var tl=gsap.timeline({paused:true});
 tl.fromTo('#world',{scale:1.22,x:240,opacity:0},{scale:1,x:0,opacity:1,duration:.46,ease:'expo.out'},0);
 tl.fromTo('#file',{x:-480},{x:0,duration:.48,ease:'expo.out'},.04);
 tl.fromTo('#caption',{opacity:0,y:18},{opacity:1,y:0,duration:.25,ease:'expo.out'},.44);
+tl.fromTo(['#cloud','#dest'],{opacity:0,x:40},{opacity:1,x:0,duration:.34,ease:'expo.out'},.5);
+// The file reaches the cloud at the end of its flight: the cloud fills
+// orange and swells, then the world fades on it.
+tl.to('#cloudsvg',{fill:'#C96442',stroke:'#C96442',duration:.1,ease:'power2.out'},2.0);
+tl.to('#dest',{color:'#C96442',duration:.1},2.0);
+tl.fromTo('#cloud',{scale:1},{scale:1.18,duration:.08,ease:'power2.out',immediateRender:false},2.0);
+tl.to('#cloud',{scale:1,duration:.2,ease:'back.out(3)'},2.08);
 tl.to('#world',{scale:1.03,duration:.72,ease:'none'},.6);
 tl.to('#send',{scale:.92,duration:.07},1.42);
 tl.to('#send',{scale:1,duration:.18,ease:'back.out(2)'},1.49);
@@ -46,7 +62,7 @@ tl.to('#bloom',{scale:2.1,opacity:0,duration:.5,ease:'power2.out'},1.58);
 tl.to('#arrow',{x:90,opacity:0,duration:.2,ease:'power3.in'},1.5);
 tl.to('#caption',{opacity:0,duration:.12},1.56);
 tl.to('#file',{x:1900,duration:.48,ease:'power4.in'},1.62);
-tl.to('#world',{opacity:0,duration:.14},2.12);
+tl.to('#world',{opacity:0,duration:.14},2.16);
 window.__timelines['01-hook']=tl;
 })();</script>
 </template>

@@ -9,6 +9,16 @@ music: calm, minimal electronic pulse, restrained, builds once at the rule split
 narration: none
 ---
 
+## Changes from v29 — whose tool, and where it goes
+
+Owner, 2026-09-23, after the colour pass: the film is a 7; what keeps it from a 9 is that the first eight seconds never say "AI" (a file and an arrow could be anything; "model" first appears at 8s), the three-station beat at 8–12s is the longest and stillest in a fast cut, and the close is a quarter of the film. Done now, at no cost in time:
+
+- The hook's file card carries `claude code` in mono, the way the earlier cut's composer did.
+- The hook's track now ends at a **cloud labelled `AI servers`**, drawn above the file so the file flies *into* it on send; the cloud takes the orange when the file arrives. Owner: "hay que hacer referencia a que va a la nube o a los servidores AI". No vendor named. The file card narrowed (1320 → 1180) and the button moved left to make room.
+- The three stations in "Before it reaches the model" are labelled `claude code` · Warden · `AI servers`, so the rail reads left to right as the hook did.
+
+Proposed and parked: folding the block into the three-station beat (the file travels right, Warden's scan catches it, `Blocked` stamps there, the AI-servers station never receives it; ~3s saved). Owner: the three-card beat gets fixed with the voice-over instead. Also parked: a shorter close, and whether `trywarden.app` / "Your AI. Your rules." stand.
+
 ## Changes from v28 — colour on the actions, and light again
 
 The owner, 2026-09-23, on the 20-second cut: sweeter and more careful than the 36-second one, and it is the base from here — but "le falta punch, sobre todo en acciones clave". The diagnosis: nothing in it was louder than anything else. Everything monochrome, every entrance the same gentle expo.out, so the key actions weighed the same as the background. The punch in the earlier cut came from two things — colour on three clicks, and a physical hit (stillness → snap → squash) at each — and the fix is both, not one.
