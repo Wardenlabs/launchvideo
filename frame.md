@@ -181,3 +181,25 @@ Local files only, never the network. Paste into every frame:
 @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
 </style>
 ```
+
+
+### Film adaptation rule — v28
+Use Warden components as visual source material. Keep the brand, typography and state semantics, but crop away secondary fields and enlarge the single meaningful interaction. A complete UI panel is not a fidelity requirement. Never turn a 1–4 second shot into a table-reading task.
+
+### Colour amplitude — v29 owner correction
+Full-saturation coral and mint fields are approved for the exposure/block and control/local/brand beats. This supersedes older prose limiting feedback colours to low-opacity backgrounds. Neutral base and light-mode typography remain. Avoid the orange glow and oversized pointer: the hook action is graphite, and its consequence supplies coral.
+
+### v30: owner-approved palette correction
+Black, white and neutral greys only. This supersedes all prior restrictions against dark scenes and all v29 saturated surfaces. Background interest comes from moving source UI fragments, the original shield silhouette and soft monochrome reflections. No accent hue. Keep Warden fonts and vector logo.
+
+
+### v33: continuous motion language
+The shared backdrop is made from cropped product surfaces moving diagonally through the camera, not independent decorative backgrounds. Light-to-graphite inversion marks the decision and continues through the brand ending. Components settle with expo.out, drift subtly while readable, and leave through a short accelerating camera push. Decision semantics stay at component scale; no diagrammatic gate, oversized verdict or numeric title card.
+
+### v35: editorial flow, no status dots
+Circular status dots are removed from the active film. State is communicated with words, hairlines, weight and spatial progression. The explanatory frame uses three wide product stations — Request, Warden and AI model — and keeps the model visibly waiting while Warden checks the request locally. It is a product sequence, not a generic flow diagram: the same CSV and policy copy carry through the neighboring shots.
+
+The close follows a logo-outro relay: “Your AI. Your rules.” accelerates through the camera, a brief white flash transfers energy, and the original Warden lockup resolves above trywarden.app. The URL must remain readable for at least two seconds and stands alone: no arrow, “download,” platform or license subtitles. The final frame stays monochrome, with no pills, particles, glow or decorative markers.
+
+### v36: no ornamental labels
+Do not use uppercase mono labels or bottom metadata rails to name what the composition already shows. Product state is expressed by the actual component, surface changes and timing. The final lockup and URL form one centred object rather than a title over a footer.

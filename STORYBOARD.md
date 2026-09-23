@@ -1,6 +1,6 @@
 ---
 format: 1920x1080
-duration: 36.1s
+duration: 20.2s
 message: "Write the policy in one sentence. It is enforced on every prompt, on the machine."
 arc: PAS → mechanism → proof → trust → CTA
 audience: team lead / PM / CEO evaluating; the technical person it gets forwarded to
@@ -8,6 +8,66 @@ mode: collaborative
 music: calm, minimal electronic pulse, restrained, builds once at the rule split
 narration: none
 ---
+
+## Changes from v29 — whose tool, and where it goes
+
+Owner, 2026-09-23, after the colour pass: the film is a 7; what keeps it from a 9 is that the first eight seconds never say "AI" (a file and an arrow could be anything; "model" first appears at 8s), the three-station beat at 8–12s is the longest and stillest in a fast cut, and the close is a quarter of the film. Done now, at no cost in time:
+
+- The hook's file card carries `claude code` in mono, the way the earlier cut's composer did.
+- The hook's track now ends at the **AI servers**, so the click has a visible destination. Owner: "hay que hacer referencia a que va a la nube o a los servidores AI". No vendor named.
+
+  Three tries, recorded so the reasoning is not lost. (1) A cloud **icon** at the right edge: the owner found it disproportionate against the file card and glued to the frame. (2) A **skeleton card** labelled `AI servers` (chosen from https://claude.ai/artifact/JK6FmMyNA8t7L98fr4QZJp): the owner could not read what it was — a tiny label over meaningless bars. (3) What stands, from https://claude.ai/artifact/4xPUZU5NSKqbtoojhCWWPh: **a cloud drawn as a surface**, white fill and the card's own hairline, with `AI servers` in mono at 40px inside its body. The diagnosis that got there: the mismatch was never size, it was **material** — a line drawing has no mass beside a card carrying text and a coloured button, so at 1000 vs 460 the masses read 6:1. Given the card's fill and border, the cloud is an object of the same world and the scale difference reads as hierarchy. The name goes inside the body, not underneath: a caption makes it an icon, content makes it a container.
+
+  The send button also moved **inside** the file card, bottom right, where it sits in the real composer; floating between the two surfaces it read as a third object on the track. Layout: file 1000 · cloud 580, 100px off either edge.
+
+  Two strokes of orange. The cloud takes a light wash, an orange edge and an orange name **on the press**, before anything moves, so the click is seen landing on the far side; then the file accelerates away, shrinking into the cloud (which is drawn above it, so it is swallowed rather than passing behind), and on arrival the cloud saturates a step further and takes the blow. Mono labels darkened #8A8A8A → #6F6F6C to clear AA.
+- The three stations in "Before it reaches the model" are labelled `claude code` · Warden · `AI servers`, so the rail reads left to right as the hook did.
+
+Proposed and parked: folding the block into the three-station beat (the file travels right, Warden's scan catches it, `Blocked` stamps there, the AI-servers station never receives it; ~3s saved). Owner: the three-card beat gets fixed with the voice-over instead. Also parked: a shorter close, and whether `trywarden.app` / "Your AI. Your rules." stand.
+
+## Changes from v28 — colour on the actions, and light again
+
+The owner, 2026-09-23, on the 20-second cut: sweeter and more careful than the 36-second one, and it is the base from here — but "le falta punch, sobre todo en acciones clave". The diagnosis: nothing in it was louder than anything else. Everything monochrome, every entrance the same gentle expo.out, so the key actions weighed the same as the background. The punch in the earlier cut came from two things — colour on three clicks, and a physical hit (stillness → snap → squash) at each — and the fix is both, not one.
+
+The rule that keeps it clean: **colour appears only where something happens, and each action has its own.** Figma's state colours as they are (owner: "los colores son los de figma tal cual"), five touches in twenty seconds, everything else exactly as Martin left it:
+
+1. **Opener** — the Activity rows' verdict bullets back in mint / yellow / coral, labels ink. Texture, not punch: it teaches the three colours so the hits later read.
+2. **The leak (1.8–3.9)** — the send button is Claude's orange `#C96442` with the click gesture and a bloom (the one exception to "no glow"). Orange = sent, once in the film.
+3. **The rule (3.7–8.4)** — `BLOCK` gets the coral Effect bullet; on `Activate rule` the row gives and recovers, its border goes mint, and `● Active` pops in where the button was.
+4. **The local check (8.1–12.3)** — the scan line is mint and a `● local` chip stays on the Warden card after it passes.
+5. **The block (12–15.4)** — `Blocked` is the coral Verdict badge at stamp size and arrives as a hit: from close to the lens, expo.in, squash, shake, the panel takes the blow. On that same instant (13.03) **the ground snaps to block-pink `#FFF0F3`** — the only time the ground changes colour — and returns to grey as the close begins.
+
+The film is light throughout again (owner: "de todas formas el video es white mode"). The v26 black second half — ground `#111` from the block to the end, dark panel, inverted lockup, white flash into the close — is gone: panel white, lockup ink, statement ink, no flash. The dark Warden card inside "Before it reaches the model" stays; it is a card, not a plate.
+
+Structure, timing and copy untouched: 20.2s, six beats (the storyboard's 24.45s / eight-frame numbers above were stale against the timeline and are corrected). Voice-over (ElevenLabs) is still to come; the three hits should land on its verbs — generate the voice first, then nudge the hits to it, not the other way round.
+
+## Changes from v27 — product component fidelity
+
+- Rebuilt the product surfaces from the current Warden console rather than
+  using generic cards: Activity uses its five-column decision row, Rules uses
+  the real catalogue columns, status language and role label, and the local
+  proof is now an Activity record with the prompt-retention fact beneath it.
+- Status semantics now match the product: verdicts are coloured words, the
+  person or rule state owns the small dot, block uses `#B91C41` with
+  `#FFF0F3`, allow uses `#087356`, and pass results say `Matched` / `Clear`.
+- The CTA now uses the landing's actual macOS download control with the Apple
+  mark and download arrow. The oversized tutorial cursor is gone.
+
+## Changes from v26 — data first, 24 seconds
+
+- The film now opens on the problem: Warden Activity rows rush the camera under
+  `Customer data / leaves in one click.` The product name waits until the film
+  has earned it.
+- The cut drops from 36.1s to 24.45s. Every beat is compressed around its proof:
+  00 1.8s · 01 3.5s · 02 5.2s · 03 1.3s · 04 5.8s · 05 4s · 06 1.9s · 07 3.4s.
+  Overlaps are 0.2–0.4s so the camera still carries motion across the cuts.
+- Warden components do the explaining: Activity rows, employee composer, policy
+  composer, rule rows, verdict state, local-evaluation evidence and the final
+  download action. The oversized tutorial cursors are removed from rules and CTA.
+- The trust and final frames stay inside the established HeyGen-style motion
+  language: components rush from depth, the camera settles on the proof, and
+  Warden's verdict colours appear only inside real product states.
+- No audio is attached. The edit keeps short readable locks for a later voice-over.
 
 ## Changes from v1
 
@@ -254,21 +314,19 @@ Two owner notes, applied in one pass because they touch the same tweens: the fil
 
 Starts moved (film is 49.8s): 00 0 · 01 2.15 · 02 6.85 · 03 13.7 · 04 15.55 · 05 27.05 · 06 38.5 · 07 44.3. Backup of the state before this pass: scratchpad `before-ramps/`.
 
-## Frame 0 — Meet Warden
+## Frame 0 — Customer data leaves
 
-status: animated · 2.85s · file: compositions/frames/00-meet.html · overlaps the hook by 0.25s, not 0.6
+status: animated · 1.8s · file: compositions/frames/00-meet.html · overlaps the hook by 0.25s
 
 - 0.00 Activity rows (white, hairline, Geist Mono request + bullet-and-label verdict) come at the camera from the centre in three depths — far 0.7x, mid 1.15x, near 2.1x and soft; a fifth are already mid-flight at frame 0. expo.out, full by ~0.5s. Layers drift at different linear rates for the whole frame.
 - 0.30–0.90 verdicts pop on, row by row (back.out): mostly mint, some yellow, few red.
-- 1.02 after three still frames, "Meet Warden" (Manrope 600, 7.6cqw) lands from 1.6x and blurred, expo.out; the cloud is thrown back to 0.88x, slightly soft; rows under the name step away.
-- 1.44 "The guard for your team's AI", one line, 2.15cqw, letters 0.011s apart.
-- 2.55 name and cloud out through the camera (power4.in, 0.28s) while the hook's typed line arrives underneath.
+- The motion is compressed to 1.8s. `Customer data` lands over the Warden Activity field; `leaves in one click.` follows before both leave through the camera.
 
 ## Frame 1 — The whole customer list
 
 - type: hook
 - scene: Empty grey. A Claude Code terminal pops in, an employee types a harmless question, attaches the whole customer export — the row count runs up to 4,812 — and presses Enter.
-- duration: 5.7s
+- duration: 3.5s
 - poster: 4s
 - transition_in: cut
 - status: animated
@@ -289,7 +347,7 @@ a claim about Warden.
 
 - type: pain_point
 - scene: It is not one person. The camera pulls back from frame 1's composer to a wall of forty, whips to three of them — each one types a secret, presses send, and the secret leaves the frame — then comes back wide under a line marked "outside your machine" as the whole wall empties upward across it. No statement.
-- duration: 7.95s
+- duration: 5.2s
 - poster: 6.4s
 - transition_in: cut
 - status: animated
@@ -313,13 +371,13 @@ then "They all signed the AI policy." and the landing's h1, then "No one meant
 ## Frame 3 — Warden
 
 - type: product_intro
-- scene: The promise, two lines, no logo.
-- duration: 4s
+- scene: One short hinge from the leak to the policy composer.
+- duration: 1.3s
 - poster: 3s
 - transition_in: cut
 - status: animated
 - blueprint: logo-assemble-lockup
-- on_screen: "Write the rule in a sentence." · "Warden enforces it."
+- on_screen: "Write the rule in a sentence."
 - asset_candidates: none (type only)
 - src: compositions/frames/03-warden.html
 
@@ -330,7 +388,7 @@ and message by second 16. Centred — one of the two centred frames.
 
 - type: feature_showcase
 - scene: The admin types "make sure no one leaks data" into the composer; the sentence splits into five rule rows, each gets a Block effect, one button activates all.
-- duration: 13s
+- duration: 5.8s
 - poster: 11s
 - transition_in: crossfade
 - status: animated
@@ -353,7 +411,7 @@ its English translation.
 
 - type: feature_showcase
 - scene: Frame 1's composer again. Same question, same 4,812-row paste, the same click — and this time the five rules from frame 4 are checked beside it, "Customer contact details" matches, and ● Blocked by Warden stamps the frame. The rows count back to zero. Out.
-- duration: 5.6s
+- duration: 4s
 - poster: 3s
 - transition_in: cut
 - status: animated
@@ -373,13 +431,13 @@ is the block. See "Changes from v23".
 ## Frame 6 — Why believe it
 
 - type: benefit_highlight
-- scene: Three facts, one at a time, each with its evidence in mono beside it.
-- duration: 11s
+- scene: A mint local-decision state, with the trust claim inside a Warden decision component and supporting rule cards behind it.
+- duration: 1.9s
 - poster: 10s
 - transition_in: crossfade
 - status: animated
 - blueprint: kinetic-type-beats
-- on_screen: "Judging never leaves the machine." · `local weights · no network call` — "No model is ever asked for an ALLOW." · `ALLOW < ESCALATE < BLOCK — a pass can only tighten` — "The audit keeps hashes, never prompts." · a Row / Decision with `sha256 9c41…e07b`
+- on_screen: `WARDEN / LOCAL DECISION` · `● ACTIVE` · "Judged on the machine" · `local weights · no network call` · `prompt hash · 9c41…e07b`
 - asset_candidates: none (type + Figma Row / Decision 279:1712)
 - src: compositions/frames/06-trust.html
 
@@ -390,15 +448,89 @@ third brings in a decision row so "You see that it did." is shown, not said.
 ## Frame 7 — Download
 
 - type: cta
-- scene: Lockup, the line, the button.
-- duration: 6s
+- scene: The Warden lockup and CTA land over four moving Warden rule and decision components.
+- duration: 3.4s
 - poster: 5s
 - transition_in: crossfade
 - status: animated
 - blueprint: cta-morph-press
-- on_screen: "Write a rule. It stops the request. You see that it did." · graphite filled button "Download for macOS" · `github.com/Wardenlabs/warden` · "Also on Windows"
+- on_screen: Warden rule and decision cards · Warden lockup · "Write a rule / Warden enforces it" · graphite action "Download for macOS" · `github.com/Wardenlabs/warden` · `macOS + Windows`
 - asset_candidates: warden-lockup-light.svg
 - src: compositions/frames/07-cta.html
 
 The landing's own three-sentence line closes it, because by now the video has
 shown all three. Centred. No colour.
+
+
+## v28 — Cinematic fragments, not an interface tour
+
+The owner clarified that component fidelity means Warden’s identity, not showing every field. Light surfaces, graphite type, coral verdicts, mint activation and the original shield remain; proportions and framing are adapted for film. No audio, no new push.
+
+- Opener: request/verdict fragments only. Removed people, audience, timestamps and rule columns.
+- Rules: one instruction becomes three readable rule fragments, then the customer-data rule takes the frame. Review and activation are separate visible beats.
+- Block: the repeated request cuts to a single oversized verdict and zero rows sent. Removed model controls, five-rule checklist and secondary interface chrome.
+- Local: a single local-evaluation badge and “On your machine.” replace the Activity table and hash explanation.
+- Close: original lockup, “Your AI. Your rules.” and the download action; no decorative interface wall.
+
+The 24.45-second structure and initial camera sequence stay. New shots use explicit local times, without timeline-duration rescaling. These are stylized product fragments, not screen recordings.
+
+
+## v29 — Colour carries the edit
+
+Owner rejected the quiet ending, weak colour presence, oversized hook button and local-evaluation badge. Keep the Warden palette but use full saturation for semantic beats: coral for data exposure/block, mint for active control/local checking and the brand resolution.
+
+- Hook: cropped composer → graphite Send action with no cursor/glow → coral 4,812-record impact. Authored at real 3.5-second timing.
+- Opener: coral-backed data word, readable within the first second.
+- Risk montage: bake original camera timing into the 5.2-second seek contract, replacing parent duration scaling.
+- Activation: mint field. Block: coral field, oversized graphite verdict.
+- Local: two clipped typographic hits, Checked / Locally, and a large shield on a mint panel. Panel expands to carry colour into the ending.
+- End: kinetic Your rules resolves to a large original Warden lockup on mint. Remove website-style button and dispersed footer. Hold repository URL and brand.
+
+Silent local preview only. No push or publish.
+
+
+## v30 — Black and white; moving backgrounds
+
+Owner explicitly rejected the saturated treatment. Supersedes v29 colour direction: use black, white and neutral greys throughout, including the employee montage. Keep the request-cloud depth and camera movement. Risk/count and block become black cuts with white type. Activation stays pale grey. Local checking uses a moving dot field and a framed shield; its black wipe leads into a dark brand close with a broad travelling reflection and a cropped shield silhouette. Remove the FREE & OPEN SOURCE eyebrow, coloured dots, giant highlighted word box and repeated local-evaluation badges. No audio, no push.
+
+Apply gpt-taste to wide typography and composed motion, not its website-only navbar, bento or ScrollTrigger requirements. Keep the Warden typography/asset identity. anti-ai-slop-writing applies to revised copy.
+
+
+## v31 — Show the stop
+
+Owner rejected the huge Blocked statement, the following on-device card and the churn-question composer. Remove all three treatments. Hook follows the CSV attachment along a path and out through Send, retaining the record-count impact. The return shot reuses that file fragment; the active Warden rule forms a boundary and stops the file with a short recoil. Show zero records sent beside that boundary and “This stays with you.” below. Then cut directly to the existing monochrome brand ending. Remove the separate local scene; total film is 22.95 seconds. These are narrative graphics, not an app screenshot or a claim about a measured incident. No audio and no push.
+
+
+## v32 — Remove the record-count title card
+
+Owner rejected the oversized 4,812 title card. Delete that card and its dark transition entirely. Keep the attachment/send gesture, then move directly into the existing request montage. Shift subsequent scenes earlier by 1.5 seconds; total is 21.45 seconds. The file still carries its small record-count metadata, but the edit no longer stops to announce it. Monochrome, silent, local preview only; no push.
+
+
+## v33 — One moving visual field
+
+Owner asked for a continuous sequence of backgrounds and a consistent contemporary treatment. Add a single shared moving field of cropped product surfaces behind the transparent scenes. It carries one direction of travel and inverts from light to graphite at the decision, continuing into the ending. The request montage retains its detailed source components. Remove the diagrammatic boundary, stop icon, zero counter and “This stays with you” statement. Replace them with a camera move into a Warden decision fragment: attachment, matching rule, compact Blocked state. No giant verdict, no new title card. Block is 3.2 seconds and the film is 20.65 seconds. Remove the unrelated shield/reflection scenery from the ending; the same product field continues beneath the lockup. Silent preview; no push.
+
+
+## v34 — One example, one rule, explicit download
+
+Owner found slow/repetitive passages and an unclear download destination. Remove the secondary exposure montage and the “Write the rule in a sentence” title from the active timeline (keep their source files as unused alternatives). Carry one customer CSV through the story. The policy shot drafts and activates only the corresponding customer-data rule; unrelated credentials/document rows are cut. Tighten the block's settled hold. Remove the repeated “Your rules” / “Your AI. Your rules” closing sequence. End immediately on the Warden lockup, Download for free, large warden-theta.vercel.app and macOS · Windows. The URL remains fully visible for over three seconds and links to #download in the interactive preview. Landing fetched and confirmed to contain the macOS/Windows download links. Total 12.85 seconds; silent.
+
+Current active sequence: opener 0–1.8; attachment 1.55–3.55; rule 3.25–7.05; decision 6.75–9.15; download 8.85–12.85.
+
+
+## v35 — Twenty-second product story
+
+The 12.85-second cut moved too quickly to explain the product, and its circular status dots read as generic AI decoration. Extend the film to 20.2 seconds and make the story legible without audio: risk, plain-language rule, local check, enforcement, brand promise, free download.
+
+- Remove circular status dots from every active shot.
+- Keep one artifact, one rule and one decision across the entire film.
+- Add a three-stage product view — Request / Warden / AI model — to show that Warden checks locally before anything reaches the model.
+- Restore “Your AI. Your rules.” as a fast cinematic bridge into the close.
+- Resolve on the original Warden lockup and trywarden.app. The URL is the longest-held text and stands alone, without an arrow or explanatory download/platform subtitles.
+- Use the HyperFrames logo-reveal and kinetic-type motion pattern: quick entry, one camera push, hard flash, then a stable branded close.
+
+Current active sequence: opener 0–1.8; attachment 1.55–3.85; rule 3.65–8.45; local check 8.1–12.3; decision 11.95–15.45; close 15.1–20.2. Monochrome and silent.
+
+## v36 — Remove interface captions
+
+Remove decorative mono headings and footer captions from the rule, local-check and close frames. State should read from the component itself: the rule changes surface after activation, the request enters a branded Warden panel while the destination remains empty, and the close resolves as one centred lockup with trywarden.app. No title/footer layout in the ending.

@@ -3,8 +3,8 @@
     @font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:block;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");}
     @font-face{font-family:"Inter";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/Inter-Variable.ttf") format("truetype");}
     @font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/GeistMono-Variable.ttf") format("truetype");}
-    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#22282A}
-    .f02-ground{position:absolute;inset:0;background:#F4F5F4}
+    #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#272727}
+    .f02-ground{position:absolute;inset:0;background:#F5F5F5}
     .f02-stage{position:absolute;inset:0}
     /* One component, forty times: the wall of everyone's terminal. The camera
        is the transition — it pulls back from frame 1's single terminal to show
@@ -13,37 +13,37 @@
     .f02-world{position:absolute;inset:0;will-change:transform,filter}
     /* Dark, like frame 1's composer: the employees' side of the film. The send
        button is orange only on the Claude ones; codex and opencode get a grey one. */
-    .f02-card{position:absolute;width:40cqw;height:9.4cqw;background:#FAF9F5;border:1px solid #DEDBCF;border-radius:1cqw}
-    .f02-send{position:absolute;right:1cqw;bottom:.9cqw;width:1.7cqw;height:1.7cqw;border-radius:.45cqw;background:#BDBAAE;display:grid;place-items:center;color:#fff;font-family:"Inter",sans-serif;font-size:1cqw;line-height:1}
-    .f02-send.claude{background:#C96442}
-    /* #6B6A64, the chip ink of frame 5, not the composer's lighter #87867F: the
+    .f02-card{position:absolute;width:40cqw;height:9.4cqw;background:#F9F9F9;border:1px solid #DBDBDB;border-radius:1cqw}
+    .f02-send{position:absolute;right:1cqw;bottom:.9cqw;width:1.7cqw;height:1.7cqw;border-radius:.45cqw;background:#4A4A4A;display:grid;place-items:center;color:#FFFFFF;font-family:"Inter",sans-serif;font-size:1cqw;line-height:1}
+    .f02-send.claude{background:#252525;color:#FFFFFF}
+    /* #6A6A6A, the chip ink of frame 5, not the composer's lighter #868686: the
        wall is read wide, at 0.56×, and the lighter grey failed AA there. */
-    .f02-bar{font-family:"Geist Mono";font-size:.95cqw;color:#6B6A64;padding:.7cqw 1.3cqw;border-bottom:1px solid #E8E5DA}
-    .f02-body{font-family:"Inter",sans-serif;font-size:1.4cqw;line-height:1.5;color:#1F1E1D;padding:1cqw 1.3cqw}
-    .f02-sk{height:.9cqw;border-radius:.3cqw;background:#E6E3D8;margin:.55cqw 0 .9cqw}
+    .f02-bar{font-family:"Geist Mono";font-size:.95cqw;color:#6A6A6A;padding:.7cqw 1.3cqw;border-bottom:1px solid #E5E5E5}
+    .f02-body{font-family:"Inter",sans-serif;font-size:1.4cqw;line-height:1.5;color:#1E1E1E;padding:1cqw 1.3cqw}
+    .f02-sk{height:.9cqw;border-radius:.3cqw;background:#E3E3E3;margin:.55cqw 0 .9cqw}
     .f02-l1{white-space:pre}
-    .f02-hot{position:relative;display:inline-block;z-index:0;margin-top:.35cqw;white-space:pre;font-weight:600;font-family:"Geist Mono";font-size:1.3cqw;color:#1F1E1D}
+    .f02-hot{position:relative;display:inline-block;z-index:0;margin-top:.35cqw;white-space:pre;font-weight:600;font-family:"Geist Mono";font-size:1.3cqw;color:#1E1E1E}
     /* The marker is grey. Colour is kept for a verdict; emphasis here is weight and a bar. */
-    .f02-mark{position:absolute;left:-.35cqw;right:-.35cqw;top:.05cqw;bottom:.05cqw;background:#E9E1CF;border-radius:.3cqw;z-index:-1;transform-origin:0% 50%}
+    .f02-mark{position:absolute;left:-.35cqw;right:-.35cqw;top:.05cqw;bottom:.05cqw;background:#E1E1E1;border-radius:.3cqw;z-index:-1;transform-origin:0% 50%}
     /* The typed secret is what leaves the card, so it has to be transformable. */
     .f02-txt{display:inline-block;will-change:transform,filter}
     .f02-sk,.f02-send{will-change:transform}
     /* The same three secrets again, drawn in the world at their cards, for the
        wide shot: the ones that left at card scale are off in the world somewhere
        above, so the torrent launches fresh copies that come toward the lens. */
-    .f02-pkt{position:absolute;font-family:"Geist Mono";font-weight:600;font-size:2.1cqw;color:#1F1E1D;background:#E9E1CF;border-radius:.4cqw;padding:.15cqw .5cqw;white-space:nowrap;will-change:transform,filter}
+    .f02-pkt{position:absolute;font-family:"Geist Mono";font-weight:600;font-size:2.1cqw;color:#1E1E1E;background:#E1E1E1;border-radius:.4cqw;padding:.15cqw .5cqw;white-space:nowrap;will-change:transform,filter}
     /* The edge of the machine, drawn in screen space, not in the world: it does
        not move with the camera. Frame 6 answers it ("local weights · no network
        call"). The label names no vendor: the wall has three tools on it. */
     /* Above the top row of cards at the wide camera (scale 0.5, y 52→62): the
        wall stands whole under the line, nothing is cut by it. */
-    .f02-edge{position:absolute;left:4cqw;right:4cqw;top:4.7cqw;height:1px;background:#8D9698;transform-origin:0% 50%}
-    .f02-edgelabel{position:absolute;left:4cqw;top:2.2cqw;font-family:"Geist Mono";font-size:1.15cqw;color:#656E6F;white-space:nowrap}
+    .f02-edge{position:absolute;left:4cqw;right:4cqw;top:4.7cqw;height:1px;background:#949494;transform-origin:0% 50%}
+    .f02-edgelabel{position:absolute;left:4cqw;top:2.2cqw;font-family:"Geist Mono";font-size:1.15cqw;color:#6C6C6C;white-space:nowrap}
   </style>
 
   <div data-hf-id="hf-1ukv" id="root" data-composition-id="02-signed-the-policy" data-width="1920" data-height="1080">
 
-    <div data-hf-id="hf-bkux" class="clip f02-stage" id="f02-stage" data-start="0" data-duration="7.95" data-track-index="1">
+    <div data-hf-id="hf-bkux" class="clip f02-stage" id="f02-stage" data-start="0" data-duration="5.2" data-track-index="1">
       <div data-hf-id="hf-4f63" class="f02-world" id="f02-world" data-layout-allow-overflow=""></div>
       <div data-hf-id="hf-e1dg" class="f02-edge" id="f02-edge" data-layout-allow-overlap="" data-layout-allow-occlusion=""></div>
       <div data-hf-id="hf-e1lb" class="f02-edgelabel" id="f02-edgelabel" data-layout-allow-overlap="" data-layout-allow-occlusion="">outside your machine</div>
@@ -178,7 +178,7 @@
       whip(WIDE);
       tl.to("#f02-edge", { scaleX: 1, duration: 0.45, ease: "expo.out" }, WIDE + 0.4);
       tl.fromTo("#f02-edgelabel", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, WIDE + 0.5);
-      tl.to("#f02-world", { scale: 0.52, y: 62, duration: 2.0, ease: "none" }, WIDE + 0.42);
+      tl.to("#f02-world", { scale: 0.52, y: 62, duration: 1.5, ease: "none" }, WIDE + 0.42);
       var GO = WIDE + 0.5;
       // Bars in a fixed scatter (31 is coprime with the count), never random.
       var bars = world.querySelectorAll(".f02-sk");
@@ -195,6 +195,10 @@
       // — out through the camera; "Write the rule in a sentence" arrives under it —
       tl.to("#f02-world", { scale: 2.3, opacity: 0, filter: "blur(26px)", duration: 0.5, ease: "power4.in" }, 7.45);
       tl.to(["#f02-edge", "#f02-edgelabel"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 7.5);
+      // Bake speed into each tween so arbitrary-time seeks preserve the edit.
+      var factor = 5.2 / tl.duration();
+      var beats = tl.getChildren(false, true, true).map(function(t) { return { tween:t, start:t.startTime(), duration:t.duration() }; });
+      beats.forEach(function(b) { b.tween.duration(b.duration * factor); b.tween.startTime(b.start * factor); });
       window.__timelines["02-signed-the-policy"] = tl;
     })();
   </script>
