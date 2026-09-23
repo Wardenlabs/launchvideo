@@ -7,6 +7,10 @@
 .world{position:absolute;inset:0}.track{position:absolute;left:-250px;right:-250px;top:558px;height:2px;background:#D1D1D1}.file{position:absolute;left:125px;top:355px;width:1320px;height:330px;background:white;border:1px solid #D9D9D9;border-radius:18px;display:flex;align-items:center;gap:46px;padding:55px}.file svg{width:105px;height:125px;stroke:#252525;stroke-width:2.8;fill:none;flex:none}.name{font-size:66px;letter-spacing:-.055em;white-space:nowrap}.count{font-family:Mono;font-size:32px;color:#646464;margin-top:26px}/* Claude's send button, orange: the employee's click is the first of the
    film's three coloured actions (orange sent · mint active · coral blocked).
    The bloom on the click is the one deliberate exception to "no glow". */
+/* Whose tool this is. Without it the first eight seconds never say "AI":
+   a file and an arrow could be anything. The label is the one Warden
+   actually hooks, in mono, the way the earlier cut's composer carried it. */
+.tool{position:absolute;left:55px;top:28px;font-family:Mono;font-size:23px;letter-spacing:.02em;color:#8A8A8A;white-space:nowrap}
 .send{position:absolute;left:1540px;top:446px;width:155px;height:155px;background:#C96442;border-radius:20px;display:grid;place-items:center}.send svg{width:63px;height:63px;stroke:white;stroke-width:1.7;fill:none}.caption{position:absolute;left:195px;top:780px;font-size:58px;color:#515151}
 .bloom{position:absolute;left:1617px;top:523px;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(201,100,66,.55) 0%,rgba(201,100,66,.18) 38%,rgba(201,100,66,0) 70%);opacity:0;pointer-events:none}
 </style>
@@ -15,6 +19,7 @@
     <div data-hf-id="v31-01-1" class="world" id="world">
       <div data-hf-id="v31-01-2" class="track"></div>
       <div data-hf-id="v31-01-3" class="file" id="file">
+        <div data-hf-id="v31-01-tl" class="tool">claude code</div>
         <svg data-hf-id="v31-01-4" viewBox="0 0 80 100"><path data-hf-id="v31-01-5" d="M10 3h38l23 24v69H10zM48 3v25h23M25 49h31M25 64h31M25 79h18"/></svg>
         <div data-hf-id="v31-01-6">
           <div data-hf-id="v31-01-7" class="name display">customers_export.csv</div>
