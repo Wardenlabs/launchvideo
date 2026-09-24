@@ -6,8 +6,18 @@ arc: PAS → mechanism → proof → trust → CTA
 audience: team lead / PM / CEO evaluating; the technical person it gets forwarded to
 mode: collaborative
 music: calm, minimal electronic pulse, restrained, builds once at the rule split
-narration: Brian (ElevenLabs), one take cut into seven phrases, placed on the hits
+narration: Mark - Natural Conversations (ElevenLabs UgBBYS2sOqTuMpoF3BR0, eleven_v3), one take cut into seven phrases, placed on the hits
 ---
+
+## Changes from v38 — a new voice, a faster script, louder effects
+
+Owner, 2026-09-24. The voice is now **Mark - Natural Conversations** (ElevenLabs `UgBBYS2sOqTuMpoF3BR0`) on eleven_v3, same settings as Hale (stability 1.0 Robust, speed 1.18, one `[confident]` tag). Each candidate was rendered as a full film on the same script: Hale, then **Bill - Health Nutrition Videos** (`lnUnPeUhSI5EcqtFBux7`, briefly in the film), then Mark, which the owner kept. The script lost its commas and ellipsis, because every pause slowed the read (owner: "si ponemos muchas habla mas despacio"):
+
+> One click and your customer list is on someone else's servers. Write one rule in plain words. Turn it on. Warden checks every prompt on the laptop before anything leaves. This one doesn't. Warden. Your AI. Your rules.
+
+Without the commas, Hale's read barely changed ("Write one rule" came out longer), so for Hale the pace comes from the voice itself. Bill and Mark are both about 3 s shorter than Hale across the take (15.6 s), so no clip is time-stretched. The hits are the same: "Turn" on Activate (6.65), "doesn't" with the Blocked stamp (13.21).
+
+The effects were barely audible on a phone. The cause was `button.wav`, the send click, which peaks at -28 dB, 24 dB under the voice. The send now plays `button-loud.wav`: the same file with +22 dB of plain gain, no EQ or compression, because the owner kept the original sound unprocessed. Every other effect was raised about 4 dB (x1.6). In the render the send, draft, Activate and Blocked hits peak at -2.4 to -1.5 dB, and the master peaks at -1.5 dB with no clipping.
 
 ## Changes from v37 — sound on the three hits
 
