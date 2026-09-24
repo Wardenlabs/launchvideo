@@ -9,3 +9,7 @@ node_modules/
 
 # Local secrets (ElevenLabs key). Never committed: this repo is shared on GitHub.
 .env.local
+
+# Studio caches: edit backups and waveform peaks, regenerated locally.
+.hyperframes/backup/
+.waveform-cache/
