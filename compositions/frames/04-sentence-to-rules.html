@@ -6,31 +6,27 @@
 #root{position:absolute;inset:0;container-type:size;overflow:hidden;color:#272727;font-family:Inter,sans-serif}.stage,.layer{position:absolute;inset:0}.display{font-family:Manrope,sans-serif;font-weight:600;letter-spacing:-.055em;line-height:1.04}.meta{font-family:Mono,monospace;letter-spacing:-.03em}
 .wash{position:absolute;inset:0;background:rgba(232,232,232,.34)}
 .composer{position:absolute;left:220px;top:338px;width:1480px;height:370px;padding:70px 60px;background:#fff;border:2px solid #E1E1E1;border-radius:24px}
-.sentence{font-size:65px;white-space:nowrap}.draft{position:absolute;right:36px;bottom:28px;background:#272727;color:#fff;border-radius:12px;padding:19px 28px;font-size:28px;display:flex;gap:30px;align-items:center}
+.sentence{font-size:65px;white-space:nowrap}.draft{position:absolute;left:60px;bottom:48px;color:#727272;font-family:Mono,monospace;font-size:22px;letter-spacing:.08em;text-transform:uppercase}
 .stack{position:absolute;inset:0}.rule{position:absolute;left:230px;top:430px;width:1460px;height:184px;display:flex;align-items:center;padding:0 52px;border:1px solid #D8D8D8;background:#fff;border-radius:18px;font-family:Manrope;font-size:53px;font-weight:540;letter-spacing:-.045em}
-/* Figma's Effect and Verdict badges: a coloured bullet and an ink label, no
-   fill. BLOCK is coral because it is a verdict; the state that appears on
-   activation is mint, the second of the film's three coloured actions. */
-.effect{margin-left:auto;height:74px;padding-left:31px;border-left:2px solid #222;display:flex;align-items:center;gap:16px;font-family:Mono;font-size:27px;letter-spacing:.05em}
-.effect::before{content:"";width:16px;height:16px;border-radius:50%;background:#FF3B5C;flex:none}
-/* Big on purpose: at 30px with an 18px dot the owner could not see it. */
-.state{position:absolute;left:230px;top:634px;height:104px;display:flex;align-items:center;gap:22px;padding:0 6px;font-family:Manrope;font-size:46px;font-weight:600;letter-spacing:-.04em;color:#272727;transform-origin:0% 50%}
-.state::before{content:"";width:28px;height:28px;border-radius:50%;background:#34D399;flex:none;box-shadow:0 0 22px rgba(52,211,153,.6)}
-.active{position:absolute;left:230px;top:640px;height:92px;display:flex;align-items:center;gap:24px;padding:0 34px;background:#272727;color:#fff;border-radius:12px;font-size:30px}
+/* Verdicts read through type and ink, not through chips or controls. Coral
+   means the policy catches the field; mint means the policy is live. */
+.effect{margin-left:auto;height:74px;padding-left:31px;border-left:2px solid #FF3B5C;display:flex;align-items:center;font-family:Mono;font-size:27px;font-weight:700;letter-spacing:.09em;color:#FF3B5C}
+.state{position:absolute;left:230px;top:640px;height:92px;display:flex;align-items:center;padding:0;font-family:Manrope;font-size:52px;font-weight:700;letter-spacing:-.055em;color:#168B69;transform-origin:0% 50%}
+.active{position:absolute;left:230px;top:640px;height:92px;display:flex;align-items:center;padding:0;color:#168B69;font-family:Mono,monospace;font-size:24px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 </style>
 <div id="root" data-hf-id="v35-04-root" data-composition-id="04-sentence-to-rules" data-width="1920" data-height="1080">
-  <div id="f04-stage" class="clip stage" data-hf-id="v35-04-stage" data-start="0" data-duration="4.8" data-track-index="1">
+  <div id="f04-stage" class="clip stage" data-hf-id="v35-04-stage" data-start="0" data-duration="2.22" data-track-index="1">
     <div data-hf-id="v35-04-1" class="wash" id="wash"></div>
     <div data-hf-id="v35-04-2" class="composer" id="composer">
       <div data-hf-id="v35-04-4" class="sentence display" id="sentence">Keep customer data private.</div>
-      <div data-hf-id="v35-04-5" class="draft" id="draft">Draft rule <span data-hf-id="v35-04-6">↵</span></div>
+      <div data-hf-id="v35-04-5" class="draft" id="draft">Policy drafted</div>
     </div>
     <div data-hf-id="v35-04-7" class="stack" id="stack">
       <div data-hf-id="v35-04-9" class="rule" id="hero">
         <span data-hf-id="v35-04-10">Customer contact details</span>
         <span data-hf-id="v35-04-11" class="effect">BLOCK</span>
       </div>
-      <div data-hf-id="v35-04-12" class="active" id="activate">Activate rule <span data-hf-id="v35-04-13">↵</span></div>
+      <div data-hf-id="v35-04-12" class="active" id="activate">Rule applied</div>
       <div data-hf-id="v35-04-st" class="state" id="state">Active</div>
     </div>
   </div>
@@ -39,29 +35,19 @@
 document.querySelectorAll('.stage *').forEach(function(el){['overlap','overflow','occlusion'].forEach(function(k){el.setAttribute('data-layout-allow-'+k,'')})});
 var tl=gsap.timeline({paused:true});
 gsap.set(['#wash','#composer','#stack','#state'],{opacity:0});
-tl.fromTo('#composer',{scale:.9,y:65,opacity:0},{scale:1,y:0,opacity:1,duration:.36,ease:'expo.out'},.08);
-tl.fromTo('#sentence',{y:15,opacity:0},{y:0,opacity:1,duration:.28,ease:'expo.out'},.3);
-tl.to('#draft',{scale:.94,duration:.08},1.28);
-tl.to('#draft',{scale:1,duration:.14,ease:'power2.out'},1.36);
-tl.to('#composer',{scale:1.3,opacity:0,duration:.24,ease:'power4.in'},1.58);
-tl.set('#stack',{opacity:1},1.8);
-tl.fromTo('#hero',{y:100,scale:.94,opacity:0},{y:0,scale:1,opacity:1,duration:.36,ease:'expo.out'},1.8);
-tl.fromTo('#activate',{opacity:0,y:20},{opacity:1,y:0,duration:.28,ease:'expo.out'},2.04);
-tl.to('#activate',{scale:.94,duration:.08},3.0);
-tl.to('#activate',{opacity:0,scale:1.08,duration:.18,ease:'power3.in'},3.09);
-tl.to('#wash',{opacity:1,duration:.2},3.1);
-// The click lands on the row: it gives, recovers, and the mint state pops in
-// where the button was. back.out because it is a thing that hits.
-tl.to('#hero',{scale:.975,duration:.07,ease:'power2.in'},3.08);
-tl.to('#hero',{scale:1,duration:.18,ease:'back.out(3)'},3.16);
-// The row flashes mint (Figma's 10% feedback ground) and settles to a faint
-// tint with a mint ring, so the activation is seen, not inferred.
-tl.to('#hero',{borderColor:'#34D399',boxShadow:'0 0 0 3px rgba(52,211,153,.9), 0 14px 40px rgba(52,211,153,.25)',backgroundColor:'rgba(52,211,153,.22)',duration:.08,ease:'power2.out'},3.16);
-tl.to('#hero',{backgroundColor:'rgba(52,211,153,.09)',boxShadow:'0 0 0 2px rgba(52,211,153,.9), 0 10px 30px rgba(52,211,153,.12)',duration:.5,ease:'power2.out'},3.28);
-tl.fromTo('#state',{opacity:0,scale:.3,x:-16},{opacity:1,scale:1,x:0,duration:.34,ease:'back.out(3.5)'},3.2);
-tl.to('#stack',{scale:1.025,duration:.72,ease:'none'},3.5);
-tl.to('#stack',{scale:1.5,opacity:0,duration:.34,ease:'power4.in'},4.32);
-tl.to('#wash',{opacity:0,duration:.26},4.42);
+tl.fromTo('#composer',{scale:.9,y:45,opacity:0},{scale:1,y:0,opacity:1,duration:.24,ease:'expo.out'},0);
+tl.fromTo('#sentence',{y:15,opacity:0},{y:0,opacity:1,duration:.22,ease:'expo.out'},.10);
+tl.to('#draft',{scale:.94,duration:.08},.72);
+tl.to('#composer',{scale:1.25,opacity:0,duration:.18,ease:'power4.in'},.82);
+tl.set('#stack',{opacity:1},.98);
+tl.fromTo('#hero',{y:70,scale:.94,opacity:0},{y:0,scale:1,opacity:1,duration:.24,ease:'expo.out'},.98);
+tl.fromTo('#activate',{opacity:0,y:16},{opacity:1,y:0,duration:.16,ease:'expo.out'},1.02);
+tl.to('#activate',{opacity:0,duration:.12},1.38);
+tl.to('#wash',{opacity:1,duration:.12},1.48);
+tl.to('#hero',{borderColor:'#34D399',backgroundColor:'rgba(52,211,153,.09)',duration:.10},1.48);
+tl.fromTo('#state',{opacity:0,scale:.7,x:-8},{opacity:1,scale:1,x:0,duration:.24,ease:'expo.out'},1.50);
+tl.to('#stack',{scale:1.35,opacity:0,duration:.18,ease:'power4.in'},2.04);
+tl.to('#wash',{opacity:0,duration:.18},2.04);
 window.__timelines['04-sentence-to-rules']=tl;
 })();</script>
 </template>

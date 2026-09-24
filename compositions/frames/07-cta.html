@@ -10,8 +10,7 @@
 .brand{opacity:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:72px}.lock-wrap{width:1040px;height:280px;overflow:hidden;display:grid;place-items:center}.lock{width:1040px;height:280px;object-fit:contain}.url{font-family:Manrope;font-size:82px;font-weight:480;letter-spacing:-.055em;line-height:1;color:#515151;text-decoration:none}
 </style>
 <div data-hf-id="v35-07-root" id="root" data-composition-id="07-cta" data-width="1920" data-height="1080">
-  <div data-hf-id="v35-07-stage" class="clip stage" id="f07-stage" data-start="0" data-duration="5.1" data-track-index="1">
-    <div data-hf-id="v35-07-statement" class="statement" id="statement"><h2 data-hf-id="v35-07-copy"><span data-hf-id="v35-07-soft" class="soft">Your AI.</span> Your rules.</h2></div>
+  <div data-hf-id="v35-07-stage" class="clip stage" id="f07-stage" data-start="0" data-duration="4.52" data-track-index="1">
     <div data-hf-id="v35-07-brand" class="brand" id="brand">
       <div data-hf-id="v36-07-lock-wrap" class="lock-wrap"><img data-hf-id="v35-07-lock" class="lock" id="lock" src="assets/brand/warden-lockup-light.svg" alt="Warden" data-layout-allow-overflow=""></div>
       <a data-hf-id="v35-07-url" class="url" id="url" href="https://trywarden.app/#download">trywarden.app</a>
@@ -20,13 +19,11 @@
 </div>
 <script>(function(){
 var tl=gsap.timeline({paused:true});
-tl.fromTo('#statement h2',{opacity:0,scale:.84,filter:'blur(20px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:.42,ease:'expo.out'},.05);
-tl.to('#statement h2',{scale:1.035,duration:.86,ease:'none'},.48);
-tl.to('#statement',{scale:2.1,opacity:0,filter:'blur(24px)',duration:.34,ease:'power4.in'},1.34);
-tl.set('#brand',{opacity:1},1.62);
-tl.fromTo('#lock',{opacity:0,y:180,scale:.94},{opacity:1,y:0,scale:1,duration:.5,ease:'expo.out'},1.68);
-tl.fromTo('#url',{opacity:0,y:36},{opacity:1,y:0,duration:.42,ease:'expo.out'},2.02);
-tl.fromTo('#brand',{scale:1},{scale:1.018,duration:2.55,ease:'none'},2.5);
+tl.set('#brand',{opacity:1});
+tl.fromTo('#lock',{opacity:0,y:80,scale:.9},{opacity:1,y:0,scale:1,duration:.36,ease:'expo.out'},.02);
+tl.fromTo('#brand',{scale:1},{scale:1.025,duration:2.2,ease:'none'},.38);
+// The spoken address begins at 17.06s; keep it visible through the last frame.
+tl.fromTo('#url',{opacity:0,y:28},{opacity:1,y:0,duration:.30,ease:'expo.out'},2.66);
 window.__timelines['07-cta']=tl;
 })();</script>
 </template>

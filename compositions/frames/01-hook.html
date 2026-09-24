@@ -17,13 +17,10 @@
 .count{font-family:Mono;font-size:28px;color:#646464;margin-top:20px}
 /* Inside the card, bottom right, where it sits in the real composer. It used
    to float between the two cards and read as a third object on the track. */
-.send{position:absolute;right:38px;bottom:34px;width:112px;height:112px;background:#C96442;border-radius:18px;display:grid;place-items:center}
-.send svg{width:48px;height:48px;stroke:white;stroke-width:1.8;fill:none}
+.send{position:absolute;right:48px;bottom:56px;color:#C96442;font-family:Mono,monospace;font-size:25px;font-weight:800;letter-spacing:.12em;line-height:1}
 /* Where the click sends it. Drawn as a SURFACE, not an icon: the same white
    fill and hairline as the card, with the name inside its body rather than
-   captioned underneath. As an outline it had no mass beside a card carrying
-   text and a coloured button, and read as a sticker at the frame's edge
-   (owner, 2026-09-23). It sits above the file so the file is swallowed. */
+   captioned underneath. It sits above the file so the file is swallowed. */
 .cloud{position:absolute;left:1210px;top:330px;width:580px;height:418px;z-index:2;transform-origin:50% 50%}
 .cloud svg{width:580px;height:418px;display:block}
 .cloud path{fill:#FFFFFF;stroke:#D9D9D9;stroke-width:2;stroke-linejoin:round}
@@ -32,7 +29,7 @@
 .bloom{position:absolute;left:1006px;top:610px;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(201,100,66,.55) 0%,rgba(201,100,66,.18) 38%,rgba(201,100,66,0) 70%);opacity:0;pointer-events:none;z-index:3}
 </style>
 <div id="root" data-hf-id="v31-01-root" data-composition-id="01-hook" data-width="1920" data-height="1080">
-  <div id="f01-stage" class="clip stage" data-hf-id="v31-01-stage" data-start="0" data-duration="2.3" data-track-index="1">
+  <div id="f01-stage" class="clip stage" data-hf-id="v31-01-stage" data-start="0" data-duration="2.12" data-track-index="1">
     <div data-hf-id="v31-01-1" class="world" id="world">
       <div data-hf-id="v31-01-2" class="track"></div>
       <div data-hf-id="v31-01-3" class="file" id="file">
@@ -44,7 +41,7 @@
             <div data-hf-id="v31-01-8" class="count">4,812 customer records</div>
           </div>
         </div>
-        <div data-hf-id="v31-01-9" class="send" id="send"><svg data-hf-id="v31-01-10" id="arrow" viewBox="0 0 24 24"><path data-hf-id="v31-01-11" d="M4 12h16m-7-7 7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div data-hf-id="v31-01-9" class="send" id="send">SEND</div>
       </div>
       <div data-hf-id="v31-01-cl" class="cloud" id="cloud">
         <svg data-hf-id="v31-01-cs" viewBox="0 0 100 72"><path data-hf-id="v31-01-cp" id="cloudpath" d="M27 64h47a16 16 0 0 0 3-31.7A24 24 0 0 0 31 26.5 19 19 0 0 0 27 64z"/></svg>
@@ -62,34 +59,34 @@ var tl=gsap.timeline({paused:true});
 tl.fromTo('#world',{scale:1.22,x:240,opacity:0},{scale:1,x:0,opacity:1,duration:.46,ease:'expo.out'},0);
 tl.fromTo('#file',{x:-480},{x:0,duration:.48,ease:'expo.out'},.04);
 tl.fromTo('#cloud',{opacity:0,x:90},{opacity:1,x:0,duration:.44,ease:'expo.out'},.16);
-tl.fromTo('#caption',{opacity:0,y:18},{opacity:1,y:0,duration:.25,ease:'expo.out'},.44);
+tl.fromTo('#caption',{opacity:0,y:18},{opacity:1,y:0,duration:.2,ease:'expo.out'},.15);
 // Then a beat of real stillness: the click has to snap out of something.
-tl.to('#world',{scale:1.03,duration:.72,ease:'none'},.6);
+
 
 // — the click, 1.42 —
-tl.to('#send',{scale:.92,duration:.07},1.42);
-tl.to('#send',{scale:1,duration:.18,ease:'back.out(2)'},1.49);
-tl.to('#file',{scale:.99,duration:.07,ease:'power2.in'},1.43);
-tl.to('#file',{scale:1,duration:.16,ease:'back.out(3)'},1.5);
-tl.fromTo('#bloom',{scale:.35,opacity:0},{scale:1,opacity:1,duration:.12,ease:'power2.out'},1.46);
-tl.to('#bloom',{scale:2.1,opacity:0,duration:.5,ease:'power2.out'},1.58);
+tl.to('#send',{scale:.92,duration:.07},0.4);
+tl.to('#send',{scale:1,duration:.18,ease:'back.out(2)'},0.471);
+tl.to('#file',{scale:.99,duration:.07,ease:'power2.in'},0.41);
+tl.to('#file',{scale:1,duration:.16,ease:'back.out(3)'},0.48);
+tl.fromTo('#bloom',{scale:.35,opacity:0},{scale:1,opacity:1,duration:.12,ease:'power2.out'},0.44);
+tl.to('#bloom',{scale:2.1,opacity:0,duration:.5,ease:'power2.out'},0.56);
 // The destination takes the orange on the press, before anything moves: the
 // click is seen landing on the other side of the track.
-tl.to('#cloudpath',{fill:'#FBF1EC',stroke:'#C96442',duration:.12,ease:'power2.out'},1.44);
-tl.to('#cname',{color:'#C96442',duration:.12},1.44);
-tl.to('#arrow',{x:90,opacity:0,duration:.2,ease:'power3.in'},1.5);
-tl.to('#caption',{opacity:0,duration:.12},1.56);
+tl.to('#cloudpath',{fill:'#FBF1EC',stroke:'#C96442',duration:.12,ease:'power2.out'},0.42);
+tl.to('#cname',{color:'#C96442',duration:.12},0.42);
+tl.to('#send',{x:36,opacity:0,duration:.2,ease:'power3.in'},0.48);
+tl.to('#caption',{opacity:0,duration:.12},0.54);
 
 // — the flight: the file accelerates away and shrinks into the cloud, which
 //   is drawn above it, so it is swallowed rather than passing behind —
-tl.to('#file',{x:900,y:20,scale:.35,duration:.44,ease:'power4.in'},1.62);
-tl.to('#file',{opacity:0,duration:.05},2.02);
+tl.to('#file',{x:900,y:20,scale:.35,duration:.44,ease:'power4.in'},1.0);
+tl.to('#file',{opacity:0,duration:.05},1.44);
 // It lands: the cloud saturates a step further and takes the blow. This is
 // where the colour finishes what the press began.
-tl.to('#cloudpath',{fill:'#F4DCD1',duration:.09,ease:'power2.out'},2.02);
-tl.fromTo('#cloud',{scale:1},{scale:1.06,duration:.09,ease:'power2.out',immediateRender:false},2.02);
-tl.to('#cloud',{scale:1,duration:.24,ease:'back.out(3)'},2.11);
-tl.to('#world',{opacity:0,duration:.14},2.16);
+tl.to('#cloudpath',{fill:'#F4DCD1',duration:.09,ease:'power2.out'},1.44);
+tl.fromTo('#cloud',{scale:1},{scale:1.06,duration:.09,ease:'power2.out',immediateRender:false},1.44);
+tl.to('#cloud',{scale:1,duration:.15,ease:'back.out(3)'},1.53);
+tl.to('#world',{opacity:0,duration:.14},1.92);
 window.__timelines['01-hook']=tl;
 })();</script>
 </template>

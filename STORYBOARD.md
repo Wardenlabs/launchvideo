@@ -563,3 +563,17 @@ Current active sequence: opener 0–1.8; attachment 1.55–3.85; rule 3.65–8.4
 ## v36 — Remove interface captions
 
 Remove decorative mono headings and footer captions from the rule, local-check and close frames. State should read from the component itself: the rule changes surface after activation, the request enters a branded Warden panel while the destination remains empty, and the close resolves as one centred lockup with trywarden.app. No title/footer layout in the ending.
+
+
+## Voice synchronization correction — 2026-09-24
+
+Retimed the scene windows and their internal GSAP actions against a local word-level transcription of Liam at the authored 1.25x playback rate. ASR timestamps are estimates, not provider forced alignment. The voice source remains unchanged. Total film: 18.6 seconds; voice: 18.23 seconds.
+
+- 0.00–2.84: one-click data loss; file lands near “gone”.
+- 2.72–4.56: Warden logo accompanies “Warden draws the line”.
+- 4.44–6.66: rule composer, drafting, activation during “Write the rule, turn it on”.
+- 6.50–9.64: local check before the model.
+- 9.50–14.18: contact details; block impact at 10.76, aligned to spoken “blocked” near 10.71.
+- 14.08–18.60: logo on the closing product statement; trywarden.app settles at 17.04 before the spoken address around 17.06. Removed the unspoken Your AI / Your rules transition.
+
+Shortened internal entrances/exits as well as host slots. Verified sampled frames and checks; final lint, runtime, layout and motion checks report no findings. Studio had retained the old preview after a reload timeout; a full reload confirmed the corrected 18.6-second timeline and 1.25x voice track. Local review only; no push or export.

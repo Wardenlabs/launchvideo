@@ -18,19 +18,19 @@
 .f05-detail{position:absolute;left:148px;top:281px;font-family:Mono;font-size:26px;color:#646464}
 .f05-rule{position:absolute;left:0;right:0;bottom:0;height:132px;border-top:1px solid #E6E6E6;display:flex;align-items:center;padding:0 54px;gap:30px;font-size:32px;color:#515151}
 .f05-rule img{width:33px}
-/* Figma's Verdict badge at stamp size: coral bullet, coral word, no fill. */
-.f05-status{margin-left:auto;color:#FF3B5C;font-family:Manrope;font-weight:700;font-size:76px;letter-spacing:-.05em;display:flex;align-items:center;gap:24px;transform-origin:50% 50%;will-change:transform,filter}
-.f05-status i{width:42px;height:42px;border-radius:50%;background:#FF3B5C;flex:none;box-shadow:0 0 26px rgba(255,59,92,.55)}
+/* A verdict is ink and type. The coral word carries the outcome without an
+   icon, status chip, or synthetic button treatment. */
+.f05-status{margin-left:auto;color:#FF3B5C;font-family:Manrope;font-weight:760;font-size:76px;letter-spacing:-.065em;display:flex;align-items:center;transform-origin:50% 50%;will-change:transform,filter}
 .f05-slice{position:absolute;left:54px;right:54px;top:326px;height:2px;background:#252525;transform-origin:left}
 </style>
 <div data-hf-id="hf-zkxl" id="root" data-composition-id="05-blocked" data-width="1920" data-height="1080">
-<div data-hf-id="hf-40le" class="clip f05-stage" id="f05-stage" data-start="0" data-duration="3.5" data-track-index="1">
+<div data-hf-id="hf-40le" class="clip f05-stage" id="f05-stage" data-start="0" data-duration="4.68" data-track-index="1">
 <div data-hf-id="hf-u3gm" class="f05-camera" id="f05-camera"><div data-hf-id="hf-z4d6" class="f05-panel" id="f05-panel">
 <div data-hf-id="hf-9qgb" class="f05-header"><img data-hf-id="hf-ylmm" src="assets/brand/warden-lockup-light.svg" alt="Warden"><span data-hf-id="hf-1bwu" id="f05-phase">Checking request</span></div>
 <div data-hf-id="hf-6gv6" class="f05-file" id="f05-file"><svg data-hf-id="hf-6yma" viewBox="0 0 60 74"><path data-hf-id="hf-rr8w" d="M7 3h28l17 18v49H7zM35 3v19h17M18 37h24M18 48h24M18 59h13" /></svg><span data-hf-id="hf-zgub">customers_export.csv</span></div>
 <div data-hf-id="hf-ijuo" class="f05-detail" id="f05-detail">Customer contact details</div>
 <div data-hf-id="hf-m8qq" class="f05-slice" id="f05-slice"></div>
-<div data-hf-id="hf-2c2a" class="f05-rule" id="f05-rule"><img data-hf-id="hf-32ud" src="assets/brand/warden-mark.svg" alt=""><span data-hf-id="hf-14eb">Keep customer data private.</span><span data-hf-id="hf-4ufh" class="f05-status" id="f05-status"><i data-hf-id="hf-4ufi"></i>Blocked</span></div>
+<div data-hf-id="hf-2c2a" class="f05-rule" id="f05-rule"><img data-hf-id="hf-32ud" src="assets/brand/warden-mark.svg" alt=""><span data-hf-id="hf-14eb">Keep customer data private.</span><span data-hf-id="hf-4ufh" class="f05-status" id="f05-status">Blocked</span></div>
 </div></div></div></div>
 <script>(function(){
 // The camera crops the product fragment during its entrance and exit.
@@ -60,7 +60,7 @@ tl.to('#f05-panel',{scale:1,duration:.26,ease:'back.out(3)'},HIT+.25);
 // blow is felt through the frame and not only on the word.
 [[-14,-8,.04],[12,6,.04],[-9,-5,.04],[6,4,.04],[-3,-2,.04],[0,0,.07]].reduce(function(t,s){tl.to('#f05-camera',{x:s[0],y:s[1],duration:s[2],ease:'power1.inOut'},t);return t+s[2]},HIT+.18);
 // The drift starts once the shake has settled, so the two never fight over y.
-tl.to('#f05-camera',{scale:1.065,y:-15,duration:1.13,ease:'none'},1.56);
-tl.to('#f05-camera',{scale:1.65,y:-90,opacity:0,duration:.38,ease:'power4.in'},3.08);
+tl.to('#f05-camera',{scale:1.065,y:-15,duration:2.73,ease:'none'},1.56);
+tl.to('#f05-camera',{scale:1.65,y:-90,opacity:0,duration:.33,ease:'power4.in'},4.35);
 window.__timelines['05-blocked']=tl;
 })();</script></template>

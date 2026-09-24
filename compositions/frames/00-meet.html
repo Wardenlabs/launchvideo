@@ -16,13 +16,9 @@
     .f00-req,.f00-rule{overflow:hidden;text-overflow:ellipsis}
     .f00-rule,.f00-time{color:#6C6C6C}
     .f00-time{text-align:right;font-family:"Geist Mono";font-size:14px}
-    .f00-v{display:inline-flex;align-items:center;gap:8px;font-family:"Inter",sans-serif;font-weight:500;font-size:16px;letter-spacing:0;color:#272727}
-    /* Figma, 2026-09-21: a verdict is a coloured bullet and an ink label, no
-       fill. The bullets are the only colour in the opener; they are texture
-       here, and they teach the three colours the film's three hits use later
-       (owner, 2026-09-23: the actions need colour; the film is light). */
-    .f00-v i{display:inline-block;width:10px;height:10px;border-radius:50%;flex:none}
-    .f00-v.f00-allow i{background:#34D399}.f00-v.f00-held i{background:#FDE047}.f00-v.f00-block i{background:#FF3B5C}
+    .f00-v{display:inline-flex;align-items:center;font-family:"Geist Mono",monospace;font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+    /* Verdict meaning comes from the ink and the word, not a recurring dot. */
+    .f00-v.f00-allow{color:#168B69}.f00-v.f00-held{color:#AA7D00}.f00-v.f00-block{color:#E52D4D}
     .f00-allow,.f00-who.f00-allow{color:#404040}.f00-held,.f00-who.f00-held{color:#4B4B4B}.f00-block,.f00-who.f00-block{color:#252525}
     .f00-who.f00-allow i{background:#404040}.f00-who.f00-held i{background:#4B4B4B}.f00-who.f00-block i{background:#252525}
     .f00-near{filter:blur(4px)}
@@ -40,12 +36,12 @@
          never empty, something moves from frame 0, there is a lot of it, and
          the words are two or three and stand on objects. So the frame is
          invaded by Warden's own component — Activity rows, each a request with
-         its verdict as coloured bullet + ink label (Allowed / Held / Blocked are
-         the console's words) — and the name lands on top of the product
+         its verdict as coloured text (Allowed / Held / Blocked are the console's
+         words) — and the name lands on top of the product
          already working. Nothing of Claude's is here: the opener is Warden's.
          No row comes forward. A sketch had customers_export.csv step out and
          get blocked; the owner cut it as a spoiler of frame 5, and the red
-         bullets stay texture. This is also the one moment all three verdict
+         labels stay texture. This is also the one moment all three verdict
          colours are on screen; yellow never gets a beat of its own, so it
          opens no thread the film does not close.
          Thrown out earlier, so nobody re-adds them: "Meet" beside the lockup,
@@ -53,7 +49,7 @@
          plate ("espantoso" — the film is light, all of it), a graphite chip
          around "your team's AI", and the two calm text plates this replaces
          (saved in the scratchpad as 00-meet-two-plates.html). -->
-    <div data-hf-id="hf-j1l4" class="clip f00-stage" id="f00-stage" data-start="0" data-duration="1.8" data-track-index="1">
+    <div data-hf-id="hf-j1l4" class="clip f00-stage" id="f00-stage" data-start="0" data-duration="0.86" data-track-index="1">
       <div data-hf-id="hf-1vuq" class="f00-cloud" id="f00-cloud">
         <div data-hf-id="hf-uraa" class="f00-layer" id="f00-far"></div>
         <div data-hf-id="hf-usgv" class="f00-layer" id="f00-mid"></div>
@@ -98,7 +94,6 @@
         req.textContent = verdict === "block" ? BAD[bad++ % BAD.length] : OK[ok++ % OK.length];
         var rule = document.createElement("span"); rule.className = "f00-rule"; rule.textContent = RULE[verdict];
         var v = document.createElement("span"); v.className = "f00-v f00-" + verdict;
-        v.appendChild(document.createElement("i"));
         var lb = document.createElement("span"); lb.textContent = LABEL[verdict]; v.appendChild(lb);
         var time = document.createElement("span"); time.className = "f00-time"; time.textContent = "now";
         el.appendChild(req); el.appendChild(v);
@@ -159,14 +154,14 @@
       //   Its impact throws the whole cloud back: smaller, softer, quieter. —
       tl.fromTo("#f00-name", { opacity: 0, scale: 1.38, y: 16, filter: "blur(18px)", fontWeight: 320 }, { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", fontWeight: 560, duration: 0.32, ease: "expo.out" }, HIT);
       tl.set("#f00-name", { filter: "none" }, HIT + 0.3);
-      tl.fromTo("#f00-cloud", { scale: 1, opacity: 1, filter: "blur(0px)" }, { scale: 0.88, opacity: 0.85, filter: "blur(1.6px)", duration: 0.5, ease: "expo.out" }, HIT + 0.02);
+      tl.fromTo("#f00-cloud", { scale: 1, opacity: 1, filter: "blur(0px)" }, { scale: 0.88, opacity: 0.85, filter: "blur(1.6px)", duration: 0.3, ease: "expo.out" }, HIT + 0.02);
       tl.fromTo(tag, { opacity: 0, y: 12, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out", stagger: 0.004 }, HIT + 0.23);
-      tl.fromTo("#f00-in", { scale: 1 }, { scale: 1.035, duration: 0.88, ease: "none" }, HIT + 0.3);
+
 
       // — 3. Out through the camera, rows and all, while the hook's typed line
       //   arrives underneath — the hook starts 0.25s before this frame ends. —
-      tl.to("#f00-in", { scale: 2.3, opacity: 0, filter: "blur(26px)", duration: 0.28, ease: "power4.in" }, 1.52);
-      tl.to("#f00-cloud", { scale: 1.7, opacity: 0, duration: 0.28, ease: "power4.in" }, 1.52);
+      tl.to("#f00-in", { scale: 2.3, opacity: 0, filter: "blur(26px)", duration: 0.20, ease: "power4.in" }, 0.66);
+      tl.to("#f00-cloud", { scale: 1.7, opacity: 0, duration: 0.20, ease: "power4.in" }, 0.66);
 
       window.__timelines["00-meet"] = tl;
     })();
